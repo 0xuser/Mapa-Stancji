@@ -1,4 +1,4 @@
-# classifieds-map
+# Wygląd interfejsu
 
 *Aplikacja dostępna pod adresem *krakow.mapastancji.pl
 *Subdomena oznacza rejon ogłoszeń. Powyższy adres powinien otworzyć serwis z przybliżeniem na rejon Krakowa.
