@@ -137,7 +137,7 @@ dodatkowy marker który "stackuje" ??
 
 # Zarys interfejsu
 
-Ilustracja jest bardzo podglądowa, przedstawie wyświetlanie ogłoszenia po dodaniu
+Ilustracja jest bardzo podglądowa, przedstawia wyświetlanie ogłoszenia po dodaniu
 ![My image](https://i.imgur.com/2mYbAvz.png)
 
 
