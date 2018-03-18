@@ -27,7 +27,13 @@ https://developers.google.com/maps/
 
 Dostępne dla każdego 
 - przeglądanie ogłoszeń na interaktywnej mapie
-  * odbywa się to za pomocą implementacji API udostępnianej przez Google. Na mape nanoszone są "pinezki", stanowiące odnośnik do konkretnych ogłoszeń 
+  * odbywa się to za pomocą implementacji API udostępnianej przez Google. Na mape nanoszone są "pinezki", stanowiące odnośnik do konkretnych ogłoszeń.
+- filtracja wyświetlanych obiektów
+ * zarządzanie wyświetlaniem dodatkowych obiektów na mapie (ikon uczelni, przystanków, w przypadku zalogowania także znajomych)
+- filtracja wyświetlanych ogłoszeń
+ * możliwość ograniczenia wyników wyszukiwania według parametrów takich jak rodzaj Mieszkanie/Pokój oraz cena, powierzchnia czy w przypadku pokoju ( jednoosobowy, dwuosobowy, z balkonem, nieprzechodni, tylko dla dziewczyny )
+- 
+ 
 
 
 Dostępne tylko dla zalogowanego użytkownika:
@@ -44,9 +50,6 @@ wszystkie z powyższych oraz
 - Integracja serwisu z Facebook, szybkie logowanie.
   (serwis jest nowy, nie może zniechęcać użytkownika żmudnym procesem rejestracji)
   
-- możliwość filtrowania wyświetlanych danych na mapie : wyświetl ikony uczelni, przystanków
-- możliwość filtrowania ogłoszeń : mieszkanie/pokój(dla dziewczyny/ 1os./2os. balkon / nieprzechodni) /cena  
-
   FUNKCJE UŻYTKOWNIKA po zalogowaniu:
   * dodawanie ogłoszeń (wraz ze zdjęciami)
   * usuwanie ogłoszeń
