@@ -1,5 +1,25 @@
 # Wstęp
 
+Aplikacja internetowa umożliwiająca znalezienie mieszkania lub pokoju do wynajęcia z głównym naciskiem na lokalizację.
+W internecie istnieje wiele serwisów ogłoszeniowych, jednak gdy szukamy mieszkania w konkretnej lokalizacji, przeglądanie pojedynczych ofert staje się uciążliwe.
+
+Serwis kierowany jest dla studentów którzy nierzadko szukają tylko samego pokoju w współdzielonym mieszkaniu. Duże znaczenie na wybór lokum ma również bliskość uczelni. Dzięki serwisowi znalezienie dogodnej oferty będzie szybkie i wygodne.
+
+Na mapę naniesione są również dodatkowe obiekty takie jak uczelnie, przystanki czy miejsca zamieszkania naszych znajomych. 
+
+# Rozwinięcie
+
+Aplikacja w formie strony internetowej. Głównym elementem interfejsu jest wielka interaktywna mapa na której znajdują się "pinezki" (tzw. markery) będące wyznacznikiem lokalizacji a także odnośnikiem do konkretnego ogłoszenia.
+
+Witryna dostępna pod adresem subdomena.domena.pl, gdzie: subdomena oznacza rejon ogłoszeń
+Przykład: krakow.mapastancji.pl - adres ten powinien otworzyć serwis z przybliżeniem na rejon Krakowa.
+
+System logowania rozwiązany za pomocą integracji z serwisem Facebook. Dodawanie ogłoszeń dostępne jest po zalogowaniu.
+Ogłoszenie staje się publiczne po akceptacji przez administratora w specjalnym panelu stanowiącym rozwinięcie panelu użytkownika.
+
+
+
+# Wymagania funkcjonalne
 
 - Aplikacja dostępna pod adresem *krakow.mapastancji.pl
   Subdomena oznacza rejon ogłoszeń. Powyższy adres powinien otworzyć serwis z przybliżeniem na rejon Krakowa.
