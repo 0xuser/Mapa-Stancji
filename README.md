@@ -1,6 +1,6 @@
-# MapaStancji - ogłoszeniowy portal dla studentów
+![My image](https://raw.githubusercontent.com/0xuser/classifieds-map/master/img/logo.png)
 
-# Wstęp
+# MapaStancji - ogłoszeniowy portal dla studentów
 
 Aplikacja internetowa umożliwiająca znalezienie mieszkania lub pokoju do wynajęcia z głównym naciskiem na lokalizację.
 W internecie istnieje wiele serwisów ogłoszeniowych, jednak gdy szukamy mieszkania w konkretnej lokalizacji, przeglądanie pojedynczych ofert staje się uciążliwe.
