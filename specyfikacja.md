@@ -1,3 +1,5 @@
+# MapaStancji - ogłoszeniowy portal dla studentów
+
 # Wstęp
 
 Aplikacja internetowa umożliwiająca znalezienie mieszkania lub pokoju do wynajęcia z głównym naciskiem na lokalizację.
@@ -12,14 +14,28 @@ Na mapę naniesione są również dodatkowe obiekty takie jak uczelnie, przystan
 Aplikacja w formie strony internetowej. Głównym elementem interfejsu jest wielka interaktywna mapa na której znajdują się "pinezki" (tzw. markery) będące wyznacznikiem lokalizacji a także odnośnikiem do konkretnego ogłoszenia.
 
 Witryna dostępna pod adresem subdomena.domena.pl, gdzie: subdomena oznacza rejon ogłoszeń
+
 Przykład: krakow.mapastancji.pl - adres ten powinien otworzyć serwis z przybliżeniem na rejon Krakowa.
 
 System logowania rozwiązany za pomocą integracji z serwisem Facebook. Dodawanie ogłoszeń dostępne jest po zalogowaniu.
 Ogłoszenie staje się publiczne po akceptacji przez administratora w specjalnym panelu stanowiącym rozwinięcie panelu użytkownika.
 
-
+Aplikacja z wykorzystaniem API Google Maps
+https://developers.google.com/maps/
 
 # Wymagania funkcjonalne
+
+Dostępne dla każdego 
+- przeglądanie ogłoszeń na interaktywnej mapie
+  * odbywa się to za pomocą implementacji API udostępnianej przez Google. Na mape nanoszone są "pinezki", stanowiące odnośnik do konkretnych ogłoszeń 
+
+
+Dostępne tylko dla zalogowanego użytkownika:
+wszystkie z powyższych oraz
+
+Dostępne tylko dla zalogowanego użytkownika z uprawnieniami administratora
+wszystkie z powyższych oraz
+
 
 - Aplikacja dostępna pod adresem *krakow.mapastancji.pl
   Subdomena oznacza rejon ogłoszeń. Powyższy adres powinien otworzyć serwis z przybliżeniem na rejon Krakowa.
