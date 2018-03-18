@@ -72,34 +72,34 @@ wszystkie z powyższych oraz
   * Funkcja ta pozwala dodać / usunąć aktualne miejsce zamieszkania na mapie. Udostępniona lokalizacja będzie widoczna dla znajomych z Facebook'a. 
 
 - Wyświetlanie znajomych na mapie
-  * Wyświetlanie na mapie znajomych z Facebooka którzy dodali w portalu swoją lokalizację 
+  * Wyświetlanie na mapie znajomych z Facebooka którzy dodali w portalu swoją lokalizację.
+  // przemyśleć wyświetlanie znajomych z grupy.
 
 - Wylogowywanie
- * kończy sesje użytkownika
+  * kończy sesje użytkownika
  
 Dostępne tylko dla zalogowanego użytkownika z uprawnieniami administratora
 wszystkie z powyższych oraz
 
+- Akceptowanie ogłoszeń
+  * wszystkie ogłoszenia dodane przez użytkowników w portalu muszą pierw przejść akceptacje
+  * w przypadku gdy ogłoszenie nie zostanie zaakceptowane, użytkownik ma zostać o tym fakcie poinformowany, ma mieć również możliwość edycji niezaakceptowanego ogłoszenia. Po dokonaniu popraw może starać się o ponowną akceptacje.
+  * zaakceptowanie ogłoszenia sprawia, że zostaje ono wyświetlane publicznie.
+  * Możliwość przekazania krótkiej noty od administratora dla użytkownika.
+  
+- Kasowanie ogłoszeń
+  * możliwość kasowania przez administratora ogłoszeń
+  * użytkownik powinien zostać poinformowany o tym, że jego ogłoszenie zostało usunięte.
+  * Możliwość przekazania krótkiej noty od administratora dla użytkownika.
 
-- Integracja serwisu z Facebook, szybkie logowanie.
-  (serwis jest nowy, nie może zniechęcać użytkownika żmudnym procesem rejestracji)
-  
-  FUNKCJE UŻYTKOWNIKA po zalogowaniu:
-  * dodawanie ogłoszeń (wraz ze zdjęciami)
-  * usuwanie ogłoszeń
-  * aktywacja / dezaktywacja ogłoszenia (dane nie są usuwane z bazy)
-  * edycja istniejących ogłoszeń
-  * dodaj moją lokalizację
-  * możliwość wyświetlenia lokalizacji znajomych (*w określonej grupie)
-  
-  FUNKCJE ADMINISTRATORA:
-  * akceptowanie ogłoszeń
-  * możliwość kasowania ogłoszeń
-  * dodawanie niestandardowych markerów do mapy (prawdopodobnie przez podanie dł. szer. geograficznej)
+- Dodawanie niestandardowych "pinezek" do mapy
+  * administrator ma mieć możliwość dodania na mapę obiektów specjalnych takich jak przystanki komunikacji czy uczelnie.
+
+# Wygląd interfejsu
 
 # Zmiana styli wyświetlania map Google
 
-Mapa posiada specjalnie zmodyfikowane style
+Mapa powinna posiadać specjalnie zmodyfikowane style
 ![My image](https://i.imgur.com/JsJj18Y.png)
 
 zmiany:
@@ -110,11 +110,14 @@ zmiany:
 - uczelnie w kolorze wypełnienia #fd9191 (School)
 - obiekty sportowe w kolorze wypełnienia #ac92fc (Sports complex)
 - autostrady zmiana grubości na 4 (Highway)
-Niestety Uniwersytet Ekonomiczny jest dodany do Google Maps jako "business institution" a nie placówka uczelniana.
 
-# Markery na mapie
+//Niestety Uniwersytet Ekonomiczny jest dodany do Google Maps jako "business institution" a nie placówka uczelniana.
 
-Mapa posiadać będzie costumowe markery z biblioteki
+# Pinezki na mapie
+
+Pinezka - grafika sybolizująca obiekt lub ogłoszenie na mapie, "marker" to odpowiednik pinezki w języku angielskim
+
+Mapa posiadać będzie niestandardowe markery z biblioteki
 http://map-icons.com/
 
 ![My image](https://i.imgur.com/vzwMiXy.png)
@@ -127,12 +130,12 @@ Przypadki:
 ![My image](https://i.imgur.com/gKgcuOL.png)
 
 - przystanek ROUTE z odpowiednią ikoną map-icon-transit-station
-- uczelnia
+- uczelnie powinny posiadać swoje własne odpowiednie grafiki
 
-Co w przypadku gdy w jednej lokalizacji są do wynajęcia 2 pokoje? (nie jako mieszkanie) lub markery nakładają się?
+//Co w przypadku gdy w jednej lokalizacji są do wynajęcia 2 pokoje? (nie jako mieszkanie) lub markery nakładają się?
 dodatkowy marker który "stackuje" ??
 
-# Wygląd interfejsu
+# Zarys interfejsu
 
 Ilustracja jest bardzo podglądowa, przedstawie wyświetlanie ogłoszenia po dodaniu
 ![My image](https://i.imgur.com/2mYbAvz.png)
