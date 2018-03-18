@@ -34,22 +34,34 @@ Dostępne dla każdego
  
 - filtracja wyświetlanych ogłoszeń
   * możliwość ograniczenia wyników wyszukiwania według parametrów takich jak rodzaj Mieszkanie/Pokój oraz cena, powierzchnia czy w przypadku pokoju ( jednoosobowy, dwuosobowy, z balkonem, nieprzechodni, tylko dla dziewczyny )
- 
+
+- wyświetlanie konkretnego ogłoszenia
+ * po wybraniu "pinezki" na mapie wyświetla się okienko wraz ze szczegółami ogłoszenia
+
 - logowanie za pośrednictwem Facebook
- * wykorzystanie API Facebook do integracji https://developers.facebook.com/docs/facebook-login
+  * wykorzystanie API Facebook do integracji https://developers.facebook.com/docs/facebook-login
+  * serwis jest nowy, nie może zniechęcać użytkownika żmudnym procesem rejestracji
  
-
-
 Dostępne tylko dla zalogowanego użytkownika:
 wszystkie z powyższych oraz
 
+- dodawanie ogłoszenia
+ * Przy dodawaniu ogłoszenia użytkownik musi wypełnić wszystkie pola "konieczne" reszta jest opcjonalna.
+ * Konieczne jest podanie typu ogłoszenia (mieszkanie / pokój / pokój współdzielony).
+   Dla mieszkania pola konieczne to wybranie lokalizacji, dodanie minimum jednego zdjęcia, podanie tytułu, ceny, powierzchni, piętra i     krótkiego opisu 
+   
+ * 
+ * wybranie lokalizacji odbywa się przez wskazanie na mapie.
+ * przy dodawaniu odbywa się walidacja danych (cena i powierzchnia muszą być liczbami a pliki muszą mieć rozszerzenie .jpg / .png.
+   Pojedyńczy plik może mieć maksymalny rozmiar 2MB. Do jednego ogłoszenia można dodać maksymalnie 8 zdjęć, gdzie jedno jest miniaturką.
+ * nie ma limitu ogłoszeń
+
+- wylogowywanie
+ * kończy sesje użytkownika
+ 
 Dostępne tylko dla zalogowanego użytkownika z uprawnieniami administratora
 wszystkie z powyższych oraz
 
-
-- Aplikacja dostępna pod adresem *krakow.mapastancji.pl
-  Subdomena oznacza rejon ogłoszeń. Powyższy adres powinien otworzyć serwis z przybliżeniem na rejon Krakowa.
-- Aplikacja posiada panel użytkownika i panel administracyjny który jest rozszerzeniem panelu użytkownika
 
 - Integracja serwisu z Facebook, szybkie logowanie.
   (serwis jest nowy, nie może zniechęcać użytkownika żmudnym procesem rejestracji)
