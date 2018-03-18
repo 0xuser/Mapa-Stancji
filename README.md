@@ -37,7 +37,7 @@ zmiany:
 - autostrady zmiana grubości na 4 (Highway)
 Niestety Uniwersytet Ekonomiczny jest dodany do Google Maps jako "business institution" a nie placówka uczelniana.
 
-# Wygląd interfejsu
+# Markery na mapie
 
 Mapa posiadać będzie costumowe markery z biblioteki
 http://map-icons.com/
@@ -47,7 +47,22 @@ http://map-icons.com/
 Przypadki:
 - mieszkanie SQUARE_ROUNDED marker
 - pokój x osobowy MAP_PIN z odpowiednią liczbą
-- znajomy na mapie SQUARE_PIN ze zdjęciem profilowym znajomego*
+- znajomy na mapie SQUARE_PIN ze zdjęciem profilowym znajomego
+
+![My image](https://i.imgur.com/gKgcuOL.png)
+
+- przystanek ROUTE z odpowiednią ikoną map-icon-transit-station
+- uczelnia
 
 Co w przypadku gdy w jednej lokalizacji są do wynajęcia 2 pokoje? (nie jako mieszkanie) lub markery nakładają się?
 dodatkowy marker który "stackuje" ??
+
+# Wygląd interfejsu
+
+Ilustracja jest bardzo podglądowa, przedstawie wyświetlanie ogłoszenia po dodaniu
+![My image](https://i.imgur.com/2mYbAvz.png)
+
+
+
+
+
