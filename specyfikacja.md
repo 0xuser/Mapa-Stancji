@@ -30,12 +30,13 @@ Dostępne dla każdego
   * odbywa się to za pomocą implementacji API udostępnianej przez Google. Na mape nanoszone są "pinezki", stanowiące odnośnik do konkretnych ogłoszeń.
   
 - filtracja wyświetlanych obiektów
- * zarządzanie wyświetlaniem dodatkowych obiektów na mapie (ikon uczelni, przystanków, w przypadku zalogowania także znajomych)
+  * zarządzanie wyświetlaniem dodatkowych obiektów na mapie (ikon uczelni, przystanków, w przypadku zalogowania także znajomych)
  
 - filtracja wyświetlanych ogłoszeń
- * możliwość ograniczenia wyników wyszukiwania według parametrów takich jak rodzaj Mieszkanie/Pokój oraz cena, powierzchnia czy w przypadku pokoju ( jednoosobowy, dwuosobowy, z balkonem, nieprzechodni, tylko dla dziewczyny )
+  * możliwość ograniczenia wyników wyszukiwania według parametrów takich jak rodzaj Mieszkanie/Pokój oraz cena, powierzchnia czy w przypadku pokoju ( jednoosobowy, dwuosobowy, z balkonem, nieprzechodni, tylko dla dziewczyny )
  
-- sa
+- logowanie za pośrednictwem Facebook
+ * wykorzystanie API Facebook do integracji https://developers.facebook.com/docs/facebook-login
  
 
 
