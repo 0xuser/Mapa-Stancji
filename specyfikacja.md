@@ -1,6 +1,6 @@
-# SPECYFIKACJA
+# Wstęp
 
-#Wstęp
+
 - Aplikacja dostępna pod adresem *krakow.mapastancji.pl
   Subdomena oznacza rejon ogłoszeń. Powyższy adres powinien otworzyć serwis z przybliżeniem na rejon Krakowa.
 - Aplikacja posiada panel użytkownika i panel administracyjny który jest rozszerzeniem panelu użytkownika
