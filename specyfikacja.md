@@ -36,7 +36,7 @@ Dostępne dla każdego
   * możliwość ograniczenia wyników wyszukiwania według parametrów takich jak rodzaj Mieszkanie/Pokój oraz cena, powierzchnia czy w przypadku pokoju ( jednoosobowy, dwuosobowy, z balkonem, nieprzechodni, tylko dla dziewczyny )
 
 - wyświetlanie konkretnego ogłoszenia
- * po wybraniu "pinezki" na mapie wyświetla się okienko wraz ze szczegółami ogłoszenia
+  * po wybraniu "pinezki" na mapie wyświetla się okienko wraz ze szczegółami ogłoszenia
 
 - logowanie za pośrednictwem Facebook
   * wykorzystanie API Facebook do integracji https://developers.facebook.com/docs/facebook-login
@@ -45,18 +45,36 @@ Dostępne dla każdego
 Dostępne tylko dla zalogowanego użytkownika:
 wszystkie z powyższych oraz
 
-- dodawanie ogłoszenia
- * Przy dodawaniu ogłoszenia użytkownik musi wypełnić wszystkie pola "konieczne" reszta jest opcjonalna.
- * Konieczne jest podanie typu ogłoszenia (mieszkanie / pokój / pokój współdzielony).
-   Dla mieszkania pola konieczne to wybranie lokalizacji, dodanie minimum jednego zdjęcia, podanie tytułu, ceny, powierzchni, piętra i     krótkiego opisu 
-   
- * 
- * wybranie lokalizacji odbywa się przez wskazanie na mapie.
- * przy dodawaniu odbywa się walidacja danych (cena i powierzchnia muszą być liczbami a pliki muszą mieć rozszerzenie .jpg / .png.
-   Pojedyńczy plik może mieć maksymalny rozmiar 2MB. Do jednego ogłoszenia można dodać maksymalnie 8 zdjęć, gdzie jedno jest miniaturką.
- * nie ma limitu ogłoszeń
+- Dodawanie ogłoszenia
+  * Przy dodawaniu ogłoszenia użytkownik musi wypełnić wszystkie pola "konieczne" reszta jest opcjonalna.
+  * Konieczne jest podanie typu ogłoszenia (mieszkanie / pokój / pokój współdzielony).
+  * Dla mieszkania pola konieczne to wybranie lokalizacji, dodanie minimum jednego zdjęcia, podanie tytułu, numeru kontaktowego, ceny, powierzchni, piętra i     krótkiego opisu 
+  * Dla pokoju / pokoju współdzielonego trzeba dodatkowo podać warunki użytkowania części wspólnych.
+  * wybranie lokalizacji odbywa się przez wskazanie na mapie.
+  * przy dodawaniu odbywa się walidacja danych (cena i powierzchnia muszą być liczbami a pliki muszą mieć rozszerzenie .jpg / .png.
+  * Pojedyńczy plik może mieć maksymalny rozmiar 2MB.
+  * Do jednego ogłoszenia można dodać maksymalnie 8 zdjęć, gdzie jedno jest miniaturką.
+  * nie ma limitu ogłoszeń
+  * ogłoszenie po dodaniu musi zostać zaakceptowane przez administratora
+  
+- Modyfikacja ogłoszenia
+  * umożliwia zmianę wszystkich danych w dodanym już ogłoszeniu. Zmiana zdjęć, tytułu czy opisu wymaga ponownej akceptacji ogłoszenia przez administratora.
+  
+- Usuwanie ogłoszeń
+  * Pozwala bezpowrotnie usunąć aktywne ogłoszenia.
+  
+- Dezaktywacja ogłoszenia
+  * Powoduje, że ogłoszenie nie jest wyświetlane publicznie. Dane nie są kasowane z serwera.
+- Aktywacja ogłoszenia
+  * Pozwala przywrócić spowrotem dezaktywowane ogłoszenie. Ogłoszenie aktywowane nie musi zostać ponownie akceptowane przez administratora.
+  
+- Zarządzanie swoją lokalizacją
+  * Funkcja ta pozwala dodać / usunąć aktualne miejsce zamieszkania na mapie. Udostępniona lokalizacja będzie widoczna dla znajomych z Facebook'a. 
 
-- wylogowywanie
+- Wyświetlanie znajomych na mapie
+  * Wyświetlanie na mapie znajomych z Facebooka którzy dodali w portalu swoją lokalizację 
+
+- Wylogowywanie
  * kończy sesje użytkownika
  
 Dostępne tylko dla zalogowanego użytkownika z uprawnieniami administratora
