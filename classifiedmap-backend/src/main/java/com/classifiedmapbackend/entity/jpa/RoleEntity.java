@@ -1,4 +1,4 @@
-package com.classifiedmapbackend.entity;
+package com.classifiedmapbackend.entity.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Status")
-public class StatusEntity {
+@Table(name = "Role")
+public class RoleEntity {
 
     @Id
     private String id;
@@ -17,6 +17,15 @@ public class StatusEntity {
 
     @Column(name  = "Description")
     private String description;
+
+    public RoleEntity() {
+    }
+
+    public RoleEntity(String id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
 
     public String getId() {
         return id;

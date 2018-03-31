@@ -1,4 +1,4 @@
-package com.classifiedmapbackend.entity;
+package com.classifiedmapbackend.entity.jpa;
 
 import javax.persistence.*;
 
