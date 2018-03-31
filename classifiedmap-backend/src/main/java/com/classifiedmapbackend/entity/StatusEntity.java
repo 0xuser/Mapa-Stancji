@@ -1,4 +1,4 @@
-package entity;
+package com.classifiedmapbackend.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

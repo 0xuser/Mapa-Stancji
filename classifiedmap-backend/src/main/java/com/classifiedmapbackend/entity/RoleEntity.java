@@ -1,4 +1,4 @@
-package entity;
+package com.classifiedmapbackend.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +17,15 @@ public class RoleEntity {
 
     @Column(name  = "Description")
     private String description;
+
+    public RoleEntity() {
+    }
+
+    public RoleEntity(String id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
 
     public String getId() {
         return id;

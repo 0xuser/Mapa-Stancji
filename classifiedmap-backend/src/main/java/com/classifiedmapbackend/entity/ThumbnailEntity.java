@@ -1,4 +1,4 @@
-package entity;
+package com.classifiedmapbackend.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,14 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Type")
-public class TypeEntity {
+@Table(name = "Thumbnail")
+public class ThumbnailEntity {
 
     @Id
     private String id;
 
-    @Column(name = "Type")
-    private String type;
+    @Column(name = "IdImage")
+    private String imageId;
 
     public String getId() {
         return id;
@@ -23,11 +23,12 @@ public class TypeEntity {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getImageId() {
+        return imageId;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
+
 }
