@@ -27,6 +27,18 @@ public class AddressEntity {
     @Column(name = "Flat_num")
     private String flatNum;
 
+    public AddressEntity(String id, String city, String district, String street, String buildingNum, String flatNum) {
+        this.id = id;
+        this.city = city;
+        this.district = district;
+        this.street = street;
+        this.buildingNum = buildingNum;
+        this.flatNum = flatNum;
+    }
+
+    public AddressEntity() {
+    }
+
     public String getId() {
         return id;
     }
@@ -74,4 +86,5 @@ public class AddressEntity {
     public void setFlatNum(String flatNum) {
         this.flatNum = flatNum;
     }
+
 }

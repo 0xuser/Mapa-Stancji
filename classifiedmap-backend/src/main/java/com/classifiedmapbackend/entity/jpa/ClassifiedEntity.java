@@ -1,5 +1,7 @@
 package com.classifiedmapbackend.entity.jpa;
 
+import com.classifiedmapbackend.entity.dto.SimpleClassifiedDTO;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -38,6 +40,21 @@ public class ClassifiedEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "IdType", referencedColumnName = "id")
     private TypeEntity type;
+
+    public ClassifiedEntity() {
+    }
+
+    public ClassifiedEntity(String id, String title, String description, Date creationDate, AddressEntity address, GeolocationEntity geolocation, StatusEntity status, ThumbnailEntity thumbnail, TypeEntity type) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.creationDate = creationDate;
+        this.address = address;
+        this.geolocation = geolocation;
+        this.status = status;
+        this.thumbnail = thumbnail;
+        this.type = type;
+    }
 
     public String getId() {
         return id;
@@ -109,5 +126,14 @@ public class ClassifiedEntity {
 
     public void setType(TypeEntity type) {
         this.type = type;
+    }
+
+    public SimpleClassifiedDTO mapToSimpleClassifiedDTO()
+    {
+        return new SimpleClassifiedDTO.SimpleClassifiedDTOBuilder().setId(this.id)
+                .setLatitude(this.geolocation.getLatitude())
+                .setLongitude(this.geolocation.getLongitude())
+                .setType(this.type.getType())
+                .build();
     }
 }
