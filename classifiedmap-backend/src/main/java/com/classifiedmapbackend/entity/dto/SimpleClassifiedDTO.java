@@ -1,5 +1,7 @@
 package com.classifiedmapbackend.entity.dto;
 
+import com.classifiedmapbackend.entity.jpa.AddressEntity;
+import com.classifiedmapbackend.entity.jpa.GeolocationEntity;
 import org.springframework.context.annotation.Bean;
 
 import javax.persistence.Entity;
@@ -8,39 +10,46 @@ import javax.persistence.Entity;
 public class SimpleClassifiedDTO {
 
     private String id;
-    private double longitude;
-    private double latitude;
+    private GeolocationEntity geolocation;
     private String type;
+    private AddressEntity address;
+    private double cost;
 
-    public SimpleClassifiedDTO(String id, double longitude, double lattitude, String type) {
+    public SimpleClassifiedDTO(String id, GeolocationEntity geolocation,  String type, AddressEntity address, double cost) {
         this.id = id;
-        this.longitude = longitude;
-        this.latitude = lattitude;
+        this.geolocation = geolocation;
         this.type = type;
+        this.address = address;
+        this.cost = cost;
     }
 
     public String getId() {
         return id;
     }
 
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
+    public GeolocationEntity getGeolocation() {
+        return geolocation;
     }
 
     public String getType() {
         return type;
     }
 
+    public AddressEntity getAddress() {
+        return address;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
     public static class SimpleClassifiedDTOBuilder
     {
         String id;
-        double longitude;
-        double latitude;
         String type;
+        private AddressEntity address;
+        GeolocationEntity geolocation;
+        private double cost;
 
         public SimpleClassifiedDTOBuilder setId(String id)
         {
@@ -48,17 +57,6 @@ public class SimpleClassifiedDTO {
             return this;
         }
 
-        public SimpleClassifiedDTOBuilder setLongitude(double longitude)
-        {
-            this.longitude = longitude;
-            return this;
-        }
-
-        public SimpleClassifiedDTOBuilder setLatitude(double latitude)
-        {
-            this.latitude = latitude;
-            return this;
-        }
 
         public SimpleClassifiedDTOBuilder setType(String type)
         {
@@ -66,11 +64,24 @@ public class SimpleClassifiedDTO {
             return this;
         }
 
+        public SimpleClassifiedDTOBuilder setAddress(AddressEntity address) {
+            this.address = address;
+            return this;
+        }
+
+        public SimpleClassifiedDTOBuilder setGeolocation(GeolocationEntity geolocation) {
+            this.geolocation = geolocation;
+            return this;
+        }
 
         public SimpleClassifiedDTO build()
         {
-            return new SimpleClassifiedDTO(id, longitude, latitude, type);
+            return new SimpleClassifiedDTO(id, geolocation, type, address, cost);
         }
 
+        public SimpleClassifiedDTOBuilder setCost(double cost) {
+            this.cost = cost;
+            return this;
+        }
     }
 }

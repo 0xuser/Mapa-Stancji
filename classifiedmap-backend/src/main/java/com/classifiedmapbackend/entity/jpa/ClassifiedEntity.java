@@ -21,6 +21,9 @@ public class ClassifiedEntity {
     @Column(name = "Creation_Date")
     private Date creationDate;
 
+    @Column(name = "cost")
+    private double cost;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "IdAddress", referencedColumnName = "id")
     private AddressEntity address;
@@ -128,12 +131,21 @@ public class ClassifiedEntity {
         this.type = type;
     }
 
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
     public SimpleClassifiedDTO mapToSimpleClassifiedDTO()
     {
         return new SimpleClassifiedDTO.SimpleClassifiedDTOBuilder().setId(this.id)
-                .setLatitude(this.geolocation.getLatitude())
-                .setLongitude(this.geolocation.getLongitude())
-                .setType(this.type.getType())
+                .setGeolocation(this.geolocation)
+                .setType(this.type.getId())
+                .setAddress(this.address)
+                .setCost(this.cost)
                 .build();
     }
 }

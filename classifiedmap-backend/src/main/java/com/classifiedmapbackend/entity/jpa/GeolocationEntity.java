@@ -13,18 +13,18 @@ public class GeolocationEntity {
     private String id;
 
     @Column(name = "Latitude")
-    private double latitude;
+    private double lat;
 
     @Column(name = "Longitude")
-    private double longitude;
+    private double lng;
 
     public GeolocationEntity() {
     }
 
-    public GeolocationEntity(String id, double latitude, double longitude) {
+    public GeolocationEntity(String id, double lat, double lng) {
         this.id = id;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     public String getId() {
@@ -35,19 +35,19 @@ public class GeolocationEntity {
         this.id = id;
     }
 
-    public double getLatitude() {
-        return latitude;
+    public double getLat() {
+        return lat;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
+    public void setLat(double lat) {
+        this.lat = lat;
     }
 
-    public double getLongitude() {
-        return longitude;
+    public double getLng() {
+        return lng;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 }

@@ -11,10 +11,14 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
 
-bootJar {
+war {
+    enabled = true
     baseName = 'classfieldmap-backend'
-    version =  '0.1.0'
+    manifest {
+        attributes 'Main-Class': 'com.classifiedmapbackend.boundary.Application'
+    }
 }
 
 repositories {
@@ -26,8 +30,9 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compile 'mysql:mysql-connector-java'
+    compile ('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile ('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-
+    providedRuntime ('org.springframework.boot:spring-boot-starter-tomcat')
 }
+
