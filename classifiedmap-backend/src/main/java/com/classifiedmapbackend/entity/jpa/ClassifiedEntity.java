@@ -24,6 +24,12 @@ public class ClassifiedEntity {
     @Column(name = "cost")
     private double cost;
 
+    @Column(name = "Persons")
+    private int persons;
+
+    @Column(name = "Area")
+    private double area;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "IdAddress", referencedColumnName = "id")
     private AddressEntity address;
@@ -137,6 +143,22 @@ public class ClassifiedEntity {
 
     public void setCost(double cost) {
         this.cost = cost;
+    }
+
+    public int getPersons() {
+        return persons;
+    }
+
+    public void setPersons(int persons) {
+        this.persons = persons;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
     }
 
     public SimpleClassifiedDTO mapToSimpleClassifiedDTO()

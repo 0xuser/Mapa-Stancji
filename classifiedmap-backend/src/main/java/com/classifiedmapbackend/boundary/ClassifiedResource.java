@@ -2,22 +2,15 @@ package com.classifiedmapbackend.boundary;
 
 import com.classifiedmapbackend.control.repositories.ClassifiedRepository;
 import com.classifiedmapbackend.entity.dto.SimpleClassifiedDTO;
-import com.classifiedmapbackend.entity.jpa.*;
+import com.classifiedmapbackend.entity.jpa.ClassifiedEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.websocket.server.PathParam;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/classified")
@@ -45,6 +38,26 @@ public class ClassifiedResource {
         if(classifiedRepository.findById(id).isPresent())
             return classifiedRepository.findById(id).get();
         return null;
+    }
+
+    @GetMapping(path = "search")
+    public List<SimpleClassifiedDTO> search(@PathParam("type") String type, @PathParam("minCost") Double minCost, @PathParam("maxCost") Double maxCost,
+                                         @PathParam("persons") Integer persons , @PathParam("maxArea") Double maxArea, @PathParam("minArea") Double minArea)
+    {
+        List <SimpleClassifiedDTO> listOfClassifiedSimpleDTO = new ArrayList<>();
+        if(type.equals("0"))
+        {
+            List <ClassifiedEntity> listOfClassifieds = classifiedRepository.searchRoom(type, minCost, maxCost, persons);
+            for(ClassifiedEntity classifiedEntity  : listOfClassifieds)
+                listOfClassifiedSimpleDTO.add(classifiedEntity.mapToSimpleClassifiedDTO());
+            return listOfClassifiedSimpleDTO ;
+        }
+
+        List <ClassifiedEntity> listOfClassifieds = classifiedRepository.searchFlat(type, minCost, maxCost, minArea, maxArea);
+        for(ClassifiedEntity classifiedEntity  : listOfClassifieds)
+            listOfClassifiedSimpleDTO.add(classifiedEntity.mapToSimpleClassifiedDTO());
+        return listOfClassifiedSimpleDTO;
+
     }
 
     /*@GetMapping(path = "/generate-data")

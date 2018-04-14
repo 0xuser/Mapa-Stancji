@@ -2,18 +2,16 @@ package com.classifiedmapbackend.entity.dto;
 
 import com.classifiedmapbackend.entity.jpa.AddressEntity;
 import com.classifiedmapbackend.entity.jpa.GeolocationEntity;
-import org.springframework.context.annotation.Bean;
-
-import javax.persistence.Entity;
 
 
 public class SimpleClassifiedDTO {
 
     private String id;
-    private GeolocationEntity geolocation;
+    private double cost;
     private String type;
     private AddressEntity address;
-    private double cost;
+    private GeolocationEntity geolocation;
+
 
     public SimpleClassifiedDTO(String id, GeolocationEntity geolocation,  String type, AddressEntity address, double cost) {
         this.id = id;
