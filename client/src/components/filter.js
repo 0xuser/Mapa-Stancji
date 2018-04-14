@@ -66,6 +66,8 @@ class Filter extends Component {
 	}
 	
   render(){	
+	  console.log(this.state);
+	  
 		return(
 			<div className="c-filters">
 				<div className="f-type filter">

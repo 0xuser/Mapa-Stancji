@@ -5,29 +5,38 @@ import { fetchOffers } from '../../actions/index';
 import GoogleMap from '../google_map';
 import Header from '../header';
 import Filter from '../../components/filter'
-
+import OfferList from '../offer_list';
 
 class ClassifiedsIndex extends Component {
+  constructor(props){
+    super(props);
+
+    const offers = [];
+  }
   
   render() {
-    const { fetchOffers, offers } = this.props;
-    const lon = 19.9449799;
-    const lat = 50.0646501;
+    const { fetchOffers, offers} = this.props;
+
+    const origin = {
+      lon : 19.9449799,
+      lat : 50.0646501
+    }
+  
    
     
-    console.log('offers: ', offers);
+    // console.log('offers: ', offers);
     return (
       <div className="classified-cont">
           <Header />
-        
           <Filter/>
           
           <div className="main">
             <div className="c-list">
-              <h3>List</h3>
+              <OfferList offers={offers} />
             </div>
             <div className="c-map">
-              <GoogleMap lon={lon} lat={lat} />
+              <GoogleMap origin={origin} offers={offers}/>
+           
             </div>
           </div>
       </div>
