@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+}
+html, body{
+    min-height: 100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+#container {
+    min-height: 100vh;
+}
+
+.classified-cont {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* header */
+
+header {
+    background-color: #ef0072;
+    color: #fafafa;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+    height: 75px;
+    flex-wrap: wrap;
+}
+
+nav .left {
+    flex-basis: 60px;
+}
+
+.navbar-brand {
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+nav .right{
+    display: flex;
+    flex-basis: 120px;
+    justify-content: space-between;
+    font-weight: 300;
+}
+
+nav a {
+    text-decoration: none;
+    color:#fafafa;
+}
+
+
+/**** filters ****/
+
+.c-filters form {
+    height: 120px;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.filter{
+    flex-basis: 220px;
+}
+
+.f-type {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+
+
+
+.f-price input {
+    width:50%;
+}
+input[type=radio] {
+   display: none;
+}
+
+label {
+    border: none;
+    padding: 8px 16px;
+    background: #ddd;
+    cursor: pointer;
+    display: inline-block;
+}
+  
+input:checked + label {
+    /* border: inset 1px silver;    */
+    background: #aaa;
+  }
+
+
+
+/**** main ****/
+
+.main {
+    flex: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.c-list {
+    flex: 5;
+    overflow-y: scroll;
+}
+
+.c-map{
+    flex:7
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+
+/**** list ****/
+
+.group-list {
+    flex-direction: column;
+    padding-left: 0;
+    margin: 0 auto;
+}
+
+.group-list-item:hover {background-color: #fdfdfd}
+.group-list-item {
+    display: block;
+    padding: .80rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #fafafa;
+    cursor: pointer;
+    /* rgba(0,0,0,.125); */
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.group-list-item h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    display: inline-block;
+}
+
+.group-list-item .type {
+    font-weight: 200;
+    font-size: 0.9em;
+    color: #808080;
+}
