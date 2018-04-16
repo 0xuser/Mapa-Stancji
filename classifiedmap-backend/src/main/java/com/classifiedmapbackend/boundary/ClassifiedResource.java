@@ -6,6 +6,7 @@ import com.classifiedmapbackend.entity.jpa.ClassifiedEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.websocket.server.PathParam;
@@ -40,36 +41,32 @@ public class ClassifiedResource {
         return null;
     }
 
-    @GetMapping(path = "search")
-    public List<SimpleClassifiedDTO> search(@PathParam("type") String type, @PathParam("minCost") Double minCost, @PathParam("maxCost") Double maxCost,
-                                         @PathParam("persons") Integer persons , @PathParam("maxArea") Double maxArea, @PathParam("minArea") Double minArea)
+    @GetMapping(path = "/search")
+    public List<SimpleClassifiedDTO> search(@RequestParam(value = "type", required = false, defaultValue = "all") String type,
+                                            @RequestParam( value = "minCost", required = false, defaultValue = "0") Double minCost,
+                                            @RequestParam(value = "maxCost", required = false,  defaultValue = "10000") Double maxCost,
+                                            @RequestParam(value = "persons", required = false, defaultValue = "1") Integer persons ,
+                                            @RequestParam(value = "maxArea", required = false, defaultValue = "10000") Double maxArea,
+                                            @RequestParam(value = "minArea", required = false, defaultValue = "0") Double minArea)
     {
         List <SimpleClassifiedDTO> listOfClassifiedSimpleDTO = new ArrayList<>();
-        if(type.equals("0"))
-        {
-            List <ClassifiedEntity> listOfClassifieds = classifiedRepository.searchRoom(type, minCost, maxCost, persons);
-            for(ClassifiedEntity classifiedEntity  : listOfClassifieds)
+
+        if (type.equals("all")) {
+            List<ClassifiedEntity> listOfClassifieds = classifiedRepository.globalSearch(minCost, maxCost, minArea, maxArea);
+            for (ClassifiedEntity classifiedEntity : listOfClassifieds)
                 listOfClassifiedSimpleDTO.add(classifiedEntity.mapToSimpleClassifiedDTO());
-            return listOfClassifiedSimpleDTO ;
+        } else if ("0".equals(type)) {
+            List<ClassifiedEntity> listOfClassifieds = classifiedRepository.searchRoom(type, minCost, maxCost, persons);
+            for (ClassifiedEntity classifiedEntity : listOfClassifieds)
+                listOfClassifiedSimpleDTO.add(classifiedEntity.mapToSimpleClassifiedDTO());
+        } else {
+            List<ClassifiedEntity> listOfClassifieds = classifiedRepository.searchFlat(type, minCost, maxCost, minArea, maxArea);
+            for (ClassifiedEntity classifiedEntity : listOfClassifieds)
+                listOfClassifiedSimpleDTO.add(classifiedEntity.mapToSimpleClassifiedDTO());
         }
 
-        List <ClassifiedEntity> listOfClassifieds = classifiedRepository.searchFlat(type, minCost, maxCost, minArea, maxArea);
-        for(ClassifiedEntity classifiedEntity  : listOfClassifieds)
-            listOfClassifiedSimpleDTO.add(classifiedEntity.mapToSimpleClassifiedDTO());
         return listOfClassifiedSimpleDTO;
 
     }
 
-    /*@GetMapping(path = "/generate-data")
-    @ResponseBody
-    public ResponseEntity generateData()
-    {
-        GeolocationEntity geolocationEntity = new GeolocationEntity(UUID.randomUUID().toString(), 50.069543, 19.918304);
-        AddressEntity addressEntity = new AddressEntity(UUID.randomUUID().toString(), "Kraków", "Krowodrza", "Urzednicza", "22", "4");
-        StatusEntity statusEntity = new StatusEntity(UUID.randomUUID().toString(), "status title", "status description");
-        TypeEntity typeEntity = new TypeEntity(UUID.randomUUID().toString(), "Mieszkanie");
-        ClassifiedEntity classifiedEntity = new ClassifiedEntity(UUID.randomUUID().toString(), "Title", "Description", new Date(), addressEntity, geolocationEntity, statusEntity, null, typeEntity);
-        classifiedRepository.save(classifiedEntity);
-        return new ResponseEntity(HttpStatus.OK);
-    }*/
 }
