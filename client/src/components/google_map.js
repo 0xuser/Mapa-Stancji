@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class GoogleMap extends Component {
+
+	constructor(props){
+		super(props);
+
+		this.markers = [];
+	}
 	
 	initMap(){
 		this.map = new google.maps.Map(this.refs.map, {
@@ -10,24 +16,57 @@ class GoogleMap extends Component {
 				lng: this.props.origin.lon
 			}
 		});
+
+		this.map.addListener('click', function(event) {
+			console.log(event.latLng.location);
+		  });
 	}
 
 	componentDidMount(){
 		this.initMap();
-		const pos = {lat: 50.054933, lng: 19.926840};	
-		const maap = this.map;
-		const marker = new google.maps.Marker({
-			position: pos,
-			map: maap,
-			title: 'MARKER'
-		});
-		marker.setMap(maap);
-
 	}
 
+	setMapOnAll(map) {
+        this.markers.forEach(marker => {
+			marker.setMap(map);
+		});
+      }
 
+	clearMarkers(){
+		this.setMapOnAll(null);
+		this.markers = [];
+	}
 
 	componentDidUpdate(){
+		this.clearMarkers();
+
+		const shapes = [
+			'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+			'M22-48h-44v43h16l6 5 6-5h16z',
+		];
+		
+		this.props.offers.forEach(offer => {
+			const pos = {
+				lat: offer.geolocation.lat, 
+				lng: offer.geolocation.lng
+			};	
+
+			var marker = new google.maps.Marker({
+				map: this.map,
+				position: pos,
+				title:'sdf',
+				icon: {
+					path: shapes[offer.type],
+					fillColor: '#ef0072',
+					fillOpacity: 1,
+					strokeColor: '',
+					strokeWeight: 0
+				}
+			});
+
+			this.markers.push(marker);
+		});
+		
 	}
 
 	render() {

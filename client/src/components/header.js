@@ -4,10 +4,10 @@ const Header = () => {
     return(
         <header>
             <nav className="">
-                <a className="navbar-brand">mapa-stancji</a>
-                <div>
-                    <a className="navbar-brand">Dodaj</a>
-                    <a className="navbar-brand">Wyloguj</a>
+                <a className="navbar-brand" href="/">mapa-stancji.pl</a>
+                <div className="right">
+                    <a href="/">Dodaj</a>
+                    <a href="">Wyloguj</a>
                 </div>
             </nav>
         </header>

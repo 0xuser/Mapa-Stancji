@@ -25,17 +25,45 @@ html, body{
 
 /* header */
 
+header {
+    background-color: #ef0072;
+    color: #fafafa;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
-
     align-items: center;
     padding: .5rem 1rem;
     height: 75px;
-    
+    flex-wrap: wrap;
 }
-/* filters */
-.c-filters  {
+
+nav .left {
+    flex-basis: 60px;
+}
+
+.navbar-brand {
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+nav .right{
+    display: flex;
+    flex-basis: 120px;
+    justify-content: space-between;
+    font-weight: 300;
+}
+
+nav a {
+    text-decoration: none;
+    color:#fafafa;
+}
+
+
+/**** filters ****/
+
+.c-filters form {
     height: 120px;
     background-color: #fafafa;
     display: flex;
@@ -49,30 +77,39 @@ nav {
 }
 
 .f-type {
-
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
+
+
+
+
 
 .f-price input {
     width:50%;
 }
-/* input[type=radio] {
+input[type=radio] {
    display: none;
 }
 
 label {
-    border: outset 1px silver;
-    padding: 2px 16px;
-    margin-right: -5px;
+    border: none;
+    padding: 8px 16px;
     background: #ddd;
-      cursor: pointer;
-  }
+    cursor: pointer;
+    display: inline-block;
+}
   
 input:checked + label {
-    border: inset 1px silver;   
+    /* border: inset 1px silver;    */
     background: #aaa;
-  } */
+  }
 
-/* main */
+
+
+/**** main ****/
+
 .main {
     flex: auto;
     display: flex;
@@ -81,6 +118,7 @@ input:checked + label {
 
 .c-list {
     flex: 5;
+    overflow-y: scroll;
 }
 
 .c-map{
@@ -92,12 +130,13 @@ input:checked + label {
     height: 100%;
 }
 
-/* list */
+
+/**** list ****/
 
 .group-list {
     flex-direction: column;
     padding-left: 0;
-    margin-bottom: 0;
+    margin: 0 auto;
 }
 
 .group-list-item:hover {background-color: #fdfdfd}
@@ -118,6 +157,7 @@ input:checked + label {
 }
 
 .group-list-item h5 {
+    margin: 0;
     font-size: 1.25rem;
     display: inline-block;
 }
