@@ -1,0 +1,6 @@
+{
+    "root": "client/",
+    "routes": {
+        "/**": "index.html"
+    }
+}
