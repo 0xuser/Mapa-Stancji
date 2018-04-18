@@ -54,42 +54,52 @@ class Filter extends Component {
 			<div className="c-filters">
 				<form onChange={(e) => this.formChange(e)}>
 					<div className="f-type filter">
-						<div >
-							<input 
-								type="checkbox" 
-								name="room" 
-								id="room-type"
-								value="0" 
-							/>
-							<label htmlFor="room-type">Pokój</label>
-
-							<input 
-								type="checkbox" 
-								name="flat" 
-								id="flat-type"
-								value="1" 
-							/>
-							<label htmlFor="flat-type">Mieszkanie</label>
-						</div>
-
-						<div>
-							{this.state.flat == 0? 
-								<PersonsInput /> : <AreaInput />
-							}
-						</div>
+						<fieldset >
+							<h3>typ</h3>
+							<div>
+								<label className="check-cont">Pokój
+									<input type="checkbox" name="room" id="room-type" value="0"/>
+									<span className="checkmark"></span>
+								</label>
+								<label className="check-cont">Mieszkanie
+									<input type="checkbox" name="flat" id="flat-type" value="1"/>
+									<span className="checkmark"></span>
+								</label>
+							</div>
+						</fieldset>
+					</div>
+					
+					<div className="f-info filter">
+						<fieldset>
+							<h3>ilość osób</h3>
+							<div>
+								<select name="persons">
+									<option value="">-</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+								</select>
+							</div>
+						</fieldset>
+						<fieldset>
+							<h3>powierzchnia</h3>
+							<div>
+								<input type="text" name="min_area" min="0" placeholder="od"/>
+								<input type="text" name="max_area" min="0" placeholder="do"/>
+							</div>
+						</fieldset>
+						{/* <PersonsInput /> */}
+						{/* <AreaInput /> */}
 					</div>
 
 					<div className="f-price filter">
-						<input type="number" name="min_price"
-							min="0"
-							value={this.state.min_price} 
-							onChange={() => {}}
-						/>
-						<input type="number" name="max_price" 
-							min="0"
-							onChange={() => {}}
-							value={this.state.max_price}
-						/>
+						<fieldset>
+							<h3>cena</h3>
+							<div>
+								<input type="text" name="min_price" placeholder="od" min="0"/>
+								<input type="text" name="max_price" placeholder="do" min="0"/>
+							</div>
+						</fieldset>
+						
 					</div>
 				</form>
     	</div>
