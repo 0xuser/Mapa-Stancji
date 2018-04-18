@@ -87,8 +87,6 @@ class Filter extends Component {
 								<input type="text" name="max_area" min="0" placeholder="do"/>
 							</div>
 						</fieldset>
-						{/* <PersonsInput /> */}
-						{/* <AreaInput /> */}
 					</div>
 
 					<div className="f-price filter">
