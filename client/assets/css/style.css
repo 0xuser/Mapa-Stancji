@@ -89,7 +89,7 @@ nav a {
 .f-price input {
     width:50%;
 }
-input[type=radio] {
+input[type=checkbox] {
    display: none;
 }
 

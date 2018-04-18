@@ -7,12 +7,12 @@ const AreaInput = (props) => {
 			Metraż
 			<input type="number" name="min_area" 
 				min="0"
-				defaultValue="0"
+				defaultValue=""
 			/>
 
 			<input type="number" name="max_area" 
 				min="0"
-				defaultValue="5000"
+				defaultValue=""
 			/>
 		</div>
 	);

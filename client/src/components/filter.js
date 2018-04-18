@@ -11,12 +11,14 @@ class Filter extends Component {
 		super(props);
 		this.state = {
 			type: 0,
-			min_price: 0,
-			max_price: 5000,
-			min_area: 0,
-			max_area: 500,
-			persons: 1,
-			search: false
+			min_price: '',
+			max_price: '',
+			min_area: '',
+			max_area: '',
+			persons: '',
+			search: false,
+			room:0,
+			flat: 0
 		};
 	}
 
@@ -32,10 +34,17 @@ class Filter extends Component {
 	}
 
 	formChange(e){
-		const state = this.state;
-		state[e.target.name] = e.target.value
-		this.setState({state: state});	
-		this.props.fetchOffers(this.state);	
+		var state = this.state;
+		
+		if(e.target.type == "checkbox"){
+			state[e.target.name] = e.target.checked;
+		}else{
+			state[e.target.name] = e.target.value;
+		}
+
+		this.setState({state: state});
+		this.props.fetchOffers(this.state);		
+		// console.log(this.state);
 		
 	}
 
@@ -47,28 +56,24 @@ class Filter extends Component {
 					<div className="f-type filter">
 						<div >
 							<input 
-								type="radio" 
-								name="type" 
+								type="checkbox" 
+								name="room" 
 								id="room-type"
 								value="0" 
-								onChange={(e) => this.typeChange(e.target)}
-								checked={this.state.type == 0? "checked" : null}
 							/>
 							<label htmlFor="room-type">Pokój</label>
 
 							<input 
-								type="radio" 
-								name="type" 
+								type="checkbox" 
+								name="flat" 
 								id="flat-type"
 								value="1" 
-								onChange={(e) => this.typeChange(e.target)}
-								checked={this.state.type == 1? "checked" : null}
 							/>
 							<label htmlFor="flat-type">Mieszkanie</label>
 						</div>
 
 						<div>
-							{this.state.type == 0? 
+							{this.state.flat == 0? 
 								<PersonsInput /> : <AreaInput />
 							}
 						</div>

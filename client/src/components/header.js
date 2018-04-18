@@ -6,7 +6,7 @@ const Header = () => {
             <nav className="">
                 <a className="navbar-brand" href="/">mapa-stancji.pl</a>
                 <div className="right">
-                    <a href="/">Dodaj</a>
+                    <a href="/classified/new">Dodaj</a>
                     <a href="">Wyloguj</a>
                 </div>
             </nav>
