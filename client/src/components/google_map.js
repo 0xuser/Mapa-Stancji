@@ -41,6 +41,8 @@ class GoogleMap extends Component {
       'M22-48h-44v43h16l6 5 6-5h16z',
     ];
     
+    const infoWindow = new google.maps.InfoWindow();
+    
     this.props.offers.forEach(offer => {
       const pos = {
         lat: offer.geolocation.lat, 
@@ -58,6 +60,11 @@ class GoogleMap extends Component {
           strokeColor: '',
           strokeWeight: 0
         }
+      });
+
+      marker.addListener('click', () =>{
+        infoWindow.setContent(`<div><h4>${offer.address.street} ${offer.address.buildingNum}</h4><div><p>${offer.cost} zł</p></div></div>`);
+        infoWindow.open(this.map, marker);
       });
 
       this.markers.push(marker);

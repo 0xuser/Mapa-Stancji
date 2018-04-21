@@ -21,7 +21,8 @@ class ClassifiedsIndex extends Component {
       lon : 19.9449799,
       lat : 50.0646501
     }
-  
+    console.log(offers);
+    
     return (
       <div className="classified-cont">
           <Header />
