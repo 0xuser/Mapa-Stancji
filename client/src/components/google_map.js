@@ -23,10 +23,10 @@ class GoogleMap extends Component {
   }
 
   setMapOnAll(map) {
-        this.markers.forEach(marker => {
+    this.markers.forEach(marker => {
       marker.setMap(map);
     });
-      }
+  }
 
   clearMarkers(){
     this.setMapOnAll(null);
