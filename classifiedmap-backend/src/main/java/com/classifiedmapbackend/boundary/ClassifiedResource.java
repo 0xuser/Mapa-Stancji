@@ -4,16 +4,14 @@ import com.classifiedmapbackend.control.repositories.ClassifiedRepository;
 import com.classifiedmapbackend.entity.dto.SimpleClassifiedDTO;
 import com.classifiedmapbackend.entity.jpa.ClassifiedEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "/classified")
 public class ClassifiedResource {
 
