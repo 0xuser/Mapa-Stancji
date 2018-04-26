@@ -137,8 +137,8 @@ dodatkowy marker który "stackuje" ??
 
 # Zarys interfejsu
 
-Ilustracja jest bardzo podglądowa, przedstawia wyświetlanie ogłoszenia po dodaniu
-![My image](https://i.imgur.com/2mYbAvz.png)
+Ilustracja jest bardzo podglądowa, przedstawia wyświetlanie ogłoszenia
+![My image](https://github.com/0xuser/Mapa-Stancji/blob/master/img/render.png?raw=true)
 
 
 
