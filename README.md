@@ -30,17 +30,17 @@ Dostępne dla każdego
   * odbywa się to za pomocą implementacji API udostępnianej przez Google. Na mape nanoszone są "pinezki", stanowiące odnośnik do konkretnych ogłoszeń.
   
 - filtracja wyświetlanych obiektów
-  * zarządzanie wyświetlaniem dodatkowych obiektów na mapie (ikon uczelni, przystanków, w przypadku zalogowania także znajomych)
+  * zarządzanie wyświetlaniem dodatkowych obiektów na mapie (ikon uczelni, przystanków, w przypadku zalogowania także znajomych).
  
 - filtracja wyświetlanych ogłoszeń
-  * możliwość ograniczenia wyników wyszukiwania według parametrów takich jak rodzaj Mieszkanie/Pokój oraz cena, powierzchnia czy w przypadku pokoju ( jednoosobowy, dwuosobowy, z balkonem, nieprzechodni, tylko dla dziewczyny )
+  * możliwość ograniczenia wyników wyszukiwania według parametrów takich jak rodzaj Mieszkanie/Pokój oraz cena, powierzchnia czy w przypadku pokoju ( jednoosobowy, dwuosobowy, z balkonem, nieprzechodni, tylko dla dziewczyny ).
 
 - wyświetlanie konkretnego ogłoszenia
-  * po wybraniu "pinezki" na mapie wyświetla się okienko wraz ze szczegółami ogłoszenia
+  * po wybraniu "pinezki" na mapie wyświetla się okienko wraz ze szczegółami ogłoszenia.
 
 - logowanie za pośrednictwem Facebook
   * wykorzystanie API Facebook do integracji https://developers.facebook.com/docs/facebook-login
-  * serwis jest nowy, nie może zniechęcać użytkownika żmudnym procesem rejestracji
+  * serwis jest nowy, nie może zniechęcać użytkownika żmudnym procesem rejestracji.
  
 Dostępne tylko dla zalogowanego użytkownika:
 wszystkie z powyższych oraz
@@ -54,8 +54,8 @@ wszystkie z powyższych oraz
   * przy dodawaniu odbywa się walidacja danych (cena i powierzchnia muszą być liczbami a pliki muszą mieć rozszerzenie .jpg / .png.
   * Pojedyńczy plik może mieć maksymalny rozmiar 2MB.
   * Do jednego ogłoszenia można dodać maksymalnie 8 zdjęć, gdzie jedno jest miniaturką.
-  * nie ma limitu ogłoszeń
-  * ogłoszenie po dodaniu musi zostać zaakceptowane przez administratora
+  * brak limitu ogłoszeń
+  * ogłoszenie po dodaniu musi zostać zatwierdzone przez moderacje.
   
 - Modyfikacja ogłoszenia
   * umożliwia zmianę wszystkich danych w dodanym już ogłoszeniu. Zmiana zdjęć, tytułu czy opisu wymaga ponownej akceptacji ogłoszenia przez administratora.
@@ -88,7 +88,7 @@ wszystkie z powyższych oraz
   * Możliwość przekazania krótkiej noty od administratora dla użytkownika.
   
 - Kasowanie ogłoszeń
-  * możliwość kasowania przez administratora ogłoszeń
+  * możliwość kasowania przez administratora ogłoszeń.
   * użytkownik powinien zostać poinformowany o tym, że jego ogłoszenie zostało usunięte.
   * Możliwość przekazania krótkiej noty od administratora dla użytkownika.
 
@@ -103,19 +103,17 @@ Mapa powinna posiadać specjalnie zmodyfikowane style
 ![My image](https://i.imgur.com/JsJj18Y.png)
 
 zmiany:
-- widok zmieniony na styl "retro"
-- uproszczone wyświetlanie dzielnic (Locality)
-- podkolorowana woda i tereny zielone.
-- ukrycie zbędnych informacji na mapie (Attraction)
-- uczelnie w kolorze wypełnienia #fd9191 (School)
-- obiekty sportowe w kolorze wypełnienia #ac92fc (Sports complex)
-- autostrady zmiana grubości na 4 (Highway)
-
-//Niestety Uniwersytet Ekonomiczny jest dodany do Google Maps jako "business institution" a nie placówka uczelniana.
+- widok zmieniony na styl "retro",
+- uproszczone wyświetlanie dzielnic (Locality),
+- podkolorowana woda i tereny zielone,
+- ukrycie zbędnych informacji na mapie (Attraction),
+- uczelnie w kolorze wypełnienia #fd9191 (School),
+- obiekty sportowe w kolorze wypełnienia #ac92fc (Sports complex),
+- autostrady zmiana grubości na 4 (Highway).
 
 # Pinezki na mapie
 
-Pinezka - grafika sybolizująca obiekt lub ogłoszenie na mapie, "marker" to odpowiednik pinezki w języku angielskim
+Pinezka - grafika sybolizująca obiekt lub ogłoszenie na mapie, "marker" to odpowiednik pinezki w języku angielskim.
 
 Mapa posiadać będzie niestandardowe markery z biblioteki
 http://map-icons.com/
@@ -123,21 +121,19 @@ http://map-icons.com/
 ![My image](https://i.imgur.com/vzwMiXy.png)
 
 Przypadki:
-- mieszkanie SQUARE_ROUNDED marker
-- pokój x osobowy MAP_PIN z odpowiednią liczbą
-- znajomy na mapie SQUARE_PIN ze zdjęciem profilowym znajomego
+- mieszkanie SQUARE_ROUNDED marker,
+- pokój x osobowy MAP_PIN z odpowiednią liczbą,
+- znajomy na mapie SQUARE_PIN ze zdjęciem profilowym znajomego,
 
 ![My image](https://i.imgur.com/gKgcuOL.png)
 
-- przystanek ROUTE z odpowiednią ikoną map-icon-transit-station
-- uczelnie powinny posiadać swoje własne odpowiednie grafiki
+- przystanek ROUTE z odpowiednią ikoną map-icon-transit-station,
+- uczelnie powinny posiadać swoje własne odpowiednie grafiki.
 
-//Co w przypadku gdy w jednej lokalizacji są do wynajęcia 2 pokoje? (nie jako mieszkanie) lub markery nakładają się?
-dodatkowy marker który "stackuje" ??
 
 # Zarys interfejsu
 
-Ilustracja jest bardzo podglądowa, przedstawia wyświetlanie ogłoszenia
+Ilustracja ta jest podglądowa, przedstawia wyświetlanie ogłoszenia
 ![My image](https://github.com/0xuser/Mapa-Stancji/blob/master/img/render.png?raw=true)
 
 
