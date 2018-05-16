@@ -35,4 +35,5 @@ ClassifiedRepository extends CrudRepository<ClassifiedEntity, String> {
             "AND c.Area >= :minArea " +
             "AND  c.Area <= :maxArea ", nativeQuery = true)
     List<ClassifiedEntity> globalSearch(@Param("minCost") double minCost, @Param("maxCost") double maxCost, @Param("minArea") double minArea, @Param("maxArea") double maxArea);
+
 }

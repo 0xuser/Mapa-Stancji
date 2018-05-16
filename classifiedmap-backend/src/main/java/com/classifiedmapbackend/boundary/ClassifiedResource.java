@@ -1,14 +1,21 @@
 package com.classifiedmapbackend.boundary;
 
 import com.classifiedmapbackend.control.repositories.ClassifiedRepository;
+import com.classifiedmapbackend.control.repositories.StatusRepository;
+import com.classifiedmapbackend.control.repositories.TypeRepository;
+import com.classifiedmapbackend.entity.dto.FullClassifiedDTO;
 import com.classifiedmapbackend.entity.dto.SimpleClassifiedDTO;
-import com.classifiedmapbackend.entity.jpa.ClassifiedEntity;
+import com.classifiedmapbackend.entity.jpa.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
+import javax.ws.rs.Consumes;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin
@@ -17,6 +24,9 @@ public class ClassifiedResource {
 
     @Autowired
     ClassifiedRepository classifiedRepository;
+
+    @Autowired
+    TypeRepository typeRepository;
 
 
     @GetMapping(path = "/all")
@@ -65,6 +75,26 @@ public class ClassifiedResource {
 
         return listOfClassifiedSimpleDTO;
 
+    }
+
+    //TODO w trakcie rozwoju
+    @PostMapping(path = "/addclassified")
+    public String addClassified(@RequestBody FullClassifiedDTO entity)
+    {
+        GeolocationEntity newGeolocation = new GeolocationEntity(UUID.randomUUID().toString(), entity.getLat(), entity.getLng());
+        AddressEntity newAddres = new AddressEntity(UUID.randomUUID().toString(), entity.getCity(), entity.getDistrict(), entity.getStreet(), entity.getBuildingNum(), entity.getFlatNum());
+        TypeEntity typeEntity;
+        if(typeRepository.findById(entity.getType()).isPresent())
+            typeEntity = typeRepository.findById(entity.getType()).get();
+        else
+            typeEntity = new TypeEntity(entity.getType(), "test");
+
+        ClassifiedEntity newClassified = new ClassifiedEntity(UUID.randomUUID().toString(), entity.getTitle(), entity.getDescription(), new Date(),
+                entity.getCost(), entity.getPersons(), entity.getArea(), newAddres, newGeolocation,  new StatusEntity(UUID.randomUUID().toString(), "test", "test"), new ThumbnailEntity(UUID.randomUUID().toString(), "test"), typeEntity );
+
+        classifiedRepository.save(newClassified);
+
+        return newClassified.getId();
     }
 
 }

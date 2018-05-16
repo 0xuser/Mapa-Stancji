@@ -52,12 +52,27 @@ public class ClassifiedEntity {
 
     public ClassifiedEntity() {
     }
-
+    //TODO create builders
     public ClassifiedEntity(String id, String title, String description, Date creationDate, AddressEntity address, GeolocationEntity geolocation, StatusEntity status, ThumbnailEntity thumbnail, TypeEntity type) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
+        this.address = address;
+        this.geolocation = geolocation;
+        this.status = status;
+        this.thumbnail = thumbnail;
+        this.type = type;
+    }
+
+    public ClassifiedEntity(String id, String title, String description, Date creationDate, double cost, int persons, double area, AddressEntity address, GeolocationEntity geolocation, StatusEntity status, ThumbnailEntity thumbnail, TypeEntity type) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.creationDate = creationDate;
+        this.cost = cost;
+        this.persons = persons;
+        this.area = area;
         this.address = address;
         this.geolocation = geolocation;
         this.status = status;

@@ -15,6 +15,14 @@ public class ThumbnailEntity {
     @Column(name = "IdImage")
     private String imageId;
 
+    public ThumbnailEntity() {
+    }
+
+    public ThumbnailEntity(String id, String imageId) {
+        this.id = id;
+        this.imageId = imageId;
+    }
+
     public String getId() {
         return id;
     }
