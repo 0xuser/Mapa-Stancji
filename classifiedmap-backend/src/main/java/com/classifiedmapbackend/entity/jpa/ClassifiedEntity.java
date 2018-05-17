@@ -1,12 +1,14 @@
 package com.classifiedmapbackend.entity.jpa;
 
 import com.classifiedmapbackend.entity.dto.SimpleClassifiedDTO;
+import lombok.Builder;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "Classified")
+@Builder
 public class ClassifiedEntity {
 
     @Id
@@ -51,18 +53,6 @@ public class ClassifiedEntity {
     private TypeEntity type;
 
     public ClassifiedEntity() {
-    }
-    //TODO create builders
-    public ClassifiedEntity(String id, String title, String description, Date creationDate, AddressEntity address, GeolocationEntity geolocation, StatusEntity status, ThumbnailEntity thumbnail, TypeEntity type) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.creationDate = creationDate;
-        this.address = address;
-        this.geolocation = geolocation;
-        this.status = status;
-        this.thumbnail = thumbnail;
-        this.type = type;
     }
 
     public ClassifiedEntity(String id, String title, String description, Date creationDate, double cost, int persons, double area, AddressEntity address, GeolocationEntity geolocation, StatusEntity status, ThumbnailEntity thumbnail, TypeEntity type) {

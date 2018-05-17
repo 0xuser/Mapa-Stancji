@@ -1,5 +1,10 @@
 package com.classifiedmapbackend.entity.dto;
 
+import com.classifiedmapbackend.entity.jpa.*;
+
+import java.util.Date;
+import java.util.UUID;
+
 public class FullClassifiedDTO {
 
     private String title;
@@ -121,5 +126,24 @@ public class FullClassifiedDTO {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public ClassifiedEntity mapToClassifiedEntity(TypeEntity typeEntity)
+    {
+        GeolocationEntity newGeolocation = GeolocationEntity.builder().id(UUID.randomUUID().toString())
+                .lat(lat).lng(lng).build();
+
+        AddressEntity newAddress = AddressEntity.builder().id(UUID.randomUUID().toString()).city(city)
+                .district(district).street(street).buildingNum(buildingNum).flatNum(flatNum).build();
+
+        ClassifiedEntity newClassified = ClassifiedEntity.builder().id(UUID.randomUUID().toString()).title(title)
+                .description(description).creationDate(new Date()).cost(cost).persons(persons).area(area)
+                .address(newAddress).geolocation(newGeolocation)
+                .status(new StatusEntity(UUID.randomUUID().toString(), "test", "test"))
+                .thumbnail(new ThumbnailEntity(UUID.randomUUID().toString(), "test"))
+                .type(typeEntity)
+                .build();
+
+        return newClassified;
     }
 }
