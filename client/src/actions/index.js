@@ -1,7 +1,7 @@
 import axios from 'axios';
 export const FETCH_OFFERS = 'fetch_offers';
 export const FILTER_OFFERS = 'filter_offers';
-
+export const CREATE_OFFER = 'create_offer';
 
 const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend/classified';
 
@@ -37,16 +37,6 @@ export function fetchOffers(filter){
     if( max_area.length > 0 ){
       url += `&maxArea=${max_area}`
     }
-    console.log(url);
-      
-              
-  
-    // if(type == 0){
-    //     request = axios.get(`${ROOT_URL}/search?type=${type}&minCost=${filter.min_price}&maxCost=${filter.max_price}&persons=${filter.persons}` );
-    // }else if(type == 1){
-    //     request = axios.get(`${ROOT_URL}/search?type=${type}&minCost=${filter.min_price}&maxCost=${filter.max_price}&minArea=${filter.min_area}&maxArea=${filter.max_area}`);
-    // }
-
   }
   request = axios.get(url, { crossDomain: true });
   return {
@@ -54,4 +44,16 @@ export function fetchOffers(filter){
     payload: request
   };
     
+}
+
+export function createOffer(values, callback){
+  var url = `${ROOT_URL}/addclassified`;
+  
+  // const request = axios.post(url, values)
+  // .then(() => callback());
+  
+  return {
+    type: CREATE_OFFER,
+    payload: request
+  }
 }
