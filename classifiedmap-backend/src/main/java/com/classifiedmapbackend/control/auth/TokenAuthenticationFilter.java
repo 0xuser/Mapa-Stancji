@@ -1,4 +1,4 @@
-package com.classifiedmapbackend.control;
+package com.classifiedmapbackend.control.auth;
 
 import lombok.experimental.FieldDefaults;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,10 +19,10 @@ import static lombok.AccessLevel.PRIVATE;
 import static org.apache.commons.lang3.StringUtils.removeStart;
 
 @FieldDefaults(level = PRIVATE, makeFinal = true)
-final class TokenAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
+public final class TokenAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
   private static final String BEARER = "Bearer";
 
-  TokenAuthenticationFilter(final RequestMatcher requiresAuth) {
+  public TokenAuthenticationFilter(final RequestMatcher requiresAuth) {
     super(requiresAuth);
   }
 

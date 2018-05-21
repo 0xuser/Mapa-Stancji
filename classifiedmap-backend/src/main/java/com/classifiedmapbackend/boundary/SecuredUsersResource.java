@@ -1,6 +1,6 @@
 package com.classifiedmapbackend.boundary;
 
-import com.classifiedmapbackend.control.UserAuthenticationService;
+import com.classifiedmapbackend.control.auth.UserAuthenticationService;
 import com.classifiedmapbackend.entity.domain.DomainUser;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;

@@ -1,4 +1,4 @@
-package com.classifiedmapbackend.control;
+package com.classifiedmapbackend.control.auth;
 
 import com.classifiedmapbackend.entity.domain.DomainUser;
 

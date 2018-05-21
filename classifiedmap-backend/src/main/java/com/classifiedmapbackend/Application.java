@@ -1,4 +1,4 @@
-package com.classifiedmapbackend.boundary;
+package com.classifiedmapbackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -10,8 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EntityScan(basePackages = "com.classifiedmapbackend.entity.jpa")
-//@EnableJpaRepositories(basePackages = "com.classifiedmapbackend.control.repositories")
-@ComponentScan(basePackages = "com.classifiedmapbackend.control")
+@ComponentScan
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 

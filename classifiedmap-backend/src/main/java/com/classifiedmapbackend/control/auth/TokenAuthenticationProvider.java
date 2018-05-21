@@ -1,4 +1,4 @@
-package com.classifiedmapbackend.control;
+package com.classifiedmapbackend.control.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -17,7 +17,7 @@ import static lombok.AccessLevel.PRIVATE;
 @Component
 @AllArgsConstructor(access = PACKAGE)
 @FieldDefaults(level = PRIVATE, makeFinal = true)
-final class TokenAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+public final class TokenAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
   @NonNull
   UserAuthenticationService auth;
 
