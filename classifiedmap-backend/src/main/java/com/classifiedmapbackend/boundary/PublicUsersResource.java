@@ -21,17 +21,6 @@ import static lombok.AccessLevel.PUBLIC;
 public final class PublicUsersResource {
   @NonNull
   UserAuthenticationService authentication;
-  @NonNull
-  UserRegistrationService registration;
-
-  @PostMapping("/register")
-  public String register(
-    final HttpServletRequest request,
-    @RequestParam("username") final String username,
-    @RequestParam(value = "password", required = false) final String password) {
-    registration.register(username, ofNullable(emptyToNull(password)));
-    return authentication.login(username, password).orElseThrow(RuntimeException::new);
-  }
 
   @PostMapping("/login")
   public String login(
