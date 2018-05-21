@@ -3,6 +3,7 @@ export const FETCH_OFFERS = 'fetch_offers';
 export const FILTER_OFFERS = 'filter_offers';
 export const CREATE_OFFER = 'create_offer';
 export const AUTH = 'authenticate';
+export const SEARCH_ADDRESS = 'search_address';
 
 const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend/classified';
 
@@ -50,19 +51,26 @@ export function fetchOffers(filter){
 export function createOffer(values, callback){
   var url = `${ROOT_URL}/addclassified`;
   
-  // const request = axios.post(url, values)
-  // .then(() => callback());
+  console.log(values);
+  
+  const request = axios.post(url, values)
+  .then(() => callback());
   
   return {
-    type: CREATE_OFFER,
-    payload: request
+    type: CREATE_OFFER
+    //payload: request
   }
 }
 
 export function authenticate(values){
-  console.log(values);
-  
   return {
     type: AUTH
+  }
+}
+
+export function searchAddress(values){ 
+  return {
+    type: SEARCH_ADDRESS,
+    payload: values
   }
 }
