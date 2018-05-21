@@ -2,6 +2,7 @@ import axios from 'axios';
 export const FETCH_OFFERS = 'fetch_offers';
 export const FILTER_OFFERS = 'filter_offers';
 export const CREATE_OFFER = 'create_offer';
+export const AUTH = 'authenticate';
 
 const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend/classified';
 
@@ -55,5 +56,13 @@ export function createOffer(values, callback){
   return {
     type: CREATE_OFFER,
     payload: request
+  }
+}
+
+export function authenticate(values){
+  console.log(values);
+  
+  return {
+    type: AUTH
   }
 }

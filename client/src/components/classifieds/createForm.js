@@ -27,32 +27,32 @@ const CreateForm = props => {
         <Field name="area" component="input" type="number" />
       </div>
       <div>
-        {/* <label htmlFor="city">Miasto</label> */}
-        <Field name="city" component="input" type="hidden" />
+        <label htmlFor="city">Miasto</label>
+        <Field name="city" component="input" type="text" />
       </div>
       <div>
-        {/* <label htmlFor="district">Dzielnica</label> */}
-        <Field name="district" component="input" type="hidden" />
+        <label htmlFor="district">Dzielnica</label>
+        <Field name="district" component="input" type="text" />
       </div>
       <div>
-        {/* <label htmlFor="street">Ulica</label> */}
-        <Field name="street" component="input" type="hidden" />
+        <label htmlFor="street">Ulica</label>
+        <Field name="street" component="input" type="text" />
       </div>
       <div>
-        {/* <label htmlFor="buildingNum">Budynek</label> */}
-        <Field name="buildingNum" component="input" type="hidden" />
+        <label htmlFor="buildingNum">Budynek</label>
+        <Field name="buildingNum" component="input" type="text" />
       </div>
       <div>
         <label htmlFor="flatNum">Mieszkanie</label>
         <Field name="flatNum" component="input" type="text" />
       </div>
       <div>
-        {/* <label htmlFor="lat">lat</label> */}
-        <Field name="lat" component="input" type="hidden" />
+        <label htmlFor="lat">lat</label>
+        <Field name="lat" component="input" type="text" />
       </div>
       <div>
-        {/* <label htmlFor="lng">lng</label> */}
-        <Field name="lng" component="input" type="hidden"/>
+        <label htmlFor="lng">lng</label>
+        <Field name="lng" component="input" type="text"/>
       </div>
       <div>
         <Field name="type" component="input" type="radio" value="0" />Pokój

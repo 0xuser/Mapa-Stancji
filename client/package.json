@@ -8,7 +8,7 @@
     "postinstall": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js -p",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack ./src/app.js ./assets/bundle.js"
+    "build": "webpack ./src/app.js"
   },
   "author": "",
   "license": "ISC",
