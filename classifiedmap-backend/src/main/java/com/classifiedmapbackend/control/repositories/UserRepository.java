@@ -1,8 +1,8 @@
 package com.classifiedmapbackend.control.repositories;
 
-import com.classifiedmapbackend.entity.jpa.UserEntity;
+import com.classifiedmapbackend.entity.jpa.BaseAccount;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<UserEntity, String> {
+public interface UserRepository extends CrudRepository<BaseAccount, String> {
 
 }
