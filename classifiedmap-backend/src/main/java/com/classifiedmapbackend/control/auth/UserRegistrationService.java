@@ -1,6 +1,8 @@
 package com.classifiedmapbackend.control.auth;
 
 import com.classifiedmapbackend.entity.domain.DomainUser;
+import com.classifiedmapbackend.entity.dto.UserDTO;
+import com.classifiedmapbackend.entity.jpa.UserAccountEntity;
 
 import java.util.Optional;
 
@@ -11,12 +13,9 @@ public interface UserRegistrationService {
    */
   boolean isEnabled();
 
-  /**
-   * In the case the username already exists, it returns
-   * the already registered user.
-   *
-   * @throws IllegalArgumentException if username is empty or already exists
-   * @throws IllegalStateException if username is a disposable mail
-   */
-  DomainUser register(String username, Optional<String> password);
+  boolean existsByUsername(String username);
+
+  void register(UserAccountEntity userEntity);
+
+  boolean existsByEmail(String email);
 }

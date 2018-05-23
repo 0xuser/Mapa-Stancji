@@ -1,11 +1,13 @@
 package com.classifiedmapbackend.entity.jpa;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
 @MappedSuperclass
 @Table(name = "user_profile")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class BaseAccount {
+public abstract class BaseAccountEntity {
     @Id
     private String id;
 
@@ -21,10 +23,10 @@ public abstract class BaseAccount {
     @Column(name = "email")
     private String email;
 
-    public BaseAccount() {
+    public BaseAccountEntity() {
     }
 
-    public BaseAccount(String id, String firstName, String lastName, String phoneNumber, String email) {
+    public BaseAccountEntity(String id, String firstName, String lastName, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

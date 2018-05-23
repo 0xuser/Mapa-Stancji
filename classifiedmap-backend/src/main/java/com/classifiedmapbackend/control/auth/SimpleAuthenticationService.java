@@ -1,8 +1,12 @@
 package com.classifiedmapbackend.control.auth;
 
+import com.classifiedmapbackend.control.repositories.UserRepository;
 import com.classifiedmapbackend.entity.domain.DomainUser;
+import com.classifiedmapbackend.entity.jpa.UserAccountEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -10,29 +14,27 @@ import java.util.UUID;
 
 @Service
 public final class SimpleAuthenticationService implements UserAuthenticationService {
-  Map<String, DomainUser> users = new HashMap<>();
+
+  @Autowired
+  UserRepository userRepository;
 
   @Override
   public Optional<String> login(final String username, final String password) {
-    final String token = UUID.randomUUID().toString();
-    final DomainUser user = DomainUser
-      .builder()
-      .id(token)
-      .username(username)
-      .password(password)
-      .build();
 
-    users.put(token, user);
-    return Optional.of(token);
+    UserAccountEntity userAccountEntity = userRepository.getUserAccountEntitieByUserName(username);
+    if(userAccountEntity == null ||
+            !userAccountEntity.getPassword().equals(password))
+      return Optional.empty();
+
+     return Optional.ofNullable(userAccountEntity.getId());
   }
 
   @Override
   public Optional<DomainUser> findByToken(final String token) {
-    return Optional.ofNullable(users.get(token));
+    return Optional.empty();
   }
 
   @Override
-  public void logout(final DomainUser user) {
-    users.remove(user.getId());
+  public void logout(final DomainUser user){
   }
 }

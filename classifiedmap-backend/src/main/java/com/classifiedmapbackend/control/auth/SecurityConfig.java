@@ -33,7 +33,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
             new AntPathRequestMatcher("/public/**")
     );
     private static final RequestMatcher PROTECTED_URLS = new NegatedRequestMatcher(PUBLIC_URLS);
-
+    private static final RequestMatcher CLASSIFIED_URLS = new AntPathRequestMatcher("/classified/**");
     TokenAuthenticationProvider provider;
 
     SecurityConfig(final TokenAuthenticationProvider provider) {
@@ -49,6 +49,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(final WebSecurity web) {
         web.ignoring().requestMatchers(PUBLIC_URLS);
+        web.ignoring().requestMatchers(CLASSIFIED_URLS);
     }
 
     @Override

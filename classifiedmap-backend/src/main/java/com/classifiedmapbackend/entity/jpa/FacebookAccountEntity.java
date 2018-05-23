@@ -5,13 +5,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "facebook_account")
 @PrimaryKeyJoinColumn(name = "userID")
-public class FacebookAccount extends BaseAccount {
+public class FacebookAccountEntity extends BaseAccountEntity {
     private String facebookID;
 
-    public FacebookAccount() {
+    public FacebookAccountEntity() {
     }
 
-    public FacebookAccount(String id, String firstName, String lastName, String phoneNumber, String email, String facebookID) {
+    public FacebookAccountEntity(String id, String firstName, String lastName, String phoneNumber, String email, String facebookID) {
         super(id, firstName, lastName, phoneNumber, email);
         this.facebookID = facebookID;
     }
