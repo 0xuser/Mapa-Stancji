@@ -1,5 +1,7 @@
 package com.classifiedmapbackend.entity.jpa;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class FacebookAccountEntity extends BaseAccountEntity {
     public FacebookAccountEntity() {
     }
 
+    @Builder
     public FacebookAccountEntity(String id, String firstName, String lastName, String phoneNumber, String email, String facebookID) {
         super(id, firstName, lastName, phoneNumber, email);
         this.facebookID = facebookID;

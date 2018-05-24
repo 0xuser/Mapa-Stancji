@@ -28,7 +28,7 @@ public final class SecuredUsersResource {
 
   @GetMapping("/logout")
   public boolean logout(@AuthenticationPrincipal final DomainUser user) {
-    authentication.logout(user);
+    //authentication.logout(user);
     return true;
   }
 }

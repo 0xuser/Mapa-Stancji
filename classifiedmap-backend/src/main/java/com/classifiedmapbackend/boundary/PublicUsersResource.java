@@ -2,7 +2,9 @@ package com.classifiedmapbackend.boundary;
 
 import com.classifiedmapbackend.control.auth.UserAuthenticationService;
 import com.classifiedmapbackend.control.auth.UserRegistrationService;
+import com.classifiedmapbackend.entity.dto.FacebookUserDTO;
 import com.classifiedmapbackend.entity.dto.UserDTO;
+import com.classifiedmapbackend.entity.jpa.FacebookAccountEntity;
 import com.classifiedmapbackend.entity.jpa.UserAccountEntity;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -33,13 +35,13 @@ public final class PublicUsersResource {
   UserRegistrationService registrationService;
 
   @PostMapping("/login")
-  public ResponseEntity login(@RequestParam("username") final String username, @RequestParam("password") final String password) {
+  public ResponseEntity login(@RequestParam("username") final String username, @RequestParam(value = "password", required = false) final Optional<String> password) {
     Optional<String> token = authentication.login(username, password);
     return token.<ResponseEntity>map(s -> ResponseEntity.status(HttpStatus.OK).body(s)).orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
   }
 
   @PostMapping("/register")
-  public ResponseEntity register(@RequestBody UserDTO userDTO)
+  public ResponseEntity registerUser(@RequestBody UserDTO userDTO)
   {
     if(registrationService.existsByUsername(userDTO.getUserName()))
       return ResponseEntity.status(HttpStatus.CONFLICT).body("username");
@@ -51,6 +53,32 @@ public final class PublicUsersResource {
     registrationService.register(newUser);
 
     return ResponseEntity.status(HttpStatus.OK).body(newUser.getId());
+  }
+
+  @PostMapping("/fbregister")
+  public ResponseEntity registerFacebookUser(@RequestBody FacebookUserDTO userDTO)
+  {
+    if(registrationService.existsByUsername(userDTO.getFacebookId()))
+      return ResponseEntity.status(HttpStatus.CONFLICT).body("username");
+
+    if(registrationService.existsByEmail(userDTO.getEmail()))
+      return ResponseEntity.status(HttpStatus.CONFLICT).body("email");
+
+    FacebookAccountEntity newUser = mapToFacebookAccountEntity(userDTO);
+    registrationService.register(newUser);
+
+    return ResponseEntity.status(HttpStatus.OK).body(newUser.getId());
+  }
+
+  private FacebookAccountEntity mapToFacebookAccountEntity(FacebookUserDTO userDTO) {
+    return FacebookAccountEntity.builder()
+            .id(UUID.randomUUID().toString())
+            .firstName(userDTO.getFirstName())
+            .lastName(userDTO.getLastName())
+            .phoneNumber(userDTO.getPhoneNumber())
+            .email(userDTO.getPhoneNumber())
+            .facebookID(userDTO.getFacebookId())
+            .build();
   }
 
   private UserAccountEntity mapToUserAccountEntity(UserDTO userDTO) {

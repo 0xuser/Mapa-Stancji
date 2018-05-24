@@ -13,20 +13,7 @@ public interface UserAuthenticationService {
    * @param password
    * @return an {@link Optional} of a user when login succeeds
    */
-  Optional<String> login(String username, String password);
+  Optional<String> login(String username, Optional<String> password);
 
-  /**
-   * Finds a user by its dao-key.
-   *
-   * @param token user dao key
-   * @return
-   */
-  Optional<DomainUser> findByToken(String token);
-
-  /**
-   * Logs out the given input {@code user}.
-   *
-   * @param user the user to logout
-   */
-  void logout(DomainUser user);
+  Optional<DomainUser> findByToken(String s);
 }

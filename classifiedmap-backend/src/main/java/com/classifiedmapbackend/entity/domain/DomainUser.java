@@ -23,13 +23,13 @@ public class DomainUser implements UserDetails {
   String password;
 
   @JsonCreator
-  DomainUser(@JsonProperty("id") final String id,
-             @JsonProperty("username") final String username,
-             @JsonProperty("password") final String password) {
+  public DomainUser(@JsonProperty("id") final String id,
+                    @JsonProperty("username") final String username,
+                    @JsonProperty("password") final String password) {
     super();
     this.id = requireNonNull(id);
     this.username = requireNonNull(username);
-    this.password = requireNonNull(password);
+    this.password = password;
   }
 
   @JsonIgnore
