@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {authenticate} from '../actions/index'
+import { loginUser } from '../actions/index'
 import SignInForm from './sign_in_form';
 
 class SignIn extends Component {
   submit = values => {
-    this.props.authenticate(values);
+    this.props.loginUser(values, () => this.props.history.push('/'));
   }
   
   render(){
@@ -15,4 +15,4 @@ class SignIn extends Component {
   }
 }
 
-export default connect(null,{ authenticate })(SignIn);
+export default connect(null,{ loginUser })(SignIn);
