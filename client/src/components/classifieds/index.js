@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { fetchOffers } from '../../actions/index';
 
 import GoogleMap from '../google_map';
-import Header from '../header';
 import Filter from '../../components/filter'
 import OfferList from '../offer_list';
 
@@ -21,11 +20,9 @@ class ClassifiedsIndex extends Component {
       lon : 19.9449799,
       lat : 50.0646501
     }
-    console.log(offers);
     
     return (
       <div className="classified-cont">
-          <Header />
           <Filter/>
           <div className="main">
             <div className="c-list">

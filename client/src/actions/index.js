@@ -5,7 +5,8 @@ export const CREATE_OFFER = 'create_offer';
 export const AUTH = 'authenticate';
 export const SEARCH_ADDRESS = 'search_address';
 
-const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend/classified';
+// const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend/classified';
+const ROOT_URL = 'http://127.0.0.1:8081/classfieldmap-backend/classified';
 
 export function fetchOffers(filter){
   var request;
@@ -40,7 +41,8 @@ export function fetchOffers(filter){
       url += `&maxArea=${max_area}`
     }
   }
-  request = axios.get(url, { crossDomain: true });
+  request = axios.get(url);
+
   return {
     type: FETCH_OFFERS,
     payload: request

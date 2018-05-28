@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import CreateForm from './createForm';
 import {createOffer, searchAddress} from '../../actions/index'
-import Header from '../header';
 import GMap from '../g_map';
 import SearchBar from '../search_bar';
 
@@ -33,7 +32,6 @@ class ClassifiedNew extends Component {
 
     return(
       <div>
-        <Header />
         <CreateForm onSubmit={this.submit} />
         <SearchBar onSearch={this.onSearch}/>
         <GMap origin={krakow} />

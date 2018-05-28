@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Header from './header';
 import {authenticate} from '../actions/index'
 import SignInForm from './sign_in_form';
 
@@ -11,10 +10,7 @@ class SignIn extends Component {
   
   render(){
     return(
-      <div>
-        <Header />
-        <SignInForm onSubmit={this.submit} />
-      </div>
+      <SignInForm onSubmit={this.submit} />
     );
   }
 }
