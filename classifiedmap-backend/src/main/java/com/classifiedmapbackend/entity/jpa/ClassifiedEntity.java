@@ -1,10 +1,14 @@
 package com.classifiedmapbackend.entity.jpa;
 
+import com.classifiedmapbackend.entity.dto.SimpleClassifiedDTO;
+import lombok.Builder;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "Classified")
+@Builder
 public class ClassifiedEntity {
 
     @Id
@@ -18,6 +22,15 @@ public class ClassifiedEntity {
 
     @Column(name = "Creation_Date")
     private Date creationDate;
+
+    @Column(name = "cost")
+    private double cost;
+
+    @Column(name = "Persons")
+    private int persons;
+
+    @Column(name = "Area")
+    private double area;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "IdAddress", referencedColumnName = "id")
@@ -38,6 +51,24 @@ public class ClassifiedEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "IdType", referencedColumnName = "id")
     private TypeEntity type;
+
+    public ClassifiedEntity() {
+    }
+
+    public ClassifiedEntity(String id, String title, String description, Date creationDate, double cost, int persons, double area, AddressEntity address, GeolocationEntity geolocation, StatusEntity status, ThumbnailEntity thumbnail, TypeEntity type) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.creationDate = creationDate;
+        this.cost = cost;
+        this.persons = persons;
+        this.area = area;
+        this.address = address;
+        this.geolocation = geolocation;
+        this.status = status;
+        this.thumbnail = thumbnail;
+        this.type = type;
+    }
 
     public String getId() {
         return id;
@@ -109,5 +140,39 @@ public class ClassifiedEntity {
 
     public void setType(TypeEntity type) {
         this.type = type;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    public int getPersons() {
+        return persons;
+    }
+
+    public void setPersons(int persons) {
+        this.persons = persons;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
+    }
+
+    public SimpleClassifiedDTO mapToSimpleClassifiedDTO()
+    {
+        return new SimpleClassifiedDTO.SimpleClassifiedDTOBuilder().setId(this.id)
+                .setGeolocation(this.geolocation)
+                .setType(this.type.getId())
+                .setAddress(this.address)
+                .setCost(this.cost)
+                .build();
     }
 }

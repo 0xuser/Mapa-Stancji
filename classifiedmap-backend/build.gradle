@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE")
     }
 }
 
@@ -11,10 +11,14 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
 
-bootJar {
+war {
+    enabled = true
     baseName = 'classfieldmap-backend'
-    version =  '0.1.0'
+    manifest {
+        attributes 'Main-Class': 'com.classifiedmapbackend.boundary.Application'
+    }
 }
 
 repositories {
@@ -26,8 +30,15 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-    compile 'mysql:mysql-connector-java'
+    compile('org.springframework.boot:spring-boot-starter-jersey')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile ('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile ('mysql:mysql-connector-java')
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+    compile 'com.google.guava:guava:25.0-jre'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+    compileOnly "org.projectlombok:lombok:1.16.20"
     testCompile('org.springframework.boot:spring-boot-starter-test')
-
+    providedRuntime ('org.springframework.boot:spring-boot-starter-tomcat')
 }
+

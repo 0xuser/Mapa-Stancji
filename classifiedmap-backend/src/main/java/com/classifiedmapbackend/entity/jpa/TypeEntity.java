@@ -15,6 +15,14 @@ public class TypeEntity {
     @Column(name = "Type")
     private String type;
 
+    public TypeEntity() {
+    }
+
+    public TypeEntity(String id, String type) {
+        this.id = id;
+        this.type = type;
+    }
+
     public String getId() {
         return id;
     }
