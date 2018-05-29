@@ -3,6 +3,7 @@ package com.classifiedmapbackend.boundary;
 import com.classifiedmapbackend.control.auth.UserAuthenticationService;
 import com.classifiedmapbackend.control.auth.UserRegistrationService;
 import com.classifiedmapbackend.entity.dto.FacebookUserDTO;
+import com.classifiedmapbackend.entity.dto.LoggingDTO;
 import com.classifiedmapbackend.entity.dto.UserDTO;
 import com.classifiedmapbackend.entity.jpa.FacebookAccountEntity;
 import com.classifiedmapbackend.entity.jpa.UserAccountEntity;
@@ -23,7 +24,7 @@ import static lombok.AccessLevel.PRIVATE;
 import static lombok.AccessLevel.PUBLIC;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/public/users")
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 @AllArgsConstructor(access = PUBLIC)
@@ -35,8 +36,8 @@ public final class PublicUsersResource {
   UserRegistrationService registrationService;
 
   @PostMapping("/login")
-  public ResponseEntity login(@RequestParam("username") final String username, @RequestParam(value = "password", required = false) final Optional<String> password) {
-    Optional<String> token = authentication.login(username, password);
+  public ResponseEntity login(@RequestBody LoggingDTO loggingData) {
+    Optional<String> token = authentication.login(loggingData.getUsername(), loggingData.getPassword());
     return token.<ResponseEntity>map(s -> ResponseEntity.status(HttpStatus.OK).body(s)).orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
   }
 
@@ -92,5 +93,4 @@ public final class PublicUsersResource {
             .password(userDTO.getPassword())
             .build();
   }
-
 }

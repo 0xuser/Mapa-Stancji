@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping(path = "/classified")
 public class ClassifiedResource {
 
@@ -26,7 +26,6 @@ public class ClassifiedResource {
 
     @Inject
     private TypeRepository typeRepository;
-
 
 
     @GetMapping(path = "/all")
@@ -47,6 +46,7 @@ public class ClassifiedResource {
             return ResponseEntity.status(HttpStatus.OK).body(classifiedRepository.findById(id).get());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
+
 
     @GetMapping(path = "/search")
     public ResponseEntity search(@RequestParam(value = "type", required = false, defaultValue = "all") String type,
@@ -97,5 +97,4 @@ public class ClassifiedResource {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newClassified.getId());
     }
-
 }
