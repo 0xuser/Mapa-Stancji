@@ -14,7 +14,7 @@ class App extends Component {
     const { dispatch, quote, isAuthenticated, errorMessage } = this.props;
     
     return(
-      <div>
+      <div className="flex-container col">
          <Header />
           <Switch>
             <Route exact path="/" component={ClassifiedIndex} />

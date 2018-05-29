@@ -19,15 +19,30 @@ html, body{
     margin: 0;
     padding: 0;
     display: flex;
+    flex: 1;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
 }
 
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.flex-container.col {
+  flex-direction: column;
+}
+
+.flex-container.row {
+  flex-direction: row;
+}
 /* header */
 
 header {
     background-color: #ef0072;
     color: #fafafa;
+    flex: 0;
 }
 
 nav {
@@ -51,10 +66,13 @@ nav .left {
 nav .right{
     display: flex;
     flex-basis: 120px;
-    justify-content: space-between;
+    justify-content: flex-end;
     font-weight: 300;
 }
 
+nav .right a:nth-of-type(2){
+  margin-left: 20px;
+}
 nav a {
     text-decoration: none;
     color:#fafafa;
@@ -195,6 +213,7 @@ fieldset {
     flex-direction: column;
     padding-left: 0;
     margin: 0 auto;
+    height: 0;
 }
 
 .group-list-item:hover {background-color: #fdfdfd}
