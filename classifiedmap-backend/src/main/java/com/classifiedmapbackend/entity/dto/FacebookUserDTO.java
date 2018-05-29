@@ -1,19 +1,18 @@
 package com.classifiedmapbackend.entity.dto;
 
-public class UserDTO {
+public class FacebookUserDTO {
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
-    private String userName;
-    private String password;
+    private String facebookId;
 
-    public String getUserName() {
-        return userName;
+    public String getFacebookId() {
+        return facebookId;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setFacebookId(String facebookId) {
+        this.facebookId = facebookId;
     }
 
     public String getFirstName() {
@@ -46,13 +45,5 @@ public class UserDTO {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

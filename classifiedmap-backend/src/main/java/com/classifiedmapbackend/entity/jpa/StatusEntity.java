@@ -18,6 +18,15 @@ public class StatusEntity {
     @Column(name  = "Description")
     private String description;
 
+    public StatusEntity() {
+    }
+
+    public StatusEntity(String id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
     public String getId() {
         return id;
     }
