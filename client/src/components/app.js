@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route, Switch, Link, withRouter} from 'react-router-dom';
+import ProtectedRoute from './protected_route';
 
 import Header from './header';
 import ClassifiedIndex from './classifieds/index';
@@ -16,9 +17,10 @@ class App extends Component {
     return(
       <div className="flex-container col">
          <Header />
+        
           <Switch>
             <Route exact path="/" component={ClassifiedIndex} />
-            <Route path="/classified/new" component={ClassifiedNew} />
+            <ProtectedRoute path="/classified/new" component={ClassifiedNew} isAuthenticated={isAuthenticated}/>
             <Route path="/login" component={SignIn} />
           </Switch>
       </div>
