@@ -32,7 +32,6 @@ export default function({dispatch}) {
 function receiveLogin(user) {
   return {
     type: LOGIN_SUCCESS,
-    isAuthenticated: true,
     id_token: user
   }
 }
@@ -40,7 +39,5 @@ function receiveLogin(user) {
 function loginError(message) {
   return {
     type: LOGIN_FAILURE,
-    isAuthenticated: false,
-    message
   }
 }

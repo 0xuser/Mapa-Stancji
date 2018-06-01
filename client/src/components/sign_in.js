@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { loginUser } from '../actions/index'
 import SignInForm from './sign_in_form';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class SignIn extends Component {
   state = {
@@ -28,6 +28,7 @@ class SignIn extends Component {
     return(
       <div className="classified-cont">
         <SignInForm onSubmit={this.submit} />
+        <p>Nie masz konta? <Link to='/register'>Zarejestruj się</Link></p>
       </div>
     );
   }

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route, Switch, Link, withRouter} from 'react-router-dom';
-import ProtectedRoute from './protected_route';
+import {ProtectedRoute, SignupRoute} from './protected_route';
 
 import Header from './header';
 import ClassifiedIndex from './classifieds/index';
 import ClassifiedNew from './classifieds/new'
 import SignIn from './sign_in';
+import Register from './register'
 import {loginUser, logoutUser} from '../actions'
 
 class App extends Component {
@@ -21,7 +22,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={ClassifiedIndex} />
             <ProtectedRoute path="/classified/new" component={ClassifiedNew} isAuthenticated={isAuthenticated}/>
-            <Route path="/login" component={SignIn} />
+            <SignupRoute path="/register" component={Register} isAuthenticated={isAuthenticated}/>
+            <SignupRoute path="/login" component={SignIn} isAuthenticated={isAuthenticated}/>
           </Switch>
       </div>
     );

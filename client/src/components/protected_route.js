@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const ProtectedRoute = ({ component: Component, ...rest }) => (
+export const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     rest.isAuthenticated === true
       ? <Component {...props} />
@@ -12,4 +12,10 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
   )} />
 )
 
-export default ProtectedRoute;
+export const SignupRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={(props) => (
+    rest.isAuthenticated === false
+      ? <Component {...props} />
+      : <Redirect to="/"/>
+  )} />
+)
