@@ -244,3 +244,27 @@ fieldset {
     font-size: 0.9em;
     color: #808080;
 }
+
+
+/* login */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.login-form input {
+  display: block;
+  margin: auto;
+}
+
+.login-form button {
+  display: block;
+  margin: auto;
+}

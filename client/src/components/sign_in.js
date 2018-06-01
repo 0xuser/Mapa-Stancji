@@ -26,7 +26,9 @@ class SignIn extends Component {
     }
 
     return(
-      <SignInForm onSubmit={this.submit} />
+      <div className="classified-cont">
+        <SignInForm onSubmit={this.submit} />
+      </div>
     );
   }
 }
