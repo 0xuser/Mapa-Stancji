@@ -12,6 +12,11 @@ export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
 
+export const REGISTER_REQUEST = 'REGISTER_REQUEST';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAILURE = 'REGISTER_FAILURE';
+
+
 // const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend';
 const ROOT_URL = 'http://127.0.0.1:8081/classfieldmap-backend';
 
@@ -90,5 +95,16 @@ export function loginUser(creds, callback){
 export function logoutUser(){
   return {
     type: LOGOUT_REQUEST
+  }
+}
+
+export function registerUser(user, callback) {
+  const url = `${ROOT_URL}/public/users/register`;
+  const request = axios.post(url, user);
+  
+  return {
+    type: REGISTER_REQUEST, 
+    payload: request,
+    callback
   }
 }

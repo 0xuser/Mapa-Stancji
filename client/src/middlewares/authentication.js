@@ -16,8 +16,8 @@ export default function({dispatch}) {
       .then(response => {        
         if(response.data && response.status == 200){  
           localStorage.setItem('id_token', response.data);
-          action.callback();     
           dispatch(receiveLogin(response.data));
+          action.callback(); 
         }else{
           dispatch(loginError('Login error'));
         }
@@ -32,7 +32,6 @@ export default function({dispatch}) {
 function receiveLogin(user) {
   return {
     type: LOGIN_SUCCESS,
-    isAuthenticated: true,
     id_token: user
   }
 }
@@ -40,7 +39,5 @@ function receiveLogin(user) {
 function loginError(message) {
   return {
     type: LOGIN_FAILURE,
-    isAuthenticated: false,
-    message
   }
 }

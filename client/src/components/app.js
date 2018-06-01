@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route, Switch, Link, withRouter} from 'react-router-dom';
+import {ProtectedRoute, SignupRoute} from './protected_route';
 
 import Header from './header';
 import ClassifiedIndex from './classifieds/index';
 import ClassifiedNew from './classifieds/new'
 import SignIn from './sign_in';
+import Register from './register'
 import {loginUser, logoutUser} from '../actions'
 
 class App extends Component {
@@ -14,12 +16,14 @@ class App extends Component {
     const { dispatch, quote, isAuthenticated, errorMessage } = this.props;
     
     return(
-      <div>
+      <div className="flex-container col">
          <Header />
+        
           <Switch>
             <Route exact path="/" component={ClassifiedIndex} />
-            <Route path="/classified/new" component={ClassifiedNew} />
-            <Route path="/login" component={SignIn} />
+            <ProtectedRoute path="/classified/new" component={ClassifiedNew} isAuthenticated={isAuthenticated}/>
+            <SignupRoute path="/register" component={Register} isAuthenticated={isAuthenticated}/>
+            <SignupRoute path="/login" component={SignIn} isAuthenticated={isAuthenticated}/>
           </Switch>
       </div>
     );
