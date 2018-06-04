@@ -14,22 +14,23 @@ class Header extends Component {
         <nav className="">
           <Link className="navbar-brand" to='/'>mapa-stancji.pl</Link>
           <div className="right">
-        
-            
+
+
             {this.props.isAuthenticated && <Link to='/classified/new'>Dodaj</Link>}
             {!this.props.isAuthenticated && <Link to='/login'>Zaloguj</Link>}
+            {!this.props.isAuthenticated && <Link to='/fb'>Fb</Link>}
             {this.props.isAuthenticated && <a onClick={this.logout.bind(this)}>Wyloguj</a>}
-            
+
           </div>
         </nav>
       </header>
     );
   }
-  
+
 };
 
 function mapStateToProps(state){
-  
+
   return {
     isAuthenticated: state.auth.isAuthenticated
   }
