@@ -1,5 +1,6 @@
 import axios from 'axios';
 export const FETCH_OFFERS = 'fetch_offers';
+export const FETCH_OFFER = 'FETCH_OFFER';
 export const FILTER_OFFERS = 'filter_offers';
 export const CREATE_OFFER = 'create_offer';
 export const SEARCH_ADDRESS = 'search_address';
@@ -106,5 +107,15 @@ export function registerUser(user, callback) {
     type: REGISTER_REQUEST, 
     payload: request,
     callback
+  }
+}
+
+export function fetch_offer(id){
+  const url = `${ROOT_URL}/classified?id=${id}`;
+  const request = axios.get(url);
+
+  return {
+    type: FETCH_OFFER,
+    payload: request
   }
 }

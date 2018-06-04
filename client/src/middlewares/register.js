@@ -21,8 +21,12 @@ export default function({dispatch}){
           dispatch(failure('Coś poszło nie tak.'))
         }
       })
-      .catch(err => {        
-        dispatch(failure(err.message))
+      .catch(err => {
+        if(err.response.status == '409' ){
+          dispatch(failure(`${err.response.data} jest uzywany`))
+        } else {
+          dispatch(failure(err.message))
+        }
       });      
     }
   }
