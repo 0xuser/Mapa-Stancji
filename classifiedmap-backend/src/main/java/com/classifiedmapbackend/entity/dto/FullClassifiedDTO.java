@@ -128,7 +128,8 @@ public class FullClassifiedDTO {
         this.type = type;
     }
 
-    public ClassifiedEntity mapToClassifiedEntity(TypeEntity typeEntity)
+    //TODO: simplify mapping functions after running all functionalities
+    public ClassifiedEntity mapToClassifiedEntityWhenCreate(TypeEntity typeEntity)
     {
         GeolocationEntity newGeolocation = GeolocationEntity.builder().id(UUID.randomUUID().toString())
                 .lat(lat).lng(lng).build();
@@ -146,4 +147,24 @@ public class FullClassifiedDTO {
 
         return newClassified;
     }
+
+    public ClassifiedEntity mapToClassifiedEntityWhenEdit(String id, TypeEntity typeEntity)
+    {
+        GeolocationEntity newGeolocation = GeolocationEntity.builder().id(UUID.randomUUID().toString())
+                .lat(lat).lng(lng).build();
+
+        AddressEntity newAddress = AddressEntity.builder().id(UUID.randomUUID().toString()).city(city)
+                .district(district).street(street).buildingNum(buildingNum).flatNum(flatNum).build();
+
+        ClassifiedEntity newClassified = ClassifiedEntity.builder().id(id).title(title)
+                .description(description).creationDate(new Date()).cost(cost).persons(persons).area(area)
+                .address(newAddress).geolocation(newGeolocation)
+                .status(new StatusEntity(UUID.randomUUID().toString(), "test", "test"))
+                .thumbnail(new ThumbnailEntity(UUID.randomUUID().toString(), "test"))
+                .type(typeEntity)
+                .build();
+
+        return newClassified;
+    }
+
 }

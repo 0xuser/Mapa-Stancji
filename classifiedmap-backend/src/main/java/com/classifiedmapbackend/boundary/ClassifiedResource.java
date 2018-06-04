@@ -6,7 +6,6 @@ import com.classifiedmapbackend.entity.dto.FullClassifiedDTO;
 import com.classifiedmapbackend.entity.dto.SimpleClassifiedDTO;
 import com.classifiedmapbackend.entity.jpa.ClassifiedEntity;
 import com.classifiedmapbackend.entity.jpa.TypeEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +44,15 @@ public class ClassifiedResource {
         if(classifiedRepository.findById(id).isPresent())
             return ResponseEntity.status(HttpStatus.OK).body(classifiedRepository.findById(id).get());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity editClassified(@PathVariable("id") String id, @RequestBody FullClassifiedDTO entity)
+    {
+        TypeEntity typeEntity = typeRepository.findById(entity.getType()).get();
+        ClassifiedEntity updateEntity = entity.mapToClassifiedEntityWhenEdit(id, typeEntity);
+        classifiedRepository.save(updateEntity);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 
@@ -92,7 +100,7 @@ public class ClassifiedResource {
         else
            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 
-        ClassifiedEntity newClassified = entity.mapToClassifiedEntity(typeEntity);
+        ClassifiedEntity newClassified = entity.mapToClassifiedEntityWhenCreate(typeEntity);
         classifiedRepository.save(newClassified);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newClassified.getId());
