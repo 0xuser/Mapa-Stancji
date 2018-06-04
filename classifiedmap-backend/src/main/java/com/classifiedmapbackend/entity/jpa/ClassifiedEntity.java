@@ -1,6 +1,5 @@
 package com.classifiedmapbackend.entity.jpa;
 
-import com.classifiedmapbackend.entity.dto.SimpleClassifiedDTO;
 import lombok.Builder;
 
 import javax.persistence.*;
@@ -52,10 +51,13 @@ public class ClassifiedEntity {
     @JoinColumn(name = "IdType", referencedColumnName = "id")
     private TypeEntity type;
 
+    @Column(name = "userId")
+    private String userId;
+
     public ClassifiedEntity() {
     }
 
-    public ClassifiedEntity(String id, String title, String description, Date creationDate, double cost, int persons, double area, AddressEntity address, GeolocationEntity geolocation, StatusEntity status, ThumbnailEntity thumbnail, TypeEntity type) {
+    public ClassifiedEntity(String id, String title, String description, Date creationDate, double cost, int persons, double area, AddressEntity address, GeolocationEntity geolocation, StatusEntity status, ThumbnailEntity thumbnail, TypeEntity type, String userId) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -68,6 +70,7 @@ public class ClassifiedEntity {
         this.status = status;
         this.thumbnail = thumbnail;
         this.type = type;
+        this.userId = userId;
     }
 
     public String getId() {
@@ -166,13 +169,4 @@ public class ClassifiedEntity {
         this.area = area;
     }
 
-    public SimpleClassifiedDTO mapToSimpleClassifiedDTO()
-    {
-        return new SimpleClassifiedDTO.SimpleClassifiedDTOBuilder().setId(this.id)
-                .setGeolocation(this.geolocation)
-                .setType(this.type.getId())
-                .setAddress(this.address)
-                .setCost(this.cost)
-                .build();
-    }
 }
