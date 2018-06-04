@@ -9,13 +9,15 @@ import App from './components/app'
 import reducers from './root_reducer';
 import AuthMiddleware from './middlewares/authentication'
 import logoutMiddleware from './middlewares/logout'
+import fetchOffersMiddleware from './middlewares/fetch_offers'
 import registerMiddleware from './middlewares/register'
 
 const createStoreWithMiddleware = applyMiddleware(
   registerMiddleware, 
   AuthMiddleware,
   logoutMiddleware,
-  ReduxPromise)(createStore);
+  fetchOffersMiddleware
+  )(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>

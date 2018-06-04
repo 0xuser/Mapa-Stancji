@@ -1,4 +1,8 @@
 import axios from 'axios';
+export const FETCH_OFFERS_REQUEST = 'FETCH_OFFERS_REQUEST';
+export const FETCH_OFFERS_SUCCESS = 'FETCH_OFFERS_SUCCESS';
+export const FETCH_OFFERS_FAILURE = 'FETCH_OFFERS_FAILURE';
+
 export const FETCH_OFFERS = 'fetch_offers';
 export const FETCH_OFFER = 'FETCH_OFFER';
 export const FILTER_OFFERS = 'filter_offers';
@@ -53,14 +57,14 @@ export function fetchOffers(filter){
     if( max_area.length > 0 ){
       url += `&maxArea=${max_area}`
     }
-  }
+  }  
   request = axios.get(url);
 
   return {
-    type: FETCH_OFFERS,
+    type: FETCH_OFFERS_REQUEST,
     payload: request
   };
-    
+  
 }
 
 export function createOffer(values, callback){
