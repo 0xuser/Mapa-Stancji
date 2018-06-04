@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<UserAccountEntity, String>
     Boolean existsUserAccountEntityByEmail(@Param("email") String email);
 
     Boolean existsUserAccountEntityByUserName(@Param("username") String username);
+
+
 }
