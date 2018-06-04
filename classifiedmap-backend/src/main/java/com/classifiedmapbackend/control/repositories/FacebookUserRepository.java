@@ -2,7 +2,10 @@ package com.classifiedmapbackend.control.repositories;
 
 import com.classifiedmapbackend.entity.jpa.FacebookAccountEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 public interface FacebookUserRepository extends JpaRepository<FacebookAccountEntity, String> {
 
@@ -11,4 +14,12 @@ public interface FacebookUserRepository extends JpaRepository<FacebookAccountEnt
     Boolean existsUserAccountEntityByEmail(@Param("email") String email);
 
     Boolean existsUserAccountEntityByFacebookID(@Param("facebookId") String facebookId);
+
+    @Query(value ="SELECT * " +
+            "FROM facebook_account f " +
+            "WHERE f.id = :uid "
+            , nativeQuery = true)
+    FacebookAccountEntity findUserById(@Param("uid") String uid);
+
+
 }

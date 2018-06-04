@@ -7,6 +7,7 @@ public class FacebookUserDTO {
     private String email;
     private String facebookId;
 
+
     public String getFacebookId() {
         return facebookId;
     }
@@ -46,4 +47,7 @@ public class FacebookUserDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+
 }

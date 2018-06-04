@@ -19,6 +19,28 @@ public class FacebookAccountEntity extends BaseAccountEntity {
         this.facebookID = facebookID;
     }
 
+    @Column(name = "id_address")
+    private String id_address;
+
+    @Column(name = "id_user_marker")
+    private String id_user_marker;
+
+    public FacebookAccountEntity(String id, String firstName, String lastName, String phoneNumber, String email, String facebookID, String id_address, String id_user_marker) {
+        super(id, firstName, lastName, phoneNumber, email);
+        this.facebookID = facebookID;
+        this.id_address = id_address;
+        this.id_user_marker = id_user_marker;
+    }
+
+
+    public void setId_address(String id_address) {
+        this.id_address = id_address;
+    }
+
+    public void setId_user_marker(String id_user_marker) {
+        this.id_user_marker = id_user_marker;
+    }
+
     public String getFacebookID() {
         return facebookID;
     }
