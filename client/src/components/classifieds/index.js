@@ -4,7 +4,7 @@ import { fetchOffers } from '../../actions/index';
 
 import GoogleMap from '../google_map';
 import Filter from '../../components/filter'
-import OfferList from '../offer_list';
+import OfferList from './offer_list';
 
 class ClassifiedsIndex extends Component {
   constructor(props){

@@ -268,3 +268,26 @@ fieldset {
   display: block;
   margin: auto;
 }
+
+
+/* show */
+h1{
+  text-align: center;
+}
+
+.table-info {
+  min-width: 75%;
+  margin: 0 auto;
+}
+
+.table-info td {
+  padding: 7px;
+}
+
+.description {
+  padding: 20px;
+}
+
+a{
+  color: initial;
+}

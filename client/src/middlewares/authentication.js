@@ -14,7 +14,7 @@ export default function({dispatch}) {
     if(action.type === LOGIN_REQUEST){      
       action.payload
       .then(response => {        
-        if(response.data && response.status == 200){  
+        if(response.data && response.status == 200){           
           localStorage.setItem('id_token', response.data);
           dispatch(receiveLogin(response.data));
           action.callback(); 

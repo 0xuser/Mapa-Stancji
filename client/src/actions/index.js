@@ -1,5 +1,12 @@
 import axios from 'axios';
-export const FETCH_OFFERS = 'fetch_offers';
+export const FETCH_OFFERS_REQUEST = 'FETCH_OFFERS_REQUEST';
+export const FETCH_OFFERS_SUCCESS = 'FETCH_OFFERS_SUCCESS';
+export const FETCH_OFFERS_FAILURE = 'FETCH_OFFERS_FAILURE';
+
+export const FETCH_OFFER_REQUEST = 'FETCH_OFFER_REQUEST';
+export const FETCH_OFFER_SUCCESS = 'FETCH_OFFER_SUCCESS';
+export const FETCH_OFFER_FAILURE = 'FETCH_OFFER_FAILURE';
+
 export const FILTER_OFFERS = 'filter_offers';
 export const CREATE_OFFER = 'create_offer';
 export const SEARCH_ADDRESS = 'search_address';
@@ -52,14 +59,14 @@ export function fetchOffers(filter){
     if( max_area.length > 0 ){
       url += `&maxArea=${max_area}`
     }
-  }
+  }  
   request = axios.get(url);
 
   return {
-    type: FETCH_OFFERS,
+    type: FETCH_OFFERS_REQUEST,
     payload: request
   };
-    
+  
 }
 
 export function createOffer(values, callback){
@@ -106,5 +113,19 @@ export function registerUser(user, callback) {
     type: REGISTER_REQUEST, 
     payload: request,
     callback
+  }
+}
+
+export function fetch_offer(id){
+  const url = `${ROOT_URL}/classified`;
+  const request = axios.get(url, {
+    params: {
+      id
+    }
+  });
+
+  return {
+    type: FETCH_OFFER_REQUEST,
+    payload: request
   }
 }
