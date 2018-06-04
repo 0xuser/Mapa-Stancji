@@ -287,3 +287,7 @@ h1{
 .description {
   padding: 20px;
 }
+
+a{
+  color: initial;
+}
