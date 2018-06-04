@@ -5,9 +5,11 @@ import {ProtectedRoute, SignupRoute} from './protected_route';
 
 import Header from './header';
 import ClassifiedIndex from './classifieds/index';
-import ClassifiedNew from './classifieds/new'
+import ClassifiedNew from './classifieds/new';
+import ClassifiedPage from './classifieds/classified_page';
 import SignIn from './sign_in';
-import Register from './register'
+import Register from './register';
+import ProfilePage from './profile_page';
 import {loginUser, logoutUser} from '../actions'
 
 class App extends Component {
@@ -21,7 +23,9 @@ class App extends Component {
         
           <Switch>
             <Route exact path="/" component={ClassifiedIndex} />
+            <ProtectedRoute path="/me" component={ProfilePage} isAuthenticated={isAuthenticated}/>
             <ProtectedRoute path="/classified/new" component={ClassifiedNew} isAuthenticated={isAuthenticated}/>
+            <Route path="/classified/show/:id" component={ClassifiedPage} isAuthenticated={isAuthenticated}/>
             <SignupRoute path="/register" component={Register} isAuthenticated={isAuthenticated}/>
             <SignupRoute path="/login" component={SignIn} isAuthenticated={isAuthenticated}/>
           </Switch>
