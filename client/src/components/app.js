@@ -14,7 +14,7 @@ import ProfilePage from './profile_page';
 import {loginUser, logoutUser} from '../actions'
 
 class App extends Component {
-  
+
   render(){
     const { dispatch, quote, isAuthenticated, errorMessage } = this.props;
 

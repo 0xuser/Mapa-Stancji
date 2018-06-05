@@ -59,29 +59,29 @@ export function fetchOffers(filter){
     if( max_area.length > 0 ){
       url += `&maxArea=${max_area}`
     }
-  }  
+  }
   request = axios.get(url);
 
   return {
     type: FETCH_OFFERS_REQUEST,
     payload: request
   };
-  
+
 }
 
 export function createOffer(values, callback){
   var url = `${ROOT_URL}/classified/addclassified`;
-    
+
   const request = axios.post(url, values)
   .then(() => callback());
-  
+
   return {
     type: CREATE_OFFER,
     payload: request
   }
 }
 
-export function searchAddress(values){ 
+export function searchAddress(values){
   return {
     type: SEARCH_ADDRESS,
     payload: values
@@ -91,7 +91,7 @@ export function searchAddress(values){
 export function loginUser(creds, callback){
   const url = `${ROOT_URL}/public/users/login`;
   var request = axios.post(url, creds);
- 
+
   return {
     type: LOGIN_REQUEST,
     payload: request,
@@ -108,12 +108,28 @@ export function logoutUser(){
 export function registerUser(user, callback) {
   const url = `${ROOT_URL}/public/users/register`;
   const request = axios.post(url, user);
-  
+
   return {
-    type: REGISTER_REQUEST, 
+    type: REGISTER_REQUEST,
     payload: request,
     callback
   }
+}
+
+export function registerFbUser(user) {
+  const url = `${ROOT_URL}/public/users/fbregister`;
+  const request = axios.post(url, user)
+  .then(function(response){
+    console.log(response);
+  })
+  .catch(function(error){
+    console.rog(error);
+  });
+  // return {
+  //   type: REGISTER_REQUEST,
+  //   payload: request,
+  //   callback
+  // }
 }
 
 export function fetch_offer(id){

@@ -18,7 +18,6 @@ class Header extends Component {
 
             {this.props.isAuthenticated && <Link to='/classified/new'>Dodaj</Link>}
             {!this.props.isAuthenticated && <Link to='/login'>Zaloguj</Link>}
-            {!this.props.isAuthenticated && <Link to='/fb'>Fb</Link>}
             {this.props.isAuthenticated && <a onClick={this.logout.bind(this)}>Wyloguj</a>}
 
           </div>
