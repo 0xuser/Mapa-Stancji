@@ -1,11 +1,7 @@
 package com.classifiedmapbackend.control.auth;
 
-import com.classifiedmapbackend.entity.domain.DomainUser;
-import com.classifiedmapbackend.entity.dto.UserDTO;
 import com.classifiedmapbackend.entity.jpa.FacebookAccountEntity;
 import com.classifiedmapbackend.entity.jpa.UserAccountEntity;
-
-import java.util.Optional;
 
 public interface UserRegistrationService {
 
