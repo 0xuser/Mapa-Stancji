@@ -24,8 +24,8 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
 
-// const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend';
-const ROOT_URL = 'http://127.0.0.1:8081/classfieldmap-backend';
+const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend';
+// const ROOT_URL = 'http://127.0.0.1:8081/classfieldmap-backend';
 
 export function fetchOffers(filter){
   var request;
@@ -59,25 +59,54 @@ export function fetchOffers(filter){
     if( max_area.length > 0 ){
       url += `&maxArea=${max_area}`
     }
-  }  
+  }
   request = axios.get(url);
 
   return {
     type: FETCH_OFFERS_REQUEST,
     payload: request
   };
-  
+
 }
 
 export function createOffer(values, callback){
   var url = `${ROOT_URL}/classified/addclassified`;
-    
-  const request = axios.post(url, values)
-  .then(() => callback());
+  const data = {
+    userId: localStorage.getItem('id_token'),
+    ...values
+  }
   
+  const request = axios.post(url, data,{
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('id_token')}`
+    }
+  })
+  .then(() => callback());
+
   return {
     type: CREATE_OFFER,
     payload: request
+  }
+}
+
+export function updateOffer(values, id, callback){
+  var url = `${ROOT_URL}/classified/${id}`;
+  const data = {
+    userId: localStorage.getItem('id_token'),
+    ...values
+  }
+
+  console.log(data);
+  
+
+  const request = axios.put(url, data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('id_token')}`
+    }
+  }).then(() => callback());
+
+  return {
+    type: 'UPDATE_OFFER',
   }
 }
 
@@ -91,13 +120,41 @@ export function searchAddress(values){
 export function loginUser(creds, callback){
   const url = `${ROOT_URL}/public/users/login`;
   var request = axios.post(url, creds);
- 
+
   return {
     type: LOGIN_REQUEST,
     payload: request,
     callback: callback
   }
 }
+
+export function loginWithFb(data, callback){
+  const url = `${ROOT_URL}/public/users/fbregister`;
+  const request = axios.post(url,data);
+
+  return {
+    type: LOGIN_REQUEST,
+    payload: request,
+    callback: callback
+  }
+}
+
+export function registerFbUser(user) {
+  const url = `${ROOT_URL}/public/users/fbregister`;
+  const request = axios.post(url, user)
+  .then(function(response){
+    console.log(response);
+  })
+  .catch(function(error){
+    console.rog(error);
+  });
+  // return {
+  //   type: REGISTER_REQUEST,
+  //   payload: request,
+  //   callback
+  // }
+}
+
 
 export function logoutUser(){
   return {
@@ -108,13 +165,15 @@ export function logoutUser(){
 export function registerUser(user, callback) {
   const url = `${ROOT_URL}/public/users/register`;
   const request = axios.post(url, user);
-  
+
   return {
-    type: REGISTER_REQUEST, 
+    type: REGISTER_REQUEST,
     payload: request,
     callback
   }
 }
+
+
 
 export function fetch_offer(id){
   const url = `${ROOT_URL}/classified`;
