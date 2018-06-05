@@ -24,8 +24,8 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
 
-// const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend';
-const ROOT_URL = 'http://127.0.0.1:8081/classfieldmap-backend';
+const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend';
+// const ROOT_URL = 'http://127.0.0.1:8081/classfieldmap-backend';
 
 export function fetchOffers(filter){
   var request;
