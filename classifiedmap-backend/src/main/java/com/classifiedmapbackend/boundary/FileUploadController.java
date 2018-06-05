@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.inject.Inject;
+import java.io.File;
 import java.util.List;
 
 @RestController
@@ -42,7 +43,7 @@ public class FileUploadController {
 
     //TODO save image from http post request
     @PostMapping("/{userId}/{classifiedId}")
-    public ResponseEntity handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes,
+    public ResponseEntity handleFileUpload(@RequestParam("file") MultipartFile file,
                                    @PathVariable("userId") String userId, @PathVariable("classifiedId") String classifiedId) {
         fileUploadDelegate.saveImage(file, userId, classifiedId);
         return ResponseEntity.status(HttpStatus.OK).build();

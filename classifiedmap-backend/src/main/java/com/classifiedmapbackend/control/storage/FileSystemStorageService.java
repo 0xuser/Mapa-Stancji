@@ -1,5 +1,6 @@
 package com.classifiedmapbackend.control.storage;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -9,7 +10,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.stream.Stream;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -20,17 +20,14 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class FileSystemStorageService implements StorageService {
 
-    private final Path rootLocation;
+    private final Path rootLocation =  Paths.get("../../../home/rootImageFolder/");
 
     //TODO adapt example to our purposes
 
-    @Autowired
-    public FileSystemStorageService(StorageProperties properties) {
-        this.rootLocation = Paths.get(properties.getLocation());
-    }
-
     @Override
-    public void store(MultipartFile file) {
+    public void store(MultipartFile file, String userId, String classifiedID) {
+        Path pathToCreate = rootLocation.resolve(userId).resolve(classifiedID);
+        createPathIfNecessary(pathToCreate.toString());
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         try {
             if (file.isEmpty()) {
@@ -43,7 +40,7 @@ public class FileSystemStorageService implements StorageService {
                                 + filename);
             }
             try (InputStream inputStream = file.getInputStream()) {
-                Files.copy(inputStream, this.rootLocation.resolve(filename),
+                Files.copy(inputStream, pathToCreate.resolve(filename),
                     StandardCopyOption.REPLACE_EXISTING);
             }
         }
@@ -101,6 +98,13 @@ public class FileSystemStorageService implements StorageService {
         }
         catch (IOException e) {
             throw new StorageException("Could not initialize storage", e);
+        }
+    }
+
+    private void createPathIfNecessary(String path) {
+        boolean createDir = new File(path).mkdirs();
+        if(!createDir){
+            throw new StorageFileNotFoundException("Could not create path: " + path);
         }
     }
 }

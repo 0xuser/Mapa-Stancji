@@ -15,6 +15,7 @@ public class FileUploadDelegate {
     private StorageService storageService;
 
     public void saveImage(MultipartFile file, String userId, String classifiedId) {
+        storageService.store(file, userId, classifiedId);
     }
 
     public List<String> listUploadedFilesForGivenClassified(String userId, String classifiedId) {
