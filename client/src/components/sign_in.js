@@ -11,16 +11,14 @@ class SignIn extends Component {
 
   submit = values => {
     this.props.loginUser(values, () => {
-      this.setState(() => ({
-        redirectToReferrer: true
-      }))
+      
     })
   }
   
-  render(){
+  render(){    
     const { from } = this.props.location.state || { from: { pathname: '/' } }
     const { redirectToReferrer } = this.state
-
+    
     if (redirectToReferrer === true) {
       return <Redirect to={from} />
     }

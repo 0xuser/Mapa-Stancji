@@ -71,13 +71,42 @@ export function fetchOffers(filter){
 
 export function createOffer(values, callback){
   var url = `${ROOT_URL}/classified/addclassified`;
-    
-  const request = axios.post(url, values)
+  const data = {
+    userId: localStorage.getItem('id_token'),
+    ...values
+  }
+  
+  const request = axios.post(url, data,{
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('id_token')}`
+    }
+  })
   .then(() => callback());
   
   return {
     type: CREATE_OFFER,
     payload: request
+  }
+}
+
+export function updateOffer(values, id, callback){
+  var url = `${ROOT_URL}/classified/${id}`;
+  const data = {
+    userId: localStorage.getItem('id_token'),
+    ...values
+  }
+
+  console.log(data);
+  
+
+  const request = axios.put(url, data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('id_token')}`
+    }
+  }).then(() => callback());
+
+  return {
+    type: 'UPDATE_OFFER',
   }
 }
 

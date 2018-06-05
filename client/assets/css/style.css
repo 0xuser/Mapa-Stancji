@@ -232,6 +232,9 @@ fieldset {
     flex-direction: row;
     justify-content: space-between;
 }
+.group-list-item .description{
+  padding: 0;
+}
 
 .group-list-item h5 {
     margin: 0;
