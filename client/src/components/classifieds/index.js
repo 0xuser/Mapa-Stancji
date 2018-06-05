@@ -12,15 +12,15 @@ class ClassifiedsIndex extends Component {
 
     const offers = [];
   }
-  
+
   render() {
     const { fetchOffers, offers} = this.props;
-    
+
     const krakow = {
       lon : 19.9449799,
       lat : 50.0646501
     }
-    
+
     return (
       <div className="classified-cont">
           <Filter/>
