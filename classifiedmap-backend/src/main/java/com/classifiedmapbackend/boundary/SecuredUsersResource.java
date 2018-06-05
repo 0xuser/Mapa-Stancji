@@ -15,7 +15,7 @@ import static lombok.AccessLevel.PACKAGE;
 import static lombok.AccessLevel.PRIVATE;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin
 @RequestMapping("/users")
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 @AllArgsConstructor(access = PACKAGE)

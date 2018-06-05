@@ -14,7 +14,7 @@ import java.io.File;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin
 @RequestMapping("/files")
 public class FileUploadController {
 
