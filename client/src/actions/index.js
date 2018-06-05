@@ -128,20 +128,14 @@ export function loginUser(creds, callback){
   }
 }
 
-export function logoutUser(){
-  return {
-    type: LOGOUT_REQUEST
-  }
-}
-
-export function registerUser(user, callback) {
-  const url = `${ROOT_URL}/public/users/register`;
-  const request = axios.post(url, user);
+export function loginWithFb(data, callback){
+  const url = `${ROOT_URL}/public/users/fbregister`;
+  const request = axios.post(url,data);
 
   return {
-    type: REGISTER_REQUEST,
+    type: LOGIN_REQUEST,
     payload: request,
-    callback
+    callback: callback
   }
 }
 
@@ -160,6 +154,26 @@ export function registerFbUser(user) {
   //   callback
   // }
 }
+
+
+export function logoutUser(){
+  return {
+    type: LOGOUT_REQUEST
+  }
+}
+
+export function registerUser(user, callback) {
+  const url = `${ROOT_URL}/public/users/register`;
+  const request = axios.post(url, user);
+
+  return {
+    type: REGISTER_REQUEST,
+    payload: request,
+    callback
+  }
+}
+
+
 
 export function fetch_offer(id){
   const url = `${ROOT_URL}/classified`;
