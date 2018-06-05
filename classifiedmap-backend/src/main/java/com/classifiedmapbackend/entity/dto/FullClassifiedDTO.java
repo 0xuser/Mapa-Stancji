@@ -1,10 +1,8 @@
 package com.classifiedmapbackend.entity.dto;
 
-import com.classifiedmapbackend.entity.jpa.*;
+import lombok.Builder;
 
-import java.util.Date;
-import java.util.UUID;
-
+@Builder
 public class FullClassifiedDTO {
 
     private String title;
@@ -20,8 +18,26 @@ public class FullClassifiedDTO {
     private double lat;
     private double lng;
     private String type;
+    private String userId;
 
     public FullClassifiedDTO() {
+    }
+
+    public FullClassifiedDTO(String title, String description, double cost, int persons, double area, String city, String district, String street, String buildingNum, String flatNum, double lat, double lng, String type, String userId) {
+        this.title = title;
+        this.description = description;
+        this.cost = cost;
+        this.persons = persons;
+        this.area = area;
+        this.city = city;
+        this.district = district;
+        this.street = street;
+        this.buildingNum = buildingNum;
+        this.flatNum = flatNum;
+        this.lat = lat;
+        this.lng = lng;
+        this.type = type;
+        this.userId = userId;
     }
 
     public String getTitle() {
@@ -128,43 +144,9 @@ public class FullClassifiedDTO {
         this.type = type;
     }
 
-    //TODO: simplify mapping functions after running all functionalities
-    public ClassifiedEntity mapToClassifiedEntityWhenCreate(TypeEntity typeEntity)
-    {
-        GeolocationEntity newGeolocation = GeolocationEntity.builder().id(UUID.randomUUID().toString())
-                .lat(lat).lng(lng).build();
+    public String getUserId() { return userId; }
 
-        AddressEntity newAddress = AddressEntity.builder().id(UUID.randomUUID().toString()).city(city)
-                .district(district).street(street).buildingNum(buildingNum).flatNum(flatNum).build();
-
-        ClassifiedEntity newClassified = ClassifiedEntity.builder().id(UUID.randomUUID().toString()).title(title)
-                .description(description).creationDate(new Date()).cost(cost).persons(persons).area(area)
-                .address(newAddress).geolocation(newGeolocation)
-                .status(new StatusEntity(UUID.randomUUID().toString(), "test", "test"))
-                .thumbnail(new ThumbnailEntity(UUID.randomUUID().toString(), "test"))
-                .type(typeEntity)
-                .build();
-
-        return newClassified;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
-
-    public ClassifiedEntity mapToClassifiedEntityWhenEdit(String id, TypeEntity typeEntity)
-    {
-        GeolocationEntity newGeolocation = GeolocationEntity.builder().id(UUID.randomUUID().toString())
-                .lat(lat).lng(lng).build();
-
-        AddressEntity newAddress = AddressEntity.builder().id(UUID.randomUUID().toString()).city(city)
-                .district(district).street(street).buildingNum(buildingNum).flatNum(flatNum).build();
-
-        ClassifiedEntity newClassified = ClassifiedEntity.builder().id(id).title(title)
-                .description(description).creationDate(new Date()).cost(cost).persons(persons).area(area)
-                .address(newAddress).geolocation(newGeolocation)
-                .status(new StatusEntity(UUID.randomUUID().toString(), "test", "test"))
-                .thumbnail(new ThumbnailEntity(UUID.randomUUID().toString(), "test"))
-                .type(typeEntity)
-                .build();
-
-        return newClassified;
-    }
-
 }

@@ -1,7 +1,5 @@
 package com.classifiedmapbackend.entity.jpa;
 
-import lombok.Builder;
-
 import javax.persistence.*;
 
 @MappedSuperclass

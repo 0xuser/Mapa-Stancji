@@ -1,6 +1,7 @@
 package com.classifiedmapbackend.control.repositories;
 
 import com.classifiedmapbackend.entity.jpa.ClassifiedEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -8,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface
-ClassifiedRepository extends CrudRepository<ClassifiedEntity, String> {
+ClassifiedRepository extends JpaRepository<ClassifiedEntity, String> {
 
     @Query(value ="SELECT * " +
             "FROM Classified c " +
@@ -36,4 +37,5 @@ ClassifiedRepository extends CrudRepository<ClassifiedEntity, String> {
             "AND  c.Area <= :maxArea ", nativeQuery = true)
     List<ClassifiedEntity> globalSearch(@Param("minCost") double minCost, @Param("maxCost") double maxCost, @Param("minArea") double minArea, @Param("maxArea") double maxArea);
 
+    List<ClassifiedEntity> findAllByUserId(@Param("userId") String userId);
 }
