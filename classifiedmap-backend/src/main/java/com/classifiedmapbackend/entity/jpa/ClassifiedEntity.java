@@ -169,4 +169,11 @@ public class ClassifiedEntity {
         this.area = area;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }

@@ -28,7 +28,7 @@ public class ClassifiedDelegate {
     private BaseUserRepository userRepository;
 
 
-    public List<ClassifiedEntity> findAllClassifieds() {
+    public List<ClassifiedEntity> queryAllClassifieds() {
         return (List <ClassifiedEntity>) classifiedRepository.findAll();
     }
 
@@ -52,8 +52,7 @@ public class ClassifiedDelegate {
         classifiedRepository.save(newClassified);
     }
 
-    public ClassifiedEntity mapToClassifiedEntity(FullClassifiedDTO entity, Optional<String> entityId)
-    {
+    public ClassifiedEntity mapToClassifiedEntity(FullClassifiedDTO entity, Optional<String> entityId) {
         GeolocationEntity newGeolocation = GeolocationEntity.builder().id(UUID.randomUUID().toString())
                 .lat(entity.getLat()).lng(entity.getLng()).build();
 
@@ -76,13 +75,15 @@ public class ClassifiedDelegate {
         return newClassified;
     }
 
-    public List<SimpleClassifiedDTO> mapToSimpleClassifiedDTO(List<ClassifiedEntity> entity)
-    {
+    public List<FullClassifiedDTO> queryAllClassifiedsByUserId(String userId) {
+        return classifiedRepository.findAllByUserId(userId).stream().map(this::mapToFullClassifiedDTO).collect(Collectors.toList());
+    }
+
+    public List<SimpleClassifiedDTO> mapToSimpleClassifiedDTO(List<ClassifiedEntity> entity) {
         return entity.stream().map(this::mapToSimpleClassifiedDTO).collect(Collectors.toList());
     }
 
-    private SimpleClassifiedDTO mapToSimpleClassifiedDTO(ClassifiedEntity entity)
-    {
+    private SimpleClassifiedDTO mapToSimpleClassifiedDTO(ClassifiedEntity entity) {
         return new SimpleClassifiedDTO.SimpleClassifiedDTOBuilder().setId(entity.getId())
                 .setGeolocation(entity.getGeolocation())
                 .setType(entity.getType().getId())
@@ -90,4 +91,25 @@ public class ClassifiedDelegate {
                 .setCost(entity.getCost())
                 .build();
     }
+
+    private FullClassifiedDTO mapToFullClassifiedDTO(ClassifiedEntity entity) {
+        return FullClassifiedDTO.builder()
+                .title(entity.getTitle())
+                .description(entity.getDescription())
+                .cost(entity.getCost())
+                .persons(entity.getPersons())
+                .area(entity.getArea())
+                .city(entity.getAddress().getCity())
+                .district(entity.getAddress().getDistrict())
+                .street(entity.getAddress().getStreet())
+                .buildingNum(entity.getAddress().getBuildingNum())
+                .flatNum(entity.getAddress().getFlatNum())
+                .lat(entity.getGeolocation().getLat())
+                .lng(entity.getGeolocation().getLat())
+                .type(entity.getType().getId())
+                .userId(entity.getUserId())
+                .build();
+    }
+
+
 }

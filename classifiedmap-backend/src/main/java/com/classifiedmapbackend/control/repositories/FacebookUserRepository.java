@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface FacebookUserRepository extends JpaRepository<FacebookAccountEntity, String> {
 
-    FacebookAccountEntity getUserAccountEntitieByFacebookID(@Param("facebookId") String facebookId);
+    FacebookAccountEntity getUserAccountEntityByFacebookID(@Param("facebookId") String facebookId);
 
     Boolean existsUserAccountEntityByEmail(@Param("email") String email);
 

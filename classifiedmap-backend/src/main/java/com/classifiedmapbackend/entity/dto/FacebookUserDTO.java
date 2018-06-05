@@ -48,6 +48,4 @@ public class FacebookUserDTO {
         this.email = email;
     }
 
-
-
 }

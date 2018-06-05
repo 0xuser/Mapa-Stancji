@@ -1,5 +1,8 @@
 package com.classifiedmapbackend.entity.dto;
 
+import lombok.Builder;
+
+@Builder
 public class FullClassifiedDTO {
 
     private String title;
@@ -18,6 +21,23 @@ public class FullClassifiedDTO {
     private String userId;
 
     public FullClassifiedDTO() {
+    }
+
+    public FullClassifiedDTO(String title, String description, double cost, int persons, double area, String city, String district, String street, String buildingNum, String flatNum, double lat, double lng, String type, String userId) {
+        this.title = title;
+        this.description = description;
+        this.cost = cost;
+        this.persons = persons;
+        this.area = area;
+        this.city = city;
+        this.district = district;
+        this.street = street;
+        this.buildingNum = buildingNum;
+        this.flatNum = flatNum;
+        this.lat = lat;
+        this.lng = lng;
+        this.type = type;
+        this.userId = userId;
     }
 
     public String getTitle() {

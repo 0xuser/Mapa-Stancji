@@ -32,7 +32,7 @@ public final class SimpleAuthenticationService implements UserAuthenticationServ
       return Optional.ofNullable(userAccountEntity.getId());
     }
 
-    FacebookAccountEntity facebookAccountEntity = facebookUserRepository.getUserAccountEntitieByFacebookID(username);
+    FacebookAccountEntity facebookAccountEntity = facebookUserRepository.getUserAccountEntityByFacebookID(username);
     if(facebookAccountEntity == null)
       return Optional.empty();
 

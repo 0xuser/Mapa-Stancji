@@ -23,15 +23,18 @@ public class ClassifiedResource {
     ClassifiedDelegate classifiedDelegate;
 
     @GetMapping(path = "/all")
-    public ResponseEntity getAllClassifieds()
-    {
-        List <ClassifiedEntity> listOfClassifieds = classifiedDelegate.findAllClassifieds();
+    public ResponseEntity getAllClassifieds() {
+        List <ClassifiedEntity> listOfClassifieds = classifiedDelegate.queryAllClassifieds();
         return ResponseEntity.status(HttpStatus.OK).body(classifiedDelegate.mapToSimpleClassifiedDTO(listOfClassifieds));
     }
 
+    @GetMapping(path = "/all/{userId}")
+    public ResponseEntity getAllClassifiedsByUserId(@PathVariable("userId") String userId) {
+        return ResponseEntity.status(HttpStatus.OK).body(classifiedDelegate.queryAllClassifiedsByUserId(userId));
+    }
+
     @GetMapping(path = "")
-    public ResponseEntity getClassifiedById(@PathParam("id") String id)
-    {
+    public ResponseEntity getClassifiedById(@PathParam("id") String id) {
         Optional<ClassifiedEntity> classifiedEntity = classifiedDelegate.existById(id);
         if(classifiedEntity.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(classifiedEntity.get());
@@ -70,10 +73,8 @@ public class ClassifiedResource {
         return ResponseEntity.status(HttpStatus.OK).body(listOfClassifiedSimpleDTO);
     }
 
-    //TODO w trakcie rozwoju
     @PostMapping(path = "/addclassified")
-    public ResponseEntity addClassified(@RequestBody FullClassifiedDTO entity)
-    {
+    public ResponseEntity addClassified(@RequestBody FullClassifiedDTO entity) {
         ClassifiedEntity newClassified = classifiedDelegate.mapToClassifiedEntity(entity, Optional.empty());
         classifiedDelegate.save(newClassified);
 
@@ -81,8 +82,7 @@ public class ClassifiedResource {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity editClassified(@PathVariable("id") String id, @RequestBody FullClassifiedDTO entity)
-    {
+    public ResponseEntity editClassified(@PathVariable("id") String id, @RequestBody FullClassifiedDTO entity) {
         ClassifiedEntity newClassified = classifiedDelegate.mapToClassifiedEntity(entity, Optional.of(id));
         classifiedDelegate.save(newClassified);
 
