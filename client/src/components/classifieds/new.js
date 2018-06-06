@@ -94,6 +94,8 @@ class ClassifiedNew extends Component {
         headers: { "X-Requested-With": "XMLHttpRequest" },
       }).then(response => {
         const data = response.data;
+        console.log(data);
+        
         const fileURL = data.secure_url;
       }).catch(response => console.log(response));
     });

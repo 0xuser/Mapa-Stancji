@@ -23,9 +23,9 @@ export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
-export const SEND_FILE_REQUEST = 'SEND_FILE_REQUEST';
-export const SEND_FILE_SUCCESS = 'SEND_FILE_SUCCESS';
-export const SEND_FILE_FAILURE = 'SEND_FILE_FAILURE';
+export const FETCH_IMAGES_LIST_REQUEST = 'FETCH_IMAGES_LIST_REQUEST';
+export const FETCH_IMAGES_LIST_SUCCESS = 'FETCH_IMAGES_LIST_SUCCESS';
+export const FETCH_IMAGES_LIST_FAILURE = 'FETCH_IMAGES_LIST_FAILURE';
 
 
 const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend';
@@ -142,22 +142,6 @@ export function loginWithFb(data, callback){
   }
 }
 
-export function registerFbUser(user) {
-  const url = `${ROOT_URL}/public/users/fbregister`;
-  const request = axios.post(url, user)
-  .then(function(response){
-    console.log(response);
-  })
-  .catch(function(error){
-    console.rog(error);
-  });
-  // return {
-  //   type: REGISTER_REQUEST,
-  //   payload: request,
-  //   callback
-  // }
-}
-
 export function logoutUser(){
   return {
     type: LOGOUT_REQUEST
@@ -175,12 +159,6 @@ export function registerUser(user, callback) {
   }
 }
 
-export function sendFile(userId, offerId, ){
-
-}
-
-
-
 export function fetch_offer(id){
   const url = `${ROOT_URL}/classified`;
   const request = axios.get(url, {
@@ -194,3 +172,15 @@ export function fetch_offer(id){
     payload: request
   }
 }
+
+
+export function fetchImagesList(tag){
+  const url = `https://res.cloudinary.com/mkabionek/image/list/${tag}.json`;
+  const request = axios.get(url);
+  
+  return {
+    type: FETCH_IMAGES_LIST_REQUEST,
+    payload: request
+  }
+}
+
