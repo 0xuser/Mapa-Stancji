@@ -12,7 +12,7 @@ class GMap extends Component {
       zoom: 12,
       center: {
         lat: this.props.origin.lat,
-        lng: this.props.origin.lon
+        lng: this.props.origin.lng
       }
     });
   }
@@ -29,11 +29,14 @@ class GMap extends Component {
       map: this.map,
       position: {
         lat: this.props.lat,
-        lng: this.props.lng
+        lng: this.props.lng 
       }
     });
     
-    this.map.panTo({lat: this.props.lat, lng: this.props.lng})
+    this.map.panTo({
+      lat: this.props.lat, 
+      lng: this.props.lng
+    })
     
   }
   render() {

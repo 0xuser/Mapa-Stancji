@@ -23,6 +23,10 @@ export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
+export const SEND_FILE_REQUEST = 'SEND_FILE_REQUEST';
+export const SEND_FILE_SUCCESS = 'SEND_FILE_SUCCESS';
+export const SEND_FILE_FAILURE = 'SEND_FILE_FAILURE';
+
 
 const ROOT_URL = 'http://77.55.192.219:8080/classfieldmap-backend';
 // const ROOT_URL = 'http://127.0.0.1:8081/classfieldmap-backend';
@@ -81,7 +85,9 @@ export function createOffer(values, callback){
       Authorization: `Bearer ${localStorage.getItem('id_token')}`
     }
   })
-  .then(() => callback());
+  .then((req) => {
+    callback(req.data)
+  });
 
   return {
     type: CREATE_OFFER,
@@ -95,10 +101,7 @@ export function updateOffer(values, id, callback){
     userId: localStorage.getItem('id_token'),
     ...values
   }
-
-  console.log(data);
   
-
   const request = axios.put(url, data, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('id_token')}`
@@ -155,7 +158,6 @@ export function registerFbUser(user) {
   // }
 }
 
-
 export function logoutUser(){
   return {
     type: LOGOUT_REQUEST
@@ -171,6 +173,10 @@ export function registerUser(user, callback) {
     payload: request,
     callback
   }
+}
+
+export function sendFile(userId, offerId, ){
+
 }
 
 
