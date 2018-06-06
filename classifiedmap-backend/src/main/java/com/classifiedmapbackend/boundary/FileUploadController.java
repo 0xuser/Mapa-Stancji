@@ -1,6 +1,8 @@
 package com.classifiedmapbackend.boundary;
 
 import com.classifiedmapbackend.boundary.delegate.FileUploadDelegate;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.inject.Inject;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -47,5 +50,10 @@ public class FileUploadController {
                                    @PathVariable("userId") String userId, @PathVariable("classifiedId") String classifiedId) {
         fileUploadDelegate.saveImage(file, userId, classifiedId);
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping("/{classifiedId}")
+    public ResponseEntity getFilesLink(@PathVariable("classifiedId") String classifiedId) throws IOException {
+        return ResponseEntity.status(HttpStatus.OK).body(fileUploadDelegate.getFilesLink(classifiedId));
     }
 }
