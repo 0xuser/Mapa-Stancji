@@ -1,7 +1,9 @@
 import React from 'react';
+import CloudinaryContext from 'cloudinary-react';
 
 export default (props) => {
   const { offer } = props;
+  
   return(
     <div>
       <h1>{offer.title}</h1>
@@ -37,6 +39,7 @@ export default (props) => {
         <p className="description">
           {offer.description}
         </p>
+        { props.images}
     </div>
   );
 }
