@@ -5,20 +5,34 @@ const SignInForm = props => {
   const { handleSubmit } = props
 
   return(
+    <div className="login-container">
+    <div className="logH">
+    <h2>Logowanie</h2>
+    </div>
+    <div className="login-page">
     <form  className="login-form" onSubmit={handleSubmit}>
       <div className="form=group">
-        <label htmlFor="username">username</label>
-        <Field name="username" component="input" type="text" />
+
+        <Field name="username" component="input" type="text" placeholder="Nazwa użytkownika" />
       </div>
       <div className="form=group">
-        <label htmlFor="password">password</label>
-        <Field name="password" component="input" type="password" />
+      <br />
+        <Field name="password" component="input" type="password" placeholder="Hasło" />
       </div>
+      <br />
       <div className="form=group">
-        <button type="submit">Login</button>
+        <button type="submit">Zaloguj</button>
+        <p className="message">Nie masz konta? <a href="#">Zarejestruj się</a></p>
       </div>
-      
+
+
     </form>
+
+    </div>
+    </div>
+
+
+
   );
 }
 

@@ -5,24 +5,43 @@ import { connect } from 'react-redux';
 class CreateForm extends Component{
 
   componentDidUpdate(){
-    document.getElementById("buildingNum").value = this.props.street_number;
-    document.getElementById("route").value = this.props.route;
-    document.getElementById("district").value = this.props.sublocality_level_1;
-    document.getElementById("city").value = this.props.locality;
-    document.getElementById("lat").value = this.props.lat;
-    document.getElementById("lng").value = this.props.lng;
-    
+    // document.getElementById("buildingNum").value = this.props.street_number;
+    // document.getElementById("route").value = this.props.route;
+    // document.getElementById("district").value = this.props.sublocality_level_1;
+    // document.getElementById("city").value = this.props.locality;
+    // document.getElementById("lat").value = this.props.lat;
+    // document.getElementById("lng").value = this.props.lng;
   }
   test(){
-    this.props.change('buildingNum', this.props.street_number, undefined);
-    this.props.change('street', this.props.route, undefined);
-    this.props.change('district', this.props.sublocality_level_1, undefined);
-    this.props.change('city', this.props.locality, undefined);
-    this.props.change('lat', this.props.lat, undefined);
-    this.props.change('lng', this.props.lng, undefined);
+    // this.props.change('buildingNum', this.props.street_number, undefined);
+    // this.props.change('street', this.props.route, undefined);
+    // this.props.change('district', this.props.sublocality_level_1, undefined);
+    // this.props.change('city', this.props.locality, undefined);
+    // this.props.change('lat', this.props.lat, undefined);
+    // this.props.change('lng', this.props.lng, undefined);
+  }
+
+  componentDidUpdate(){
+    this.props.change('buildingNum', this.props.initialValues.buildingNum, undefined);
+    this.props.change('street', this.props.initialValues.street, undefined);
+    this.props.change('district', this.props.initialValues.district, undefined);
+    this.props.change('city', this.props.initialValues.city, undefined);
+    this.props.change('lat', this.props.initialValues.lat, undefined);
+    this.props.change('lng', this.props.initialValues.lng, undefined);
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.props.change('buildingNum', nextProps.initialValues.buildingNum, undefined);
+    this.props.change('street', nextProps.initialValues.street, undefined);
+    this.props.change('district', nextProps.initialValues.district, undefined);
+    this.props.change('city', nextProps.initialValues.city, undefined);
+    this.props.change('lat', nextProps.initialValues.lat, undefined);
+    this.props.change('lng', nextProps.initialValues.lng, undefined);
+    
   }
   
   render(){
+    
     const { handleSubmit } = this.props;
     
     return(
@@ -91,10 +110,6 @@ function mapStateToProps(state){
   
   return {
     ...state.searchedAddress,
-    initialValues:{
-      route: 'aaa'
-    },
-    enableReinitialize: true
   }
 }
 

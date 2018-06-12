@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --open --https",
+    "dev-start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --open",
     "postinstall": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js -p",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,6 +28,7 @@
     "express": "^4.16.3",
     "path": "^0.12.7",
     "react": "^0.14.3",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^0.14.3",
     "react-facebook-login-component": "^0.9.2",
     "react-redux": "4.3.0",

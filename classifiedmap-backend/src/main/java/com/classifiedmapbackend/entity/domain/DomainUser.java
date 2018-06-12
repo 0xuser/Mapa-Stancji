@@ -44,6 +44,11 @@ public class DomainUser implements UserDetails {
     return password;
   }
 
+  @Override
+  public String getUsername() {
+    return null;
+  }
+
   @JsonIgnore
   @Override
   public boolean isAccountNonExpired() {

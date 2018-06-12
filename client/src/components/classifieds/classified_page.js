@@ -1,22 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetch_offer } from '../../actions'
+import { fetch_offer, updateOffer } from '../../actions';
+import ClassifiedInfo from './classified_info';
+import CreateForm from './createForm'
 
 class ClassifiedPage extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      edit: false
+    }
+  }
 
   componentDidMount(){
     if(this.props.match.params.id){
       this.props.fetch_offer(this.props.match.params.id);
-      // this.props.fetch_offer('102ad632-3903-11e8-b467-0ed5f89f718b');
     }
-    
   }
 
-  componentDidUpdate(){    
-    console.log(this.props.error);
-    
+  enableEdit(){
+    this.setState({
+      edit: true
+    });
   }
 
+  submit = (values) => {
+    const id = this.props.offer.id
+    
+    this.props.updateOffer(values,id, () => {
+      this.props.history.push('/');
+    });    
+  }
 
   render(){
     const { offer, error } = this.props ;
@@ -26,40 +40,30 @@ class ClassifiedPage extends Component {
     if(Object.keys(offer).length === 0){
       return <div className="classified-cont">Ładowanie...</div>
     }
+      
+    const {id, ...add } = offer.address;
+    const values = {
+      ...add,
+      title: offer.title,
+      description: offer.description,
+      persons: offer.persons,
+      area: offer.area,
+      cost: offer.cost,
+      lat: offer.geolocation.lat,
+      lng: offer.geolocation.lng,
+      type: offer.type.id
+    }
+    
     return(
       <div className="classified-cont">
-        <h1>{offer.title}</h1>
-        <table className="table-info">
-          <tbody>
-            <tr>
-              <td>Typ</td>
-              <td>{offer.type.type}</td>
-            </tr>
-            <tr>
-              <td>Cena</td>
-              <td>{offer.cost}</td>
-            </tr>
-            <tr>
-              <td>Ilość osób</td>
-              <td>{offer.persons}</td>
-            </tr>
-            <tr>
-              <td>Powierzchnia</td>
-              <td>{offer.area}</td>
-            </tr>
-            <tr>
-              <td>Adres</td>
-              <td>ul. {offer.address.street} {offer.address.buildingNum}</td>
-            </tr>
-            <tr>
-              <td>Dzielnica</td>
-              <td>{offer.address.district}</td>
-            </tr>
-          </tbody>
-        </table>
-        <p className="description">
-          {offer.description}
-        </p>
+        {!this.state.edit? 
+          <ClassifiedInfo offer={offer}/> :
+          <CreateForm initialValues={values} onSubmit={this.submit}/>
+        }
+        
+        { localStorage.getItem('id_token') === this.props.offer.userId && !this.state.edit? 
+          <button onClick={this.enableEdit.bind(this)}>Edit</button> : '' }
+        
       </div>
     );
   }
@@ -73,4 +77,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, { fetch_offer })(ClassifiedPage);
+export default connect(mapStateToProps, { fetch_offer, updateOffer })(ClassifiedPage);
