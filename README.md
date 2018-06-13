@@ -1,3 +1,4 @@
+![My image](https://raw.githubusercontent.com/0xuser/classifieds-map/master/img/render_6v3.png)
 ![My image](https://raw.githubusercontent.com/0xuser/classifieds-map/master/img/logo.png)
 
 # MapaStancji - ogłoszeniowy portal dla studentów
