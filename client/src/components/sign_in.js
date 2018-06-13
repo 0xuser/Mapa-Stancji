@@ -32,7 +32,7 @@ class SignIn extends Component {
       "facebookId" : id
     };
     console.log(user);
-    
+
 
     const test = {
       "firstName": "Michał",
@@ -50,19 +50,19 @@ class SignIn extends Component {
   render(){
     const { from } = this.props.location.state || { from: { pathname: '/' } }
     const { redirectToReferrer } = this.state
-    
+
     if (redirectToReferrer === true) {
       return <Redirect to={from} />
     }
 
     return(
-      <div className="classified-cont">
+      <div className="classified-sign">
         <SignInForm onSubmit={this.submit} />
         <p>
-          Nie masz konta? 
+          Nie masz konta?
           <Link to='/register'>Zarejestruj się</Link>
         </p>
-        <FacebookLogin 
+        <FacebookLogin
           // socialId="177905746251586"
           socialId="380241462493212"
           language="en_US"
