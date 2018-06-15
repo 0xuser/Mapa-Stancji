@@ -32,15 +32,15 @@ class GMap extends Component {
         lng: this.props.lng 
       }
     });
-    
+
     this.map.panTo({
-      lat: this.props.lat, 
+      lat: this.props.lat,
       lng: this.props.lng
     })
-    
+
   }
   render() {
-    return <div className="map" ref="map" id="map"/>
+    return <div className="addmap" ref="map" id="map"/>
   }
 }
 

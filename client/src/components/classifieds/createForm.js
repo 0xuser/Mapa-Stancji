@@ -37,77 +37,101 @@ class CreateForm extends Component{
     this.props.change('city', nextProps.initialValues.city, undefined);
     this.props.change('lat', nextProps.initialValues.lat, undefined);
     this.props.change('lng', nextProps.initialValues.lng, undefined);
-    
+
   }
-  
+
   render(){
-    
+
     const { handleSubmit } = this.props;
-    
+
     return(
+      <div className="Dodajta-form">
       <form onSubmit={handleSubmit}>
+
         <div>
-          <label htmlFor="title">Tytuł</label>
-          <Field name="title" component="input" type="text" />
+          <label htmlFor="title"></label>
+          <Field name="title" component="input" type="text"  placeholder="Tytuł ogłoszenia" />
         </div>
+
+            <div>
+              <Field name="type" component="input" type="radio" value="0" />Pokój
+              <Field name="type" component="input" type="radio" value="1" />Mieszkanie
+            </div>
+
         <div>
-          <label htmlFor="description">Opis</label>
-          <Field name="description" component="textarea" />
+          <label htmlFor="cost"></label>
+          <Field name="cost" component="input" type="number" placeholder="Cena" />
         </div>
-        <div>
-          <label htmlFor="cost">Cena</label>
-          <Field name="cost" component="input" type="number" />
+
+        <div className="sekcja1">
+          <div>
+            <label htmlFor="persons"></label>
+            <Field name="persons" component="input" type="number" placeholder ="Liczba osób" />
+          </div>
+          <div>
+            <label htmlFor="area"></label>
+            <Field name="area" component="input" type="number" placeholder="Powierzchnia" />
+          </div>
         </div>
-        <div>
-          <label htmlFor="persons">Ilość osób</label>
-          <Field name="persons" component="input" type="number" />
+        <br/> <br/>
+
+        <div className="sekcja0">
+
+           <div>
+            <label htmlFor="city"></label>
+            <Field name="city" component="input" type="text" id="city" placeholder = "Miasto"/>
+          </div>
+
+          <div>
+            <label htmlFor="district"></label>
+            <Field name="district" component="input" type="text" id="district" placeholder="Dzielnica"/>
+          </div>
+
+
+
+          <div>
+            <label htmlFor="street"></label>
+            <Field name="street" component="input" type="text" id="route" placeholder="Ulica"/>
+          </div>
+
+          <div>
+            <label htmlFor="buildingNum"></label>
+            <Field name="buildingNum" component="input" type="text" id="buildingNum" placeholder="Numer budynku" />
+          </div>
+
+          <div>
+            <label htmlFor="flatNum"></label>
+            <Field name="flatNum" component="input" type="text"  placeholder="Numer Mieszkania" />
+          </div>
+
         </div>
-        <div>
-          <label htmlFor="area">Powierzchnia</label>
-          <Field name="area" component="input" type="number" />
+
+        <div className="sekcja0">
+          <div>
+            <label htmlFor="lat">lat</label>
+            <Field name="lat" component="input" type="text" id="lat" />
+          </div>
+          <div>
+            <label htmlFor="lng">lng</label>
+            <Field name="lng" component="input" type="text" id="lng"/>
+          </div>
         </div>
+
         <div>
-          <label htmlFor="city">Miasto</label>
-          <Field name="city" component="input" type="text" id="city"/>
-        </div>
-        <div>
-          <label htmlFor="district">Dzielnica</label>
-          <Field name="district" component="input" type="text" id="district"/>
-        </div>
-        <div>
-          <label htmlFor="street">Ulica</label>
-          <Field name="street" component="input" type="text" id="route"/>
-        </div>
-        <div>
-          <label htmlFor="buildingNum">Budynek</label>
-          <Field name="buildingNum" component="input" type="text" id="buildingNum" />
-        </div>
-        <div>
-          <label htmlFor="flatNum">Mieszkanie</label>
-          <Field name="flatNum" component="input" type="text" />
-        </div>
-        <div>
-          <label htmlFor="lat">lat</label>
-          <Field name="lat" component="input" type="text" id="lat" />
-        </div>
-        <div>
-          <label htmlFor="lng">lng</label>
-          <Field name="lng" component="input" type="text" id="lng"/>
-        </div>
-        <div>
-          <Field name="type" component="input" type="radio" value="0" />Pokój
-          <Field name="type" component="input" type="radio" value="1" />Mieszkanie
+          <label htmlFor="description"></label>
+          <Field name="description" component="textarea" placeholder="Opis ogłoszenia &nbsp; Zachęc potencjalnych wynajmujących"/>
         </div>
         <div>
           <button type="submit" onClick={this.test.bind(this)}>Submit</button>
         </div>
       </form>
+      </div>
     );
   }
 };
 
 function mapStateToProps(state){
-  
+
   return {
     ...state.searchedAddress,
   }

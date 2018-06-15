@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { loginUser, loginWithFb } from '../actions/index'
 import SignInForm from './sign_in_form';
-import { Redirect, Link } from 'react-router-dom';
 import { FacebookLogin } from 'react-facebook-login-component';
+import { Redirect, Link } from 'react-router-dom';
+
 import axios from 'axios';
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
 
 const SignInForm = props => {
   const { handleSubmit } = props;
@@ -8,10 +8,12 @@ const SignInForm = props => {
     <div className="login-container">
     <div className="logH">
     <form  className="reg-form" onSubmit={handleSubmit}>
-        <h2>Rejestracja</h2>
+        <h2>Logowanie</h2>
 
       <div className="form=group">
         <Field name="firstName" component="input" type="text" placeholder="Imie" />
+      </div>
+      <div className="form=group">
         <Field name="lastName" component="input" type="text" placeholder="Nazwisko"  />
       </div>
       <div className="form=group">

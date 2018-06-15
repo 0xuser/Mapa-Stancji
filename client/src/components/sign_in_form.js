@@ -6,8 +6,8 @@ const SignInForm = props => {
 
   return(
     <div className="login-container">
-    <div className="logH">
-    <form  className="login-form" onSubmit={handleSubmit}>
+    <div className="logH login-form">
+    <form onSubmit={handleSubmit}>
       <h2>Logowanie</h2>
       <div className="form=group">
         <label htmlFor="username">Nick</label>
@@ -20,10 +20,11 @@ const SignInForm = props => {
       <div className="form=group">
         <button type="submit">Zaloguj</button>
       </div>
-
     </form>
     </div>
+
     </div>
+
   );
 }
 

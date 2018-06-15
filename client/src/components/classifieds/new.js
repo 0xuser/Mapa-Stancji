@@ -36,9 +36,9 @@ class ClassifiedNew extends Component {
     this.props.searchAddress(term);
   }
 
-  componentWillReceiveProps(nextProps) {    
+  componentWillReceiveProps(nextProps) {
     console.log(nextProps);
-    
+
     const { searchedAddress } = nextProps;
     var address = {
       city: searchedAddress.locality,
@@ -75,7 +75,7 @@ class ClassifiedNew extends Component {
     }else{
       alert('Maksymalna liczba zdjęć to 4');
     }
-    this.setState({filesToBeSent, filesPreview}); 
+    this.setState({filesToBeSent, filesPreview});
   }
 
   handleUpload = (files, offerId) =>{
@@ -95,18 +95,18 @@ class ClassifiedNew extends Component {
       }).then(response => {
         const data = response.data;
         console.log(data);
-        
+
         const fileURL = data.secure_url;
       }).catch(response => console.log(response));
     });
-    
+
     axios.all(uploaders).then(() => {
       // console.log('Wysłano');
     });
   }
 
   render(){
-    
+
     return(
       <div className="classified-cont">
         <CreateForm onSubmit={this.submit} initialValues={this.state.address}/>
