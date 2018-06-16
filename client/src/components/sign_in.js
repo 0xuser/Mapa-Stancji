@@ -57,26 +57,28 @@ class SignIn extends Component {
     }
 
     return(
-      <div className="classified-sign">
-        <SignInForm onSubmit={this.submit} />
-        <p>
-          Nie masz konta?
-          <Link to='/register'>Zarejestruj się</Link>
-        </p>
-        <FacebookLogin
-          // socialId="177905746251586"
-          socialId="380241462493212"
-          language="en_US"
-          scope="public_profile,email"
-          responseHandler={this.responseFacebook.bind(this)}
-          xfbml={true}
-          fields="id,email,name"
-          version="v2.5"
-          className="facebook-login"
-          buttonText="Login With Facebook"
-        />
-      </div>
+      <div className="classified-cont just-center">
+        <div className="popup login">
+          <SignInForm onSubmit={this.submit} />
+          <div>
+            <p> Nie masz konta? <Link to='/register'>Zarejestruj się</Link>
+            </p>
 
+            <FacebookLogin
+              // socialId="177905746251586"
+              socialId="380241462493212"
+              language="en_US"
+              scope="public_profile,email"
+              responseHandler={this.responseFacebook.bind(this)}
+              xfbml={true}
+              fields="id,email,name"
+              version="v2.5"
+              className="facebook-login"
+              buttonText="Zaloguj przez Facebook"
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 }

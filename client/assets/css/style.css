@@ -345,32 +345,15 @@ textarea{
 .Dodajta-form button:hover,.form button:active,.form button:focus {
   background: #AB0051;
 }
-}
+
 
 /* login */
 
-.classified-sign{
-  margin: 0;
-     padding: 0;
-     display: flex;
-     flex: 1;
-     flex-direction: column;
-     height: 100%;
-     justify-content: center;
-}
-.logH
-{
-  margin-top: 15px;
-  letter-spacing: 5px;
-  font-size: 15px;
+.classified-cont.just-center{
+  justify-content: center;
 }
 
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.login-form {
+.popup {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -384,89 +367,64 @@ textarea{
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-.login-form label {
+.login {
+  font-family: "Raleway", sans-serif;
+}
+
+.login h2, .login a{
+  font-weight: 500;
+}
+
+.login label {
   width: 100%;
   display: block;
   text-align: center;
 }
 
-.login-form input {
+.login input {
   outline: 0;
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  margin: 20px 0 15px 0;
+  margin: 10px auto;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+  text-align: center;
 }
 
-.login-form button {
+.login button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #D50066;
   width: 100%;
   border: 0;
-  padding: 15px;
+  padding: 12px;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  font-weight: 300;
 }
-.login-form button:hover,.form button:active,.form button:focus {
+
+.login .form-group:last-of-type{
+  margin-top: 20px;
+}
+
+button.facebook-login {
+  text-transform: none;
+}
+
+.login button:hover,.form button:active,.form button:focus {
   background: #AB0051;
 }
-/* registerForm */
 
-.reg-form {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-.reg-form label {
-  width: 100%;
-  display: block;
-  text-align: center;
-}
-
-.reg-form input {
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 15px 0 15px 0;
-  padding: 10px;
-  box-sizing: border-box;
-  font-size: 11px;
-}
-
-.reg-form button {
-  outline: 0;
-  background: #D50066;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  cursor: pointer;
-}
-.reg-form button:hover,.form button:active,.form button:focus {
-  background: #AB0051;
-}
 .Fbbutton button:hover,.form button:active,.form button:focus {
   background: #AB0051;
 }
+
 .Fbbutton button{
   outline: 0;
   background: #D50066;
@@ -477,9 +435,7 @@ textarea{
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   cursor: pointer;
-
 }
-
 
 /* show */
 h1{

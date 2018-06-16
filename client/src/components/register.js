@@ -14,9 +14,11 @@ class Register extends Component {
   render(){
 
     return(
-      <div className="classified-cont">
+      <div className="classified-cont just-center">
         {this.props.error}
-        <RegisterForm onSubmit={this.submit} />
+        <div className="login popup">
+          <RegisterForm onSubmit={this.submit} />
+        </div>
       </div>
     );
   }
