@@ -26,7 +26,10 @@ class ClassifiedNew extends Component {
   }
 
   submit = values => {
-    this.props.createOffer(values,(id) => {
+    const offer = {...values, ...this.state.address}
+    console.log(values, offer);
+    
+    this.props.createOffer(offer,(id) => {
       this.handleUpload(this.state.filesToBeSent,id)
       this.props.history.push('/');
     })
@@ -37,8 +40,6 @@ class ClassifiedNew extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-
     const { searchedAddress } = nextProps;
     var address = {
       city: searchedAddress.locality,
@@ -108,13 +109,14 @@ class ClassifiedNew extends Component {
   render(){
 
     return(
-      <div className="classified-cont">
+      <div className="flex-container">
+        
         <CreateForm onSubmit={this.submit} initialValues={this.state.address}/>
         <SearchBar onSearch={this.onSearch} />
         <Dropzone onDrop={files => this.onDrop(files)}>
           Umieść tutaj zdjęcia
         </Dropzone>
-        {/* <button onClick={() => this.handleUpload(this.state.filesToBeSent, '00362bc5-9f0b-40cf-b252-272d66388cd0')}>Upload</button> */}
+        <button onClick={() => this.handleUpload(this.state.filesToBeSent, '00362bc5-9f0b-40cf-b252-272d66388cd0')}>Upload</button>
         <div>
           {this.state.filesPreview}
         </div>

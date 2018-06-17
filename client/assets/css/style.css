@@ -24,19 +24,7 @@ html, body{
     height: 100%;
 }
 
-.flex-container {
-  display: flex;
-  justify-content: space-between;
-  height: 100vh;
-}
 
-.flex-container.col {
-  flex-direction: column;
-}
-
-.flex-container.row {
-  flex-direction: row;
-}
 /* header */
 
 header {
@@ -202,12 +190,7 @@ textarea{
 .sekcja1 input{
   float:left;
 }
-.sekcja0{
-  visibility: hidden;
-  position: absolute;
-  left: -1000px;
-  top: -1050px;
-}
+
 
 .sekcja4 input{
   float:left;
@@ -288,63 +271,6 @@ textarea{
 }
 
 
-.Dodajta
-{
-  letter-spacing: 5px;
-  font-size: 15px;
-}
-
-
-.Dodajta-form {
-  position: fixed; /* or absolute */
-  left: 50%;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 750px;
-  margin-left: 150px;
-  margin-top: 10px;
-  padding: 5px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-.Dodajta-form label {
-  width: 100%;
-  display: block;
-  text-align: center;
-}
-
-.Dodajta-form input {
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 20px 0 15px 0;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-
-
-
-.Dodajta-form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #D50066;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-.Dodajta-form button:hover,.form button:active,.form button:focus {
-  background: #AB0051;
-}
 
 
 /* login */
@@ -457,4 +383,92 @@ h1{
 
 a{
   color: initial;
+}
+
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.main-container.row {
+  flex-direction: row;
+}
+
+
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  width: 20%;
+}
+
+
+
+
+
+
+
+.Dodajta{
+  letter-spacing: 5px;
+  font-size: 15px;
+}
+
+.Dodajta-form {
+  position: fixed; /* or absolute */
+  left: 50%;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 750px;
+  margin-left: 150px;
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.Dodajta-form label {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.Dodajta-form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 20px 0 15px 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.Dodajta-form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #D50066;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.Dodajta-form button:hover,.form button:active,.form button:focus {
+  background: #AB0051;
 }

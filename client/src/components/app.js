@@ -19,7 +19,7 @@ class App extends Component {
     const { dispatch, quote, isAuthenticated, errorMessage } = this.props;
 
     return(
-      <div className="flex-container col">
+      <div className="main-container">
          <Header />
 
           <Switch>

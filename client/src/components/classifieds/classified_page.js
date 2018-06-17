@@ -65,6 +65,8 @@ class ClassifiedPage extends Component {
       lng: offer.geolocation.lng,
       type: offer.type.id
     }
+    console.log(this.props.images);
+    
     return(
       <div className="classified-cont">
         
