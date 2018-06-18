@@ -20,6 +20,7 @@ class App extends Component {
 
     return(
       <div className="main-container">
+
          <Header />
 
           <Switch>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const PersonsInput = (props) => {
-    
+
   return(
     <fieldset>
       <h3>ilość osób</h3>

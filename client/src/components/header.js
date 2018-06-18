@@ -13,6 +13,7 @@ class Header extends Component {
       <header>
         <nav className="">
           <Link className="navbar-brand" to='/'>mapa-stancji.pl</Link>
+
           <div className="right">
 
             {this.props.isAuthenticated && <Link to='/me'>Profil</Link>}

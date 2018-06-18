@@ -10,12 +10,13 @@ class CreateForm extends Component{
     return(
       <div className="Dodajta-form">
       <form onSubmit={handleSubmit}>
+        <h2>Dodaj ogłoszenie</h2>
         <div>
           <label htmlFor="title"></label>
           <Field name="title" component="input" type="text"  placeholder="Tytuł ogłoszenia" />
         </div>
         <div>
-          <Field name="type" component="input" type="radio" value="0" />Pokój
+          <Field name="type" component="input" type="radio" value="0" />Pokój<br/>
           <Field name="type" component="input" type="radio" value="1" />Mieszkanie
         </div>
         <div>
@@ -32,7 +33,7 @@ class CreateForm extends Component{
         </div>
         <div>
           <label htmlFor="description"></label>
-          <Field name="description" component="textarea" placeholder="Opis ogłoszenia &nbsp; Zachęc potencjalnych wynajmujących"/>
+          <Field name="description" component="textarea" placeholder="Dodaj opis ogłoszenia, aby zachęcić potencjalnych wynajmujących. Informacje takie jak typ ogrzewania, internet, łazienka, pokój przechodni etc."/>
         </div>
         <div>
           <button type="submit">Submit</button>

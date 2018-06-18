@@ -19,7 +19,7 @@ class SearchBar extends Component {
   componentDidMount(){
     this.autocomplete = new google.maps.places.Autocomplete(
       this.refs.autocomplete,{types: ['geocode']});
-  
+
     this.autocomplete.addListener('place_changed', this.fillInAddress.bind(this));
   }
 
@@ -33,7 +33,7 @@ class SearchBar extends Component {
 
     var addr = Object.create(this.state);
     var place = this.autocomplete.getPlace();
-  
+
     for(var i=0; i< place.address_components.length; i++){
       var addressType = place.address_components[i].types[0];
       if (componentForm[addressType]) {
@@ -44,14 +44,17 @@ class SearchBar extends Component {
 
     addr.lat = place.geometry.location.lat();
     addr.lng = place.geometry.location.lng();
-    
+
     var newState = {...this.state, ...addr};
     this.setState(newState);
     this.props.onSearch(this.state);
   }
   render(){
     return(
+      <div className="googleadd_adress">
+      <h2>Wprowadz adres swojego mieszkania</h2>
       <input ref="autocomplete" type="search" name="search_value" />
+      </div>
     );
   }
 }

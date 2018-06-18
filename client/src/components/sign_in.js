@@ -59,14 +59,16 @@ class SignIn extends Component {
     return(
       <div className="classified-cont just-center">
         <div className="popup login">
+
           <SignInForm onSubmit={this.submit} />
           <div>
             <p> Nie masz konta? <Link to='/register'>Zarejestruj się</Link>
             </p>
 
+            <div className="fbstyle">
             <FacebookLogin
-              // socialId="177905746251586"
-              socialId="380241462493212"
+               socialId="177905746251586"
+          //    socialId="380241462493212"
               language="en_US"
               scope="public_profile,email"
               responseHandler={this.responseFacebook.bind(this)}
@@ -76,6 +78,7 @@ class SignIn extends Component {
               className="facebook-login"
               buttonText="Zaloguj przez Facebook"
             />
+            </div>
           </div>
         </div>
       </div>

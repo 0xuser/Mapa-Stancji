@@ -26,7 +26,7 @@ class Filter extends Component {
 
   formChange(e){
     var state = this.state;
-    
+
     if(e.target.type == "checkbox"){
       state[e.target.name] = e.target.checked;
     }else{
@@ -34,9 +34,9 @@ class Filter extends Component {
     }
 
     this.setState({state: state});
-    this.props.fetchOffers(this.state);		
+    this.props.fetchOffers(this.state);
   }
-  
+
   render(){
     return(
       <div className="c-filters">

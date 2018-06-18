@@ -28,7 +28,7 @@ class ClassifiedNew extends Component {
   submit = values => {
     const offer = {...values, ...this.state.address}
     console.log(values, offer);
-    
+
     this.props.createOffer(offer,(id) => {
       this.handleUpload(this.state.filesToBeSent,id)
       this.props.history.push('/');
@@ -110,16 +110,15 @@ class ClassifiedNew extends Component {
 
     return(
       <div className="flex-container">
-        
+
         <CreateForm onSubmit={this.submit} initialValues={this.state.address}/>
         <SearchBar onSearch={this.onSearch} />
-        <Dropzone onDrop={files => this.onDrop(files)}>
-          Umieść tutaj zdjęcia
+
+        <Dropzone className="mojdrop"
+          onDrop={files => this.onDrop(files)}>
+          Kliknij, aby dodać zdjęcie.
         </Dropzone>
-        <button onClick={() => this.handleUpload(this.state.filesToBeSent, '00362bc5-9f0b-40cf-b252-272d66388cd0')}>Upload</button>
-        <div>
-          {this.state.filesPreview}
-        </div>
+
         <GMap origin={this.state.origin} />
       </div>
     );

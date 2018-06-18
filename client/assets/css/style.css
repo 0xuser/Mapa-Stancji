@@ -24,6 +24,71 @@ html, body{
     height: 100%;
 }
 
+.classified-cont .table-info{
+  border-collapse: collapse;
+  position: absolute;
+  left: 0;
+  width: 45%;
+  margin-left: 2.5%;
+
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.classified-cont .table-info tr{
+  padding: 5px;
+}
+
+
+.classified-cont .table-info td{
+  outline: 0;
+  background: #f2f2f2;
+  padding: 15px;
+  height: 40px;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+border-bottom: 2px solid white;
+
+}
+
+
+.classified-cont .classfield-description{
+  position: absolute;
+  right: 0;
+  width: 45%;
+    top: 20%;
+  margin-right: 2.5%;
+
+  padding: 20px;
+  background: #f2f2f2;
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+
+.classified-cont .cla-des-tit{
+  position: absolute;
+  right: 0;
+  width: 45%;
+  top: 15%;
+  margin-right: 2.5%;
+}
+
+.classified-cont .classfield-images{
+  position: absolute;
+  top: 60%;
+  margin-left: 2.5%;
+
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+
+}
+
 
 /* header */
 
@@ -52,6 +117,7 @@ nav .left {
 }
 
 nav .right{
+    cursor: pointer;
     display: flex;
     flex-basis: 120px;
     justify-content: flex-end;
@@ -76,6 +142,7 @@ nav a {
 
 .c-filters form {
     height: 140px;
+    margin-right: 60%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -172,13 +239,15 @@ fieldset {
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+    transr: rotate(45deg);
 }
 
 
 textarea{
-	width: 600px;
+	width: 90%;
 	height: 120px;
+  margin-left: 5%;
+  margin-right: 5%;
 	border: 3px solid #cccccc;
 	padding: 5px;
 	font-family: Tahoma, sans-serif;
@@ -209,12 +278,14 @@ textarea{
 }
 
 .c-list {
+
     flex: 5;
     overflow-y: scroll;
 }
 
 .c-map{
-    flex:7
+    flex:9
+
 }
 
 .map {
@@ -222,10 +293,19 @@ textarea{
     height: 100%;
     min-height: 300px;
 }
+
 .addmap {
-    width: 62%;
-    height: 100%;
+    width: 45%;
+    height: 85%;
     min-height: 300px;
+    position: absolute; /* or absolute */
+    right: 5%;
+    z-index: 0;
+    margin-top: 10%;
+    padding: 0px;
+    text-align: left;
+    /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+
 }
 
 
@@ -316,8 +396,9 @@ textarea{
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
-  text-align: center;
+  text-align: left;
 }
+
 
 .login button {
   font-family: "Roboto", sans-serif;
@@ -335,21 +416,38 @@ textarea{
   font-weight: 300;
 }
 
+.fbstyle button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #3B5998;
+  width: 100%;
+  border: 0;
+  padding: 12px;
+  color: #FFFFFF;
+  font-size: 12px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  font-weight: 300;
+}
+.fbstyle button:hover {
+  background: #2f487a;
+}
+/* .login button:hover,.form button:active,.form button:focus {
+  background: #AB0051;
+} */
+
+
 .login .form-group:last-of-type{
   margin-top: 20px;
 }
 
-button.facebook-login {
-  text-transform: none;
-}
 
-.login button:hover,.form button:active,.form button:focus {
-  background: #AB0051;
-}
 
-.Fbbutton button:hover,.form button:active,.form button:focus {
-  background: #AB0051;
-}
+
+
+
 
 .Fbbutton button{
   outline: 0;
@@ -368,14 +466,7 @@ h1{
   text-align: center;
 }
 
-.table-info {
-  min-width: 75%;
-  margin: 0 auto;
-}
 
-.table-info td {
-  padding: 7px;
-}
 
 .description {
   padding: 20px;
@@ -397,13 +488,66 @@ a{
   flex-direction: row;
 }
 
-
-
 .flex-container {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  width: 100%;
 }
+
+.flex-container .googleadd_adress{
+  position: absolute; /* or absolute */
+  z-index: 1;
+  width: 50%;
+  right: 0;
+  margin-left: 5%;
+  padding: 0px;
+  text-align: left;
+  top:7.5%;
+}
+
+.flex-container .googleadd_adress input{
+  width: 90%;
+  height: 50px;
+  outline: 0;
+  background: #f2f2f2;
+  width: 90%;
+  border: 0;
+  margin-top: -0.5%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.flex-container .mojdrop{
+  position: absolute;
+  top: 101%;
+  margin-left: 2.5%;
+  width: 45%;
+  height: 50px;
+  border: none;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background-color: lightblue;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  z-index: 2;
+}
+
+.flex-container .mojdrop:hover{
+  background-color: #6666ff;
+}
+
+.googleadd_adress{
+  width:50%;
+}
+
+
 
 .row {
   display: flex;
@@ -414,45 +558,42 @@ a{
   width: 20%;
 }
 
-
-
-
-
-
-
 .Dodajta{
   letter-spacing: 5px;
   font-size: 15px;
 }
 
 .Dodajta-form {
-  position: fixed; /* or absolute */
-  left: 50%;
+  position: absolute; /* or absolute */
+  left: 0;
   z-index: 1;
-  background: #FFFFFF;
-  max-width: 750px;
-  margin-left: 150px;
-  margin-top: 10px;
-  padding: 5px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  width: 50%;
+  margin-left: 0px;
+  margin-top: 0;
+  padding: 0px;
+  text-align: left;
+  /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
 }
 
 .Dodajta-form label {
   width: 100%;
   display: block;
-  text-align: center;
+  text-align: left;
 }
 
 .Dodajta-form input {
   outline: 0;
   background: #f2f2f2;
-  width: 100%;
+  width: 90%;
   border: 0;
-  margin: 20px 0 15px 0;
-  padding: 15px;
+  height: 50px;
+  margin: 2.5% 5% 2.5% 5%;
+  padding: 20px;
   box-sizing: border-box;
   font-size: 14px;
+}
+.Dodajta-form span{
+  display: inline;
 }
 
 .Dodajta-form button {
@@ -460,7 +601,10 @@ a{
   text-transform: uppercase;
   outline: 0;
   background: #D50066;
-  width: 100%;
+  width: 90%;
+  margin-top: 10%;
+  margin-left: 5%;
+  margin-bottom: 10px;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
@@ -469,6 +613,25 @@ a{
   transition: all 0.3 ease;
   cursor: pointer;
 }
+
+
+
+.Dodajta-form h2{
+  margin-bottom: 0;
+  margin-left: 5%;
+}
+
+.Dodajta-form input[type="radio"]{
+  width: 5%;
+  display: inline;
+  outline: 0;
+  margin-left: 5%;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
 .Dodajta-form button:hover,.form button:active,.form button:focus {
   background: #AB0051;
 }
