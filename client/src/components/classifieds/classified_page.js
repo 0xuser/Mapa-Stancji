@@ -21,7 +21,7 @@ class ClassifiedPage extends Component {
       this.props.fetchImagesList(this.props.match.params.id);
     }
   }
-  
+
   enableEdit(){
     this.setState({
       edit: true
@@ -30,13 +30,13 @@ class ClassifiedPage extends Component {
 
   submit = (values) => {
     const id = this.props.offer.id
-    
+
     this.props.updateOffer(values,id, () => {
       this.props.history.push('/');
-    });    
+    });
   }
 
-  renderImages = images => 
+  renderImages = images =>
     images.map(image => (
         <Image key={image.public_id} cloudName="mkabionek" publicId={image.public_id}>
         </Image>
@@ -45,14 +45,14 @@ class ClassifiedPage extends Component {
 
   render(){
     const { offer, error } = this.props ;
-    
+
     if(error){
       return <div className="classified-cont">{error}</div>
     }
     if(Object.keys(offer).length === 0){
       return <div className="classified-cont">Ładowanie...</div>
     }
-      
+
     const {id, ...add } = offer.address;
     const values = {
       ...add,
@@ -66,25 +66,24 @@ class ClassifiedPage extends Component {
       type: offer.type.id
     }
     console.log(this.props.images);
-    
+
     return(
       <div className="classified-cont">
-        
-        {!this.state.edit? 
+
+        {!this.state.edit?
           <ClassifiedInfo images={this.renderImages(this.props.images)} offer={offer}/> :
           <CreateForm initialValues={values} onSubmit={this.submit}/>
         }
-        
-        { localStorage.getItem('id_token') === this.props.offer.userId && !this.state.edit? 
-          <button onClick={this.enableEdit.bind(this)}>Edit</button> : '' }
 
+        { localStorage.getItem('id_token') === this.props.offer.userId && !this.state.edit?
+          <button onClick={this.enableEdit.bind(this)}>Edytuj ogłoszenie</button> : '' }
       </div>
     );
   }
 }
 
 function mapStateToProps(state){
-  
+
   return {
     offer: state.current_offer.offer,
     images: state.current_offer.images,

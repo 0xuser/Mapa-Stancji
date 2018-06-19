@@ -121,6 +121,29 @@ html, body{
   padding: 5px;
 }
 
+
+.classified-cont button{
+    position: absolute;
+    left: 1300px;
+    top: 60px;
+
+
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #D50066;
+    width: 200px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
 /* header */
 
 header {
@@ -460,7 +483,7 @@ h1{
 
 a{
   color: initial;
-} 
+}
 
 .googleadd_adress h2 {
   margin-bottom: 10px;
@@ -501,7 +524,7 @@ a{
   padding: 20px;
 }
 
-.add-map { 
+.add-map {
   padding: 20px;
 }
 
