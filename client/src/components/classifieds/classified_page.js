@@ -5,6 +5,7 @@ import ClassifiedInfo from './classified_info';
 import CreateForm from './createForm';
 import axios from 'axios';
 import { Image, CloudinaryContext} from 'cloudinary-react';
+import ImageGallery from 'react-image-gallery';
 
 class ClassifiedPage extends Component {
   constructor(props){
@@ -36,12 +37,23 @@ class ClassifiedPage extends Component {
     });
   }
 
-  renderImages = images =>
-    images.map(image => (
+  renderImages = images => {
+
+      return  images.map(image => (
         <Image key={image.public_id} cloudName="mkabionek" publicId={image.public_id}>
         </Image>
       )
     );
+  }
+
+  getImages = images => {
+    return images.map(image => {
+      return {
+        original: `http://res.cloudinary.com/mkabionek/image/upload/v1/${image.public_id}`,
+        thumbnail: `http://res.cloudinary.com/mkabionek/image/upload/v1/${image.public_id}`
+      }
+    });
+  }
 
   render(){
     const { offer, error } = this.props ;
@@ -65,18 +77,21 @@ class ClassifiedPage extends Component {
       lng: offer.geolocation.lng,
       type: offer.type.id
     }
-    console.log(this.props.images);
 
     return(
-      <div className="classified-cont">
-
-        {!this.state.edit?
-          <ClassifiedInfo images={this.renderImages(this.props.images)} offer={offer}/> :
-          <CreateForm initialValues={values} onSubmit={this.submit}/>
-        }
-
-        { localStorage.getItem('id_token') === this.props.offer.userId && !this.state.edit?
-          <button onClick={this.enableEdit.bind(this)}>Edytuj ogłoszenie</button> : '' }
+      <div className="classified-cont"> 
+          {!this.state.edit?
+            <ClassifiedInfo images={this.renderImages(this.props.images)} 
+            items={this.getImages(this.props.images)}
+            offer={offer}> 
+              {localStorage.getItem('id_token') === this.props.offer.userId && !this.state.edit?
+              <button onClick={this.enableEdit.bind(this)}>Edytuj ogłoszenie</button> : '' }
+            </ClassifiedInfo> :
+            <div className="add-offer">
+              <CreateForm edit={true} initialValues={values} onSubmit={this.submit}/>
+            </div>
+          }
+          
       </div>
     );
   }

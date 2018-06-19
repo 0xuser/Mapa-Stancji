@@ -1,2 +1,5 @@
 client/node_modules/
 client/assets/bundle.js
+client/assets/css/image-gallery-no-icon\.css
+
+client/assets/css/image-gallery\.css

@@ -31,7 +31,7 @@ class ClassifiedNew extends Component {
 
     this.props.createOffer(offer,(id) => {
       this.handleUpload(this.state.filesToBeSent,id)
-      this.props.history.push('/');
+      // this.props.history.push('/');
     })
   }
 
@@ -102,6 +102,7 @@ class ClassifiedNew extends Component {
     });
 
     axios.all(uploaders).then(() => {
+      this.props.history.push('/');
       // console.log('Wysłano');
     });
   }
@@ -111,7 +112,7 @@ class ClassifiedNew extends Component {
     return(
       <div className="flex-container">
         <div className="row">
-          <div className="col-md-50 Dodajta-form">
+          <div className="col-md-50 add-offer">
             <CreateForm onSubmit={this.submit} initialValues={this.state.address}>
               <Dropzone className="mojdrop"
                 onDrop={files => this.onDrop(files)}>
@@ -122,7 +123,6 @@ class ClassifiedNew extends Component {
           <div className="col-md-50 add-map">
             <SearchBar onSearch={this.onSearch} />
             <GMap origin={this.state.origin} />
-            
           </div>
         </div>
         

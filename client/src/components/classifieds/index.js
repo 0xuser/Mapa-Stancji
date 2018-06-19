@@ -23,8 +23,8 @@ class ClassifiedsIndex extends Component {
 
     return (
       <div className="classified-cont">
-        <div className="row">
-          <div className="col-md-30">
+        <div className="row main">
+          <div className="col-md-30 c-list">
             <Filter/>
             <OfferList offers={offers} />
           </div>

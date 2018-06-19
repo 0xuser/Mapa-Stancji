@@ -10,7 +10,10 @@ class CreateForm extends Component{
     
     return(
       <form onSubmit={handleSubmit}>
-        <h2>Dodaj ogłoszenie</h2>
+        {!this.props.edit? <h2>Dodaj ogłoszenie</h2>
+        :
+        <h2>Edytuj ogłoszenie</h2>}
+        
         <div>
           <label htmlFor="title"></label>
           <Field name="title" component="input" type="text"  placeholder="Tytuł ogłoszenia" />
@@ -37,7 +40,10 @@ class CreateForm extends Component{
         </div>
         {this.props.children}
         <div>
-          <button type="submit">Dodaj</button>
+          {!this.props.edit? <button type="submit">Dodaj</button>
+          :
+          <button type="submit">Zapisz</button>
+        }
         </div>
       </form>
     );
