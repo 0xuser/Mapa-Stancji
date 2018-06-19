@@ -6,9 +6,9 @@ class CreateForm extends Component{
 
   render(){
     const { handleSubmit } = this.props;
-
+    console.log(this.props.children);
+    
     return(
-      <div className="Dodajta-form">
       <form onSubmit={handleSubmit}>
         <h2>Dodaj ogłoszenie</h2>
         <div>
@@ -35,11 +35,11 @@ class CreateForm extends Component{
           <label htmlFor="description"></label>
           <Field name="description" component="textarea" placeholder="Dodaj opis ogłoszenia, aby zachęcić potencjalnych wynajmujących. Informacje takie jak typ ogrzewania, internet, łazienka, pokój przechodni etc."/>
         </div>
+        {this.props.children}
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit">Dodaj</button>
         </div>
       </form>
-      </div>
     );
   }
 };

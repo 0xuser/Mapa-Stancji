@@ -110,16 +110,22 @@ class ClassifiedNew extends Component {
 
     return(
       <div className="flex-container">
-
-        <CreateForm onSubmit={this.submit} initialValues={this.state.address}/>
-        <SearchBar onSearch={this.onSearch} />
-
-        <Dropzone className="mojdrop"
-          onDrop={files => this.onDrop(files)}>
-          Kliknij, aby dodać zdjęcie.
-        </Dropzone>
-
-        <GMap origin={this.state.origin} />
+        <div className="row">
+          <div className="col-md-50 Dodajta-form">
+            <CreateForm onSubmit={this.submit} initialValues={this.state.address}>
+              <Dropzone className="mojdrop"
+                onDrop={files => this.onDrop(files)}>
+                Kliknij, aby dodać zdjęcie.
+              </Dropzone>
+            </ CreateForm>
+          </div>
+          <div className="col-md-50 add-map">
+            <SearchBar onSearch={this.onSearch} />
+            <GMap origin={this.state.origin} />
+            
+          </div>
+        </div>
+        
       </div>
     );
   }

@@ -2,26 +2,66 @@
     box-sizing: border-box;
 }
 html, body{
-    min-height: 100%;
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+  min-height: 100%;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.main-container.row {
+  flex-direction: row;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 93%;
+  width: 100%;
 }
 
 #container {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 .classified-cont {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 100%;;
+}
+
+.col {
+  width: 20%;
+}
+
+.col-md-50{
+  width:50%;
+}
+
+.col-md-30{
+  width:30%;
+}
+
+.col-md-70{
+  width:70%;
 }
 
 .classified-cont .table-info{
@@ -30,7 +70,6 @@ html, body{
   left: 0;
   width: 45%;
   margin-left: 2.5%;
-
   border-collapse: collapse;
   border-radius: 1em;
   overflow: hidden;
@@ -40,7 +79,6 @@ html, body{
   padding: 5px;
 }
 
-
 .classified-cont .table-info td{
   outline: 0;
   background: #f2f2f2;
@@ -49,10 +87,8 @@ html, body{
   padding: 5px;
   box-sizing: border-box;
   font-size: 14px;
-border-bottom: 2px solid white;
-
+  border-bottom: 2px solid white;
 }
-
 
 .classified-cont .classfield-description{
   position: absolute;
@@ -68,7 +104,6 @@ border-bottom: 2px solid white;
   overflow: hidden;
 }
 
-
 .classified-cont .cla-des-tit{
   position: absolute;
   right: 0;
@@ -81,14 +116,10 @@ border-bottom: 2px solid white;
   position: absolute;
   top: 60%;
   margin-left: 2.5%;
-
-
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
 }
-
 
 /* header */
 
@@ -142,7 +173,6 @@ nav a {
 
 .c-filters form {
     height: 140px;
-    margin-right: 60%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -184,7 +214,6 @@ fieldset {
     padding: 3px;
 }
 
-
 /* checkboxes  */
 
 .check-cont {
@@ -222,92 +251,61 @@ fieldset {
 .check-cont input:checked ~ .checkmark {
     background-color: #ef0072;
 }
+
 .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 .check-cont input:checked ~ .checkmark:after {
-    display: block;
+  display: block;
 }
 .check-cont .checkmark:after {
-    left: 4px;
-    top: 1px;
-    width: 5px;
-    height: 8px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transr: rotate(45deg);
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
-
-textarea{
-	width: 90%;
-	height: 120px;
-  margin-left: 5%;
-  margin-right: 5%;
-	border: 3px solid #cccccc;
-	padding: 5px;
-	font-family: Tahoma, sans-serif;
-	background-image: url(bg.gif);
-	background-position: bottom right;
-	background-repeat: no-repeat;
-}
-
-.sekcja1 input{
+/* .sekcja1 input{
   float:left;
 }
-
 
 .sekcja4 input{
   float:left;
 }
 .sekcja2 input{
   opacity: 0;
-}
+} */
 
 
 /**** main ****/
 
 .main {
-    flex: auto;
-    display: flex;
-    flex-direction: row;
+  flex: auto;
+  display: flex;
+  flex-direction: row;
 }
 
 .c-list {
-
-    flex: 5;
-    overflow-y: scroll;
+  flex: 5;
+  overflow-y: scroll;
 }
 
 .c-map{
-    flex:9
-
+  flex:9
 }
 
 .map {
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
 }
-
-.addmap {
-    width: 45%;
-    height: 85%;
-    min-height: 300px;
-    position: absolute; /* or absolute */
-    right: 5%;
-    z-index: 0;
-    margin-top: 10%;
-    padding: 0px;
-    text-align: left;
-    /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
-
-}
-
 
 /**** list ****/
 
@@ -349,8 +347,6 @@ textarea{
     font-size: 0.9em;
     color: #808080;
 }
-
-
 
 
 /* login */
@@ -399,7 +395,6 @@ textarea{
   text-align: left;
 }
 
-
 .login button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -434,20 +429,13 @@ textarea{
 .fbstyle button:hover {
   background: #2f487a;
 }
-/* .login button:hover,.form button:active,.form button:focus {
+.login button:hover,.form button:active,.form button:focus {
   background: #AB0051;
-} */
-
+}
 
 .login .form-group:last-of-type{
   margin-top: 20px;
 }
-
-
-
-
-
-
 
 .Fbbutton button{
   outline: 0;
@@ -466,134 +454,77 @@ h1{
   text-align: center;
 }
 
-
-
 .description {
   padding: 20px;
 }
 
 a{
   color: initial;
+} 
+
+.googleadd_adress h2 {
+  margin-bottom: 10px;
 }
 
-
-.main-container {
-  display: flex;
-  justify-content: space-between;
-  height: 100vh;
-  flex-direction: column;
-}
-
-.main-container.row {
-  flex-direction: row;
-}
-
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+.googleadd_adress input{
   width: 100%;
-}
-
-.flex-container .googleadd_adress{
-  position: absolute; /* or absolute */
-  z-index: 1;
-  width: 50%;
-  right: 0;
-  margin-left: 5%;
-  padding: 0px;
-  text-align: left;
-  top:7.5%;
-}
-
-.flex-container .googleadd_adress input{
-  width: 90%;
-  height: 50px;
   outline: 0;
   background: #f2f2f2;
-  width: 90%;
   border: 0;
-  margin-top: -0.5%;
-  padding: 20px;
+  padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
 }
 
 .flex-container .mojdrop{
-  position: absolute;
-  top: 101%;
-  margin-left: 2.5%;
-  width: 45%;
-  height: 50px;
   border: none;
   color: white;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background-color: lightblue;
+  margin-top:15px;
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
   cursor: pointer;
   text-align: center;
-  z-index: 2;
 }
 
 .flex-container .mojdrop:hover{
   background-color: #6666ff;
 }
 
-.googleadd_adress{
-  width:50%;
-}
-
-
-
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.col {
-  width: 20%;
-}
-
-.Dodajta{
-  letter-spacing: 5px;
-  font-size: 15px;
-}
-
 .Dodajta-form {
-  position: absolute; /* or absolute */
-  left: 0;
-  z-index: 1;
-  width: 50%;
   margin-left: 0px;
   margin-top: 0;
-  padding: 0px;
-  text-align: left;
-  /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
+  padding: 20px;
 }
 
-.Dodajta-form label {
-  width: 100%;
-  display: block;
-  text-align: left;
+.add-map { 
+  padding: 20px;
 }
 
 .Dodajta-form input {
   outline: 0;
   background: #f2f2f2;
-  width: 90%;
+  width: 100%;
   border: 0;
-  height: 50px;
-  margin: 2.5% 5% 2.5% 5%;
-  padding: 20px;
+  margin: 10px 0;
+  padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
 }
-.Dodajta-form span{
-  display: inline;
+
+.Dodajta-form textarea{
+	width: 100%;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
 }
 
 .Dodajta-form button {
@@ -601,9 +532,8 @@ a{
   text-transform: uppercase;
   outline: 0;
   background: #D50066;
-  width: 90%;
-  margin-top: 10%;
-  margin-left: 5%;
+  width: 100%;
+  margin-top: 15px;
   margin-bottom: 10px;
   border: 0;
   padding: 15px;
@@ -614,18 +544,14 @@ a{
   cursor: pointer;
 }
 
-
-
 .Dodajta-form h2{
   margin-bottom: 0;
-  margin-left: 5%;
 }
 
 .Dodajta-form input[type="radio"]{
-  width: 5%;
+  margin-right: 5px;
   display: inline;
   outline: 0;
-  margin-left: 5%;
   height: 25px;
   width: 25px;
   background-color: #eee;
@@ -634,4 +560,14 @@ a{
 
 .Dodajta-form button:hover,.form button:active,.form button:focus {
   background: #AB0051;
+}
+
+.addmap {
+  width: 100%;
+  height: 85%;
+  min-height: 300px;
+  z-index: 0;
+  margin-top: 15px;
+  padding: 0px;
+  position: relative;
 }

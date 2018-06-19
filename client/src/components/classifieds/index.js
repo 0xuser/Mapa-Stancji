@@ -23,17 +23,15 @@ class ClassifiedsIndex extends Component {
 
     return (
       <div className="classified-cont">
-          <Filter/>
-          <h3>Aktualne oferty</h3>
-
-          <div className="main">
-            <div className="c-list">
-              <OfferList offers={offers} />
-            </div>
-            <div className="c-map">
-              <GoogleMap origin={krakow} offers={offers}/>
-            </div>
+        <div className="row">
+          <div className="col-md-30">
+            <Filter/>
+            <OfferList offers={offers} />
           </div>
+          <div className="col-md-70 c-map">
+            <GoogleMap origin={krakow} offers={offers}/>
+          </div>
+        </div>
       </div>
     );
   }
